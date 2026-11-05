@@ -5,6 +5,13 @@ description = "AI agent that maps Equinor Volve well data into OSDU records, wit
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "jsonschema>=4.26.0",
+    "lasio>=0.32",
+    "osdu-python-models>=0.8.1",
+    "pandas>=3.1.1",
+    "pdfplumber>=0.11.10",
+    "pyarrow>=26.0.1",
+    "pydantic>=2.14.3",
     "pyyaml>=6.0.3",
     "xlrd>=2.0.2",
 ]
