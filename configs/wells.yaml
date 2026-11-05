@@ -1,0 +1,150 @@
+# MVP wellbore bundles (docs/PROJECT_GUIDE.md section 4.3).
+# File names are copied exactly from the pinned source repos; a test checks they exist on disk.
+# canonical_name is for us and for scoring: the agent must work the name out itself.
+
+bundle_root: data/raw/spwla_volve                                  # folder/<file>
+wellpath_root: data/raw/volve_field_data/input_data/wellpaths      # <wellpath>
+
+wellbores:
+  - canonical_name: "15/9-19 A"
+    folder: "15_9-19A"
+    las:
+      - 159-19A_LFP.las
+      - 15_9-19_A_CPI.las
+    pdf: null
+    wellpath: null
+    dlis: []
+    other_files:
+      - no_15_9-19_a_lfp_report.doc   # Word report, not read in MVP
+
+  - canonical_name: "15/9-19 BT2"
+    folder: "15_9-19BT2"
+    las:
+      - 159-19BT2_LFP.las
+      - 15_9-19_BT2_CPI.las
+    pdf: null
+    wellpath: null
+    dlis: []
+    other_files:
+      - no_15_9-19_bt2_lfp_report_v2.doc   # Word report, not read in MVP
+
+  - canonical_name: "15/9-19 SR"
+    folder: "15_9-19SR"
+    las:
+      - 159-19SR_LFP.las
+      - 15_9-19_SR_CPI.las
+      - STAT1990__30-1__15-9-19_SR__COMPOSITE__1.LAS
+    pdf: lfp_petrophysics_no_15-9-19SR.pdf
+    wellpath: null
+    dlis: []
+    other_files: []
+
+  - canonical_name: "15/9-F-1"
+    folder: "15_9-F-1"
+    las:
+      - WLC_PETRO_COMPUTED_INPUT_1.LAS
+      - WLC_PETRO_COMPUTED_OUTPUT_1.LAS
+    pdf: PETROPHYSICAL_REPORT_1.PDF
+    wellpath: "F-1 ACTUAL"
+    dlis: []
+    other_files: []
+
+  - canonical_name: "15/9-F-1 A"
+    folder: "15_9-F-1A"
+    las:
+      - WLC_PETRO_COMPUTED_INPUT_1.LAS
+      - WLC_PETRO_COMPUTED_OUTPUT_1.LAS
+    pdf: PETROPHYSICAL_REPORT_1.PDF
+    wellpath: "F-1 A_ACTUAL"
+    dlis: []
+    other_files: []
+
+  - canonical_name: "15/9-F-1 B"
+    folder: "15_9-F-1B"
+    las:
+      - WLC_PETRO_COMPUTED_INPUT_1.LAS
+      - WLC_PETRO_COMPUTED_OUTPUT_1.LAS
+    pdf: PETROPHYSICAL_REPORT_1.PDF
+    wellpath: "F-1 B_ACTUAL"
+    dlis: []
+    other_files: []
+
+  - canonical_name: "15/9-F-1 C"
+    folder: "15_9-F1C"
+    las:
+      - WLC_PETRO_COMPUTED_INPUT_1.LAS
+      - WLC_PETRO_COMPUTED_OUTPUT_1.LAS
+    pdf: PETROPHYSICAL_REPORT_1.PDF
+    wellpath: "F-1 C_ACTUAL"
+    dlis: []
+    other_files: []
+
+  - canonical_name: "15/9-F-11"
+    folder: "15_9-F-11"
+    las:
+      - WLC_PETRO_COMPUTED_INPUT_1.LAS
+    pdf: PETROPHYSICAL_REPORT_2.PDF
+    wellpath: "F-11_ACTUAL"
+    dlis:
+      - WLC_PETROPHYSICAL_COMPOSITE_1.DLIS
+    other_files:
+      - WLC_PETROPHYSICAL_COMPOSITE_1_INF_1.PDF   # DLIS info sheet, not the report
+      - WLC_PETRO_COMPUTED_1_INF_1.ASC
+
+  - canonical_name: "15/9-F-11 A"
+    folder: "15_9-F11A"
+    las:
+      - WLC_PETRO_COMPUTED_INPUT_1.LAS
+      - WLC_PETRO_COMPUTED_OUTPUT_1.LAS
+    pdf: PETROPHYSICAL_REPORT_2.PDF
+    wellpath: "F-11 A_ACTUAL"
+    dlis:
+      - WLC_PETROPHYSICAL_COMPOSITE_1.DLIS
+    other_files:
+      - WLC_PETROPHYSICAL_COMPOSITE_1_INF_1.PDF
+
+  - canonical_name: "15/9-F-11 B"
+    folder: "15_9-F11B"
+    las:
+      - WLC_PETRO_COMPUTED_INPUT_1.LAS
+      - WLC_PETRO_COMPUTED_OUTPUT_1.LAS
+    pdf: PETROPHYSICAL_REPORT_2.PDF
+    wellpath: "F-11 B_ACTUAL"
+    dlis:
+      - WLC_PETROPHYSICAL_COMPOSITE_1.DLIS
+    other_files:
+      - WLC_PETROPHYSICAL_COMPOSITE_1_INF_1.PDF
+
+  - canonical_name: "15/9-F-11 T2"
+    folder: "15_9-F11 T2"
+    las:
+      - WLC_PETRO_COMPUTED_INPUT_1.LAS
+      - WLC_PETRO_COMPUTED_OUTPUT_1.LAS
+    pdf: PETROPHYSICAL_REPORT_2.PDF
+    wellpath: "F-11 T2_ACTUAL (NOT ON NPD)"
+    dlis:
+      - WLC_PETROPHYSICAL_COMPOSITE_2.DLIS
+    other_files:
+      - WLC_PETROPHYSICAL_COMPOSITE_2_INF_1.PDF
+
+  - canonical_name: "15/9-F-12"
+    folder: "15_9-F12"
+    las:
+      - WLC_PETRO_COMPUTED_INPUT_1.LAS
+      - WLC_PETRO_COMPUTED_OUTPUT_1.LAS
+    pdf: PETROPHYSICAL_REPORT_1.PDF
+    wellpath: "F-12_ACTUAL"
+    dlis: []
+    other_files: []
+
+  - canonical_name: "15/9-F-15 D"
+    folder: "15_9-F15D"
+    las:
+      - WLC_PETRO_COMPUTED_INPUT_1.LAS
+      - WLC_PETRO_COMPUTED_OUTPUT_1.LAS
+    pdf: PETROPHYSICAL_REPORT_1.PDF
+    wellpath: "F-15D_ACTUAL"
+    dlis:
+      - WLC_PETROPHYSICAL_COMPOSITE_2.DLIS
+    other_files:
+      - WLC_PETROPHYSICAL_COMPOSITE_2_INF_1.PDF

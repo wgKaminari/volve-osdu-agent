@@ -1,0 +1,21 @@
+# Python / tool caches (recreated automatically)
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+
+# Secrets
+.env
+
+# Downloaded Volve data (licence: don't redistribute; use scripts/download_data.sh)
+data/raw/
+
+# LLM response cache
+.cache/
+
+# Run outputs (one example run will be allowed later)
+outputs/
+
+# Private notes (application, outreach) - local only
+docs/private/
