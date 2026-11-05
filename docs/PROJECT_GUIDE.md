@@ -128,9 +128,9 @@ LAS = number of LAS files, DLIS = number of DLIS files, PDF = has petrophysical 
 
 | Folder | Canonical name | LAS | DLIS | PDF | Phase |
 |---|---|---|---|---|---|
-| 15_9-19A | 15/9-19 A | 2 | 0 | no | MVP |
-| 15_9-19BT2 | 15/9-19 BT2 | 2 | 0 | no | MVP |
-| 15_9-19SR | 15/9-19 SR | 3 | 0 | no | MVP |
+| 15_9-19A | 15/9-19 A | 2 | 0 | no (.doc report only) | MVP |
+| 15_9-19BT2 | 15/9-19 BT2 | 2 | 0 | no (.doc report only) | MVP |
+| 15_9-19SR | 15/9-19 SR | 3 | 0 | yes | MVP |
 | 15_9-F-1 | 15/9-F-1 | 2 | 0 | yes | MVP |
 | 15_9-F-1A | 15/9-F-1 A | 2 | 0 | yes | MVP |
 | 15_9-F-1B | 15/9-F-1 B | 2 | 0 | yes | MVP |
@@ -149,7 +149,9 @@ Notes:
 
 - Folder names are deliberately inconsistent (15_9-F11 T2, 15_9-F1C). Name resolution is a real task for the agent. Note that "F-11 T2" is marked "NOT ON NPD" in the awgeo well-path folder.
 - Well paths exist in awgeo for most F wellbores (F-12_ACTUAL, F-1 A_ACTUAL, ...). Some files are plans or prototypes (F-10 A rev#6 PROTOTYPE, F-9A ... PLAN). The agent must not treat a plan as the actual trajectory: exclude it and flag it.
-- Exploration wells (15/9-19 *) have headers in NPD_wellbore_exploration_all_AW EDIT_FINAL.xls. Verify that.
+- Exploration wells (15/9-19 *) have headers in NPD_wellbore_exploration_all_AW EDIT_FINAL.xls. Verified 2026-11-05: 15/9-19 A and 15/9-19 SR are there; 15/9-19 BT2 is not (NPD lists only 15/9-19 B, technical sidetracks are not registered separately). 15/9-F-11 T2 is not in the development export either. So header gold covers 11 of 13 MVP wellbores; Well_picks cover all 13.
+- Verified 2026-11-05 against the files on disk: 15/9-19 SR has a petrophysical PDF (lfp_petrophysics_no_15-9-19SR.pdf); 15/9-19 A and BT2 have Word .doc reports only, which the MVP does not read. Exploration wells have no well path in awgeo. Some F folders also contain DLIS info-sheet PDFs (*_INF_1.PDF) and one .ASC file; these are not petrophysical reports. configs/wells.yaml lists every file.
+- Verified 2026-11-05: NPD gives lat/lon in ED50, and the F-12 LAS LAT/LON (58.441713, 1.887480) matches NPD (58.441714, 1.887481) within 1e-6 deg, so the LAS coordinates are taken as ED50 (EPSG:4230).
 
 ### 4.4 Ground truth (held out, evaluation only)
 
