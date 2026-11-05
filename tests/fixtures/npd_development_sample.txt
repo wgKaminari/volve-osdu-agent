@@ -1,0 +1,3 @@
+Name	Operator	Field	KBE	Terminal Depth	Kick off  point [m RKB]	Geodatum	Latitude	Longitude
+15/9-F-1 B	Statoil Petroleum AS	VOLVE	54.9	3465.0	2604.0	ED50  	58.441642	1.887419
+15/9-F-12	Statoil ASA (old)	VOLVE	54.0	3520.0		ED50  	58.441714	1.887481
