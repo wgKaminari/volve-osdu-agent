@@ -1,3 +1,5 @@
+"""Command-line entry point (`volve-osdu`). Subcommands `run` and `eval` arrive in M1-M3."""
+
 import logging
 
 logger = logging.getLogger(__name__)

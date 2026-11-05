@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 # Download pinned Volve data, OSDU schemas and reference values into data/raw/.
 # Safe to re-run: existing, correctly pinned folders are skipped.
+# Usage: bash scripts/download_data.sh   (works from any directory)
 set -euo pipefail
 
+cd "$(dirname "$0")/.."   # run from the repository root, whatever the caller's directory
 RAW="data/raw"
 mkdir -p "$RAW"
 
@@ -25,6 +27,7 @@ clone_pinned() {
   echo "ok   $name @ ${sha:0:7}"
 }
 
+# Pinned commits: see docs/PROJECT_GUIDE.md section 4.1 and docs/architecture.md.
 clone_pinned https://github.com/andymcdgeo/spwla_volve.git    spwla_volve       c293edf37c1b567b8dc9c81ea88f2cf288eab423
 clone_pinned https://github.com/awgeo/Volve_field_data.git    volve_field_data  7cdecf1f1d24811d21bb2e2f379ff048404f4ce7
 clone_pinned https://github.com/equinor/osdu-mcp-poc.git      osdu-mcp-poc      b2a648d68b12c60848098636dcbce621cf4e9277

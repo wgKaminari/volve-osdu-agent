@@ -1,3 +1,5 @@
+# Lint and test on every push and pull request.
+# CI has no raw data and makes no LLM calls; data-dependent tests skip themselves.
 name: ci
 
 on:

@@ -1,3 +1,5 @@
+"""Smoke test: the package imports and the CLI entry point runs."""
+
 import volve_osdu.cli
 
 

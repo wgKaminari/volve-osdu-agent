@@ -72,6 +72,7 @@ def read_npd_exploration(path: Path) -> list[dict[str, str]]:
 
 
 def _cell_to_str(value: object) -> str:
+    """Excel stores all numbers as floats (e.g. 2405.800048828125); round away the float noise."""
     if isinstance(value, float):
         return str(round(value, 6))
     return str(value).strip()

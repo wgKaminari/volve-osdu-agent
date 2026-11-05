@@ -34,6 +34,7 @@ WELL_PICKS = RAW / "spwla_volve" / "Well_picks_Volve_v1.dat"
 
 
 def write_csv(path: Path, rows: list, row_type: type) -> None:
+    """Write dataclass instances to CSV, with columns in the dataclass field order."""
     columns = [f.name for f in fields(row_type)]
     with path.open("w", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=columns)
