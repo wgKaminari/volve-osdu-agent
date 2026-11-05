@@ -43,7 +43,13 @@ REF_FILES=(
 mkdir -p "$RAW/reference"
 for f in "${REF_FILES[@]}"; do
   out="$RAW/reference/$(basename "$f")"
-  [ -f "$out" ] || curl -sSfL "$DD_URL/$f" -o "$out"
+  if [ -f "$out" ]; then
+    echo "skip reference/$(basename "$f")"
+  else
+    echo "get  reference/$(basename "$f")"
+    curl -sSfL "$DD_URL/$f" -o "$out.part"
+    mv "$out.part" "$out"
+  fi
 done
 
 echo "done."
