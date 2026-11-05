@@ -66,6 +66,10 @@ Placeholders, as in Equinor's `osdu-python-models` samples. To be filled in M1.
 
 - **Ground-truth coverage:** NPD has no header for 15/9-19 BT2 or 15/9-F-11 T2 (technical sidetracks
   are not registered separately), so header accuracy is scored on 11 wellbores. Well_picks cover all 13.
+- **15/9-F-11 vs F-11 T2:** the F-11 well path and LAS stop at ~347 m MD, while NPD gives F-11 a TD of
+  4562 m. The technical sidetrack F-11 T2 (not registered at NPD) ends at exactly 4562 m. So NPD's
+  "15/9-F-11" record describes the hole that was finally drilled, i.e. T2. F-11 header gold (TD, maybe
+  more) must be marked disputed; to handle in M3.
 - **LogCurveType IDs are vendor-specific** (e.g. `LogCurveType:Schlumberger:GR`). The generic concept
   is `LogCurveFamily` (e.g. "Gamma Ray"). Open decision for M2/M3: map curves to LogCurveFamily as the
   main target and fill LogCurveType only when the vendor is known (proposed).
