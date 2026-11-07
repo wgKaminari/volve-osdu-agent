@@ -31,6 +31,7 @@ clone_pinned() {
 clone_pinned https://github.com/andymcdgeo/spwla_volve.git    spwla_volve       c293edf37c1b567b8dc9c81ea88f2cf288eab423
 clone_pinned https://github.com/awgeo/Volve_field_data.git    volve_field_data  7cdecf1f1d24811d21bb2e2f379ff048404f4ce7
 clone_pinned https://github.com/equinor/osdu-mcp-poc.git      osdu-mcp-poc      b2a648d68b12c60848098636dcbce621cf4e9277
+clone_pinned https://github.com/equinor/osdu-python-models.git osdu-python-models 5213c7cf341806fb3f456f33160cad34839ad586  # tag v0.8.1, schemas/M27.1
 
 # --- OSDU reference values, data-definitions v0.30.1 ---
 DD_SHA="ff89d87caa43d05d1341dcaa6d258e1186ec8aa6"

@@ -9,6 +9,7 @@ Working document. Records design decisions and the answers to the open questions
 |---|---|---|
 | LAS/DLIS logs, petrophysical PDFs, Well_picks | `data/raw/spwla_volve/` | `c293edf37c1b567b8dc9c81ea88f2cf288eab423` |
 | Well paths, NPD headers | `data/raw/volve_field_data/input_data/` | `7cdecf1f1d24811d21bb2e2f379ff048404f4ce7` |
+| Record JSON schemas (M27.1, matching the Pydantic models) | `data/raw/osdu-python-models/schemas/M27.1/` | `5213c7cf341806fb3f456f33160cad34839ad586` (tag v0.8.1) |
 | Manifest schema | `data/raw/osdu-mcp-poc/schemas/manifest/` | `b2a648d68b12c60848098636dcbce621cf4e9277` (main, 2026-11-01) |
 | OSDU reference values | `data/raw/reference/` | data-definitions tag `v0.30.1` = `ff89d87caa43d05d1341dcaa6d258e1186ec8aa6` |
 
