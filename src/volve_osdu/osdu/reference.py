@@ -18,3 +18,13 @@ def load_reference_ids(path: Path, namespace: str) -> frozenset[str]:
     return frozenset(
         item["id"].replace(PLACEHOLDER, namespace) + ":" for item in manifest["ReferenceData"]
     )
+
+
+@cache
+def load_reference_data(path: Path, namespace: str) -> dict[str, dict]:
+    """Reference ID (with ':' suffix) -> its `data` block, e.g. a CRS's PersistableReference."""
+    manifest = json.loads(path.read_text(encoding="utf-8"))
+    return {
+        item["id"].replace(PLACEHOLDER, namespace) + ":": item["data"]
+        for item in manifest["ReferenceData"]
+    }
