@@ -6,7 +6,7 @@ from datetime import UTC, datetime
 from pathlib import Path
 
 from volve_osdu.config import ROOT, find_bundle, load_bundles, namespace
-from volve_osdu.pipeline import SYSTEMS, run_wellbore
+from volve_osdu.pipeline import SYSTEMS, System, run_wellbore
 
 logger = logging.getLogger(__name__)
 
@@ -18,7 +18,7 @@ def main(argv: list[str] | None = None) -> int:
     target = run.add_mutually_exclusive_group(required=True)
     target.add_argument("--wellbore", help='canonical name or folder, e.g. "15/9-F-12"')
     target.add_argument("--all", action="store_true", help="every MVP wellbore in wells.yaml")
-    run.add_argument("--system", default="rules", choices=sorted(SYSTEMS))
+    run.add_argument("--system", default="rules", choices=sorted([*SYSTEMS, "agent"]))
     run.add_argument("--out", type=Path, default=ROOT / "outputs")
     run.add_argument("--run-id", help="output folder name (default: UTC timestamp + system)")
     args = parser.parse_args(argv)
@@ -28,7 +28,30 @@ def main(argv: list[str] | None = None) -> int:
 
     run_id = args.run_id or f"{datetime.now(UTC):%Y%m%dT%H%M%SZ}-{args.system}"
     bundles = load_bundles() if args.all else [find_bundle(args.wellbore)]
-    results = [run_wellbore(b, args.system, args.out / run_id, namespace()) for b in bundles]
+    system: str | System = args.system
+    llm = None
+    if args.system == "agent":
+        from volve_osdu.agent.llm import from_env
+        from volve_osdu.agent.system import AgentSystem
+
+        try:
+            llm = from_env()
+        except RuntimeError as exc:
+            logger.error("%s", exc)
+            return 2
+        system = AgentSystem(llm)
+    results = [run_wellbore(b, system, args.out / run_id, namespace()) for b in bundles]
+    if llm is not None:
+        cached = sum(t["cached"] for t in llm.trace)
+        tokens = sum(t["prompt_tokens"] + t["completion_tokens"] for t in llm.trace)
+        logger.info(
+            "LLM: %d calls (%d API, %d from cache), %d tokens, model %s",
+            len(llm.trace),
+            llm.api_calls,
+            cached,
+            tokens,
+            llm.model,
+        )
     invalid = [r.wellbore for r in results if not r.valid]
     logger.info(
         "run %s: %d wellbore(s), %d not valid %s", run_id, len(results), len(invalid), invalid or ""

@@ -10,6 +10,7 @@ import logging
 from collections.abc import Callable
 from dataclasses import dataclass, field
 from pathlib import Path
+from typing import Any
 
 from volve_osdu.config import RAW, REFERENCE_DIR, Bundle, relative
 from volve_osdu.extract.curves import CurveMapping, map_curve
@@ -26,6 +27,7 @@ from volve_osdu.osdu.reference import load_reference_data
 from volve_osdu.reconcile import reconcile
 from volve_osdu.report import write_review
 from volve_osdu.validate import rules
+from volve_osdu.validate.grounding import check_grounding
 from volve_osdu.validate.schema import validate_manifest, validate_record
 
 logger = logging.getLogger(__name__)
@@ -42,6 +44,7 @@ class Judgement:
     mappings: dict[str, list[CurveMapping]]  # LAS file name -> curve mappings
     flags: list[ReviewFlag] = field(default_factory=list)
     issues: list[Issue] = field(default_factory=list)
+    trace: list[dict[str, Any]] = field(default_factory=list)  # one entry per LLM call
 
 
 System = Callable[[Inventory, list[Fact]], Judgement]
@@ -96,7 +99,9 @@ class RunResult:
         return not any(i.severity == "error" for i in self.issues)
 
 
-def run_wellbore(bundle: Bundle, system: str, out_root: Path, namespace: str) -> RunResult:
+def run_wellbore(bundle: Bundle, system: str | System, out_root: Path, namespace: str) -> RunResult:
+    system_fn = SYSTEMS[system] if isinstance(system, str) else system
+    system = system if isinstance(system, str) else getattr(system, "name", "custom")
     out_dir = out_root / bundle.folder.name
     inv = take_inventory(bundle)
     flags: list[ReviewFlag] = []
@@ -134,9 +139,13 @@ def run_wellbore(bundle: Bundle, system: str, out_root: Path, namespace: str) ->
             )
         depth_scales[log.path.name] = scale
 
-    judgement = SYSTEMS[system](inv, parsed)
+    judgement = system_fn(inv, parsed)
     flags += judgement.flags
     issues += judgement.issues
+    trace = judgement.trace
+    # Rule 8 again, independent of the system: validators judge, whatever produced the fact.
+    judgement.facts, grounding_flags = _grounded(judgement.facts, inv)
+    flags += grounding_flags
     if judgement.wellbore_name is None or judgement.wellbore_name.value is None:
         issues.append(
             Issue(
@@ -146,7 +155,7 @@ def run_wellbore(bundle: Bundle, system: str, out_root: Path, namespace: str) ->
                 message="could not determine the wellbore name; nothing built",
             )
         )
-        return _finish(bundle, out_dir, [], {}, flags, issues, inv, system)
+        return _finish(bundle, out_dir, [], {}, flags, issues, inv, system, trace)
 
     header_facts = [f for f in parsed if f.name != "wellbore_name"]
     resolved, conflict_flags = reconcile(header_facts + judgement.facts)
@@ -220,7 +229,7 @@ def run_wellbore(bundle: Bundle, system: str, out_root: Path, namespace: str) ->
     issues += rules.rule5_units(records, namespace)
     flags += rules.rule6_geography(resolved)
     issues += rules.rule7_provenance(records)
-    return _finish(bundle, out_dir, records, resolved, flags, issues, inv, system)
+    return _finish(bundle, out_dir, records, resolved, flags, issues, inv, system, trace)
 
 
 def _finish(
@@ -232,8 +241,12 @@ def _finish(
     issues: list[Issue],
     inv: Inventory,
     system: str,
+    trace: list[dict[str, Any]],
 ) -> RunResult:
     out_dir.mkdir(parents=True, exist_ok=True)
+    if trace:
+        lines = [json.dumps({"wellbore": bundle.canonical_name, **t}) for t in trace]
+        (out_dir / "trace.jsonl").write_text("\n".join(lines) + "\n", encoding="utf-8")
     # Records whose data block fails the Pydantic model can't be serialized; leave them out.
     broken = {i.record_id for i in issues if i.rule == 1 and i.message.startswith("pydantic")}
     records = [r for r in records if r.id not in broken]
@@ -310,6 +323,35 @@ def _schema_and_model_issues(records: list[Record]) -> list[Issue]:
             continue
         issues += validate_record(doc)
     return issues
+
+
+def _grounded(facts: list[Fact], inv: Inventory) -> tuple[list[Fact], list[ReviewFlag]]:
+    """Keep llm_extracted PDF facts only if their quote and value check out (rule 8)."""
+    kept, flags = [], []
+    for fact in facts:
+        prov = fact.provenance[0] if fact.provenance else None
+        if prov is None or prov.method != "llm_extracted" or not prov.locator.startswith("PDF:"):
+            kept.append(fact)
+            continue
+        checked, reason = check_grounding(fact, inv.pdf) if inv.pdf else (None, "no report")
+        if checked is None and fact.name == "kickoff_wellbore_name" and inv.pdf:
+            # The value was normalized ("F-1" -> "15/9-F-1"); the quote must still be in the text.
+            short = str(fact.value).split("-", 1)[-1]  # "15/9-F-1" -> "F-1"
+            quote = prov.quote or ""
+            checked = fact if inv.pdf.find_quote(quote) and short in quote else None
+        if checked is None:
+            flags.append(
+                ReviewFlag(
+                    severity="warn",
+                    fact=fact.name,
+                    reason="ungrounded",
+                    message=f"dropped {fact.value!r}: {reason}",
+                    candidates=[fact],
+                )
+            )
+        else:
+            kept.append(checked)
+    return kept, flags
 
 
 def _aliases(judgement: Judgement, bundle: Bundle) -> list[tuple[str, Provenance]]:

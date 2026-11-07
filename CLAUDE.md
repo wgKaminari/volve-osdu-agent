@@ -51,6 +51,7 @@ uv run pytest -q                          # tests
 uv run ruff check . && uv run ruff format .
 uv run volve-osdu run --wellbore "15/9-F-12" --system rules   # one wellbore -> outputs/<run_id>/
 uv run volve-osdu run --all --system rules                    # all 13 MVP wellbores
+uv run volve-osdu run --all --system agent                    # LLM agent (needs .env)
 uv run volve-osdu eval --systems rules,llm_only,agent   # full evaluation -> docs/results.md
 ```
 

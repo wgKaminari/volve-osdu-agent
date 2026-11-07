@@ -54,3 +54,26 @@ def test_plan_and_prototype_well_paths_are_excluded() -> None:
         "F-9A Utsira Water injector Rev10 PLAN",
     ]
     assert all("ACTUAL" in p.name for p in actual)
+
+
+def test_agent_system_runs_end_to_end_with_a_fake_llm(tmp_path: Path) -> None:
+    from volve_osdu.agent.llm import CachedLLM, FakeBackend
+    from volve_osdu.agent.system import AgentSystem
+
+    def respond(messages: list[dict[str, str]]) -> str:
+        system, user = messages[0]["content"], messages[1]["content"]
+        if "identify" in system:
+            return json.dumps({"wellbore_name": "15/9-F-12", "quote": "NO 15/9-F-12"})
+        if "petrophysical" in system:
+            return json.dumps({"facts": []})
+        mnemonics = [line.split(" | ")[0] for line in user.splitlines() if " | " in line][1:]
+        return json.dumps(
+            {"curves": [{"mnemonic": m, "unit_code": None, "family": None} for m in mnemonics]}
+        )
+
+    llm = CachedLLM(FakeBackend(respond), cache_dir=tmp_path / "cache")
+    result = run_wellbore(find_bundle("15/9-F-12"), AgentSystem(llm), tmp_path / "out", "volve")
+    assert result.valid
+    trace = (result.out_dir / "trace.jsonl").read_text().splitlines()
+    assert {json.loads(line)["node"] for line in trace} >= {"identity", "curves"}
+    assert any(f.reason == "log_below_survey" for f in result.flags)

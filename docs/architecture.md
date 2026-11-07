@@ -100,6 +100,38 @@ Decisions made in M1:
 - Rule 2 reports a `KickOffWellbore` pointing to a parent wellbore outside the manifest as info
   (the parent is loaded with its own manifest), every other dangling reference as an error.
 
+## Agent (M2)
+
+`volve-osdu run --system agent` runs `src/volve_osdu/agent/graph.py`, a LangGraph graph for the
+judgement steps only; records and all other rules are the shared pipeline code above.
+
+```
+START -> identity -> pdf_facts -> curves -> check --retry (max 2)--> pdf_facts ...
+                                              \--done--> END
+```
+
+- **identity** (prompt `identity-v1`): evidence = LAS WELL/UWI values, folder name, report page 1.
+  The answer needs a verbatim quote from the evidence that names exactly that wellbore
+  ("15/9-F-1" does not pass on "15/9-F-1 A"); otherwise the name is left empty and flagged.
+- **pdf_facts** (`pdf-facts-v1`): `search_pdf` picks the report pages that name the wellbore (max
+  6 pages / 16k chars); the LLM returns td_md_m, kop_md_m, kickoff_wellbore_name, kb_elevation_m,
+  each with page and quote. Rule 8 (`validate/grounding.py`) keeps a fact only if the quote is in the
+  page text (whitespace-normalized) and the value is in the quote. Rejected facts go back to the
+  LLM with the reason; still wrong after 3 attempts -> dropped + `ungrounded` warn flag. The
+  pipeline re-runs rule 8 on whatever a system returns.
+- **curves** (`curve-mapping-v1`): the LLM proposes an OSDU unit code and LogCurveFamily per curve
+  (batches of 40). Codes not in the pinned lists are sent back with `lookup_reference` suggestions;
+  still wrong after 3 attempts -> unmapped + info flag. A case-only difference is fixed in code.
+  Tool use is done by the graph (retrieval + feedback), not by function calling, so small and
+  local models without tool-calling support work too.
+- **LLM client** (`agent/llm.py`): any OpenAI-compatible endpoint via `LLM_BASE_URL`,
+  `LLM_API_KEY`, `LLM_MODEL`. Every call is cached in `.cache/llm/<sha256>.json` (key = model +
+  messages + temperature, temperature 0) and traced: `outputs/<run>/<wellbore>/trace.jsonl` has
+  node, model, prompt version, cache hit, tokens and latency per call.
+- **Provider:** the guide's default (GitHub Models free tier) was retired by GitHub on 2026-07-30
+  (docs.github.com/en/rest/models/inference). GitHub points to Azure AI Foundry as the
+  successor. Provider choice is open; the code needs no change, only `.env`.
+
 ## Findings that affect later milestones
 
 - **Ground-truth coverage:** NPD has no header for 15/9-19 BT2 or 15/9-F-11 T2 (technical sidetracks
