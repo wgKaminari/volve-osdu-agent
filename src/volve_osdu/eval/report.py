@@ -1,7 +1,9 @@
 """docs/results.md: the evaluation report (guide 8.4). Every number here is computed, none typed."""
 
 import csv
+import json
 import os
+from dataclasses import asdict
 from pathlib import Path
 from typing import Any
 
@@ -28,6 +30,7 @@ def write_report(
     meta: dict[str, str],
 ) -> None:
     names = [r.name for r in results]
+    write_json(path.with_suffix(".json"), results, summaries, meta)
     labels = list(csv.DictReader((m.GOLD / "curve_labels.csv").open()))
     reviewed = sum(r["reviewed"] == "true" for r in labels)
     gold = m.load_header_gold()
@@ -211,6 +214,34 @@ def write_report(
         "",
     ]
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
+def write_json(
+    path: Path, results: list, summaries: dict[str, dict[str, Any]], meta: dict[str, str]
+) -> None:
+    """Machine-readable results (docs/results.json) for the HTML report and anyone re-using them."""
+
+    def plain(value: Any) -> Any:
+        if isinstance(value, Estimate):
+            return asdict(value)
+        if isinstance(value, dict):
+            return {k: plain(v) for k, v in value.items()}
+        if isinstance(value, list | tuple):
+            return [plain(v) for v in value]
+        return value
+
+    doc = {
+        "meta": meta,
+        "systems": {
+            r.name: {
+                "model": r.model,
+                "summary": plain(summaries[r.name]),
+                "outcomes": [asdict(o) for o in r.outcomes if not o.kind.startswith("curve")],
+            }
+            for r in results
+        },
+    }
+    path.write_text(json.dumps(doc, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
 def _v(value: object) -> str:

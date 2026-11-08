@@ -140,6 +140,7 @@ def summarize(result: SystemResult, bundles: list[Bundle]) -> dict[str, Any]:
         by_bundle_r[c[0]] = (n + int(c in found), t + 1)
     s["flag_precision"] = m.ratio_with_ci(dict(by_bundle_p))
     s["flag_recall"] = m.ratio_with_ci(dict(by_bundle_r))
+    s["detected"] = sorted(found & conflicts)
     s["false_flags"] = sorted(found - conflicts)
     s["missed_conflicts"] = sorted(conflicts - found)
 

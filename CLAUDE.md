@@ -56,6 +56,7 @@ uv run volve-osdu eval --systems rules,llm_only,agent   # full evaluation -> doc
 uv run volve-osdu eval --no-run                         # re-score existing outputs/eval-*
 uv run python scripts/draft_curve_labels.py             # (re)draft curve labels; refuses if any are reviewed
 uv run python scripts/make_demo.py outputs/example/15_9-F12 docs/demo/index.html   # demo page
+uv run python scripts/make_report.py                    # docs/report.html (charts) from docs/results.json
 ```
 
 (Implement these commands as the milestones progress; keep this list accurate.)
