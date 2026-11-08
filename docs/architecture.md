@@ -158,7 +158,10 @@ START -> identity -> pdf_facts -> curves -> check --retry (max 2)--> pdf_facts .
   each with page and quote. Rule 8 (`validate/grounding.py`) keeps a fact only if the quote is in the
   page text (whitespace-normalized) and the value is in the quote. Rejected facts go back to the
   LLM with the reason; still wrong after 3 attempts -> dropped + `ungrounded` warn flag. The
-  pipeline re-runs rule 8 on whatever a system returns.
+  pipeline re-runs rule 8 on whatever a system returns. Since agent run 1, rule 8 also checks the
+  fact is the right *kind* for the right *wellbore*: the quote must contain the fact's keyword (TD,
+  KOP/kick-off, RKB/elevation, side-track), the value must be physically plausible (KB 0-150 m,
+  KOP > 0), and a quote that names wellbores must name the target one.
 - **curves** (`curve-mapping-v1`): the LLM proposes an OSDU unit code and LogCurveFamily per curve
   (batches of 25). Codes not in the pinned lists are sent back with `lookup_reference` suggestions;
   still wrong after 3 attempts -> unmapped + info flag. A case-only difference is fixed in code.
@@ -168,6 +171,9 @@ START -> identity -> pdf_facts -> curves -> check --retry (max 2)--> pdf_facts .
   `LLM_API_KEY`, `LLM_MODEL`. Every call is cached in `.cache/llm/<sha256>.json` (key = model +
   messages + temperature, temperature 0) and traced: `outputs/<run>/<wellbore>/trace.jsonl` has
   node, model, prompt version, cache hit, tokens and latency per call.
+- **Reported run:** local Ollama, `qwen3:4b` with an 8k context (`num_ctx 8192`; the default 4k
+  silently truncated report pages), thinking off (`LLM_REASONING_EFFORT=none`: 15 s per call
+  instead of ~6 min) and a 3,000-token reply cap against runaway generation. JSON mode on.
 - **Provider:** the guide's default (GitHub Models free tier) was retired by GitHub on 2026-07-30
   (docs.github.com/en/rest/models/inference). GitHub points to Azure AI Foundry as the
   successor. Provider choice is open; the code needs no change, only `.env`.

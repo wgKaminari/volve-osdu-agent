@@ -1,0 +1,82 @@
+{
+  "id": "volve:work-product-component--WellLog:NO-15-9-F-12-WLC_PETRO_COMPUTED_OUTPUT_1",
+  "kind": "osdu:wks:work-product-component--WellLog:1.5.0",
+  "acl": {
+    "owners": [
+      "data.default.owners@volve.example.com"
+    ],
+    "viewers": [
+      "data.default.viewers@volve.example.com"
+    ]
+  },
+  "legal": {
+    "legaltags": [
+      "volve-equinor-open-data-licence"
+    ],
+    "otherRelevantDataCountries": [
+      "NO"
+    ]
+  },
+  "data": {
+    "Name": "WLC_PETRO_COMPUTED_OUTPUT_1.LAS",
+    "Datasets": [
+      "volve:dataset--File.Generic:NO-15-9-F-12-WLC_PETRO_COMPUTED_OUTPUT_1:"
+    ],
+    "WellboreID": "volve:master-data--Wellbore:NO-15-9-F-12:",
+    "NullValue": "-999.25",
+    "TopMeasuredDepth": 3102.102,
+    "BottomMeasuredDepth": 3505.8096,
+    "Curves": [
+      {
+        "CurveID": "BVW",
+        "TopDepth": 3102.102,
+        "BaseDepth": 3505.8096,
+        "DepthUnit": "volve:reference-data--UnitOfMeasure:m:",
+        "Mnemonic": "BVW",
+        "NumberOfColumns": 1,
+        "CurveDescription": "BVW:UNKNOWN:rC:NONE:v1"
+      },
+      {
+        "CurveID": "KLOGH",
+        "TopDepth": 3102.102,
+        "BaseDepth": 3505.3524,
+        "DepthUnit": "volve:reference-data--UnitOfMeasure:m:",
+        "CurveUnit": "volve:reference-data--UnitOfMeasure:mD:",
+        "Mnemonic": "KLOGH",
+        "NumberOfColumns": 1,
+        "CurveDescription": "KLOGH:UNKNOWN:rC:NONE:v1"
+      },
+      {
+        "CurveID": "PHIF",
+        "TopDepth": 3102.102,
+        "BaseDepth": 3505.3524,
+        "DepthUnit": "volve:reference-data--UnitOfMeasure:m:",
+        "Mnemonic": "PHIF",
+        "NumberOfColumns": 1,
+        "CurveDescription": "PHIF:UNKNOWN:rC:NONE:v1"
+      },
+      {
+        "CurveID": "SW",
+        "TopDepth": 3102.102,
+        "BaseDepth": 3505.8096,
+        "DepthUnit": "volve:reference-data--UnitOfMeasure:m:",
+        "Mnemonic": "SW",
+        "NumberOfColumns": 1,
+        "CurveDescription": "SW:UNKNOWN:rC:NONE:v1"
+      },
+      {
+        "CurveID": "VSH",
+        "TopDepth": 3102.102,
+        "BaseDepth": 3505.3524,
+        "DepthUnit": "volve:reference-data--UnitOfMeasure:m:",
+        "Mnemonic": "VSH",
+        "NumberOfColumns": 1,
+        "CurveDescription": "VSH:UNKNOWN:rC:NONE:v1"
+      }
+    ],
+    "SamplingInterval": 0.1524,
+    "ReferenceCurveID": "DEPTH",
+    "SamplingStart": 3102.102,
+    "SamplingStop": 3505.8096
+  }
+}

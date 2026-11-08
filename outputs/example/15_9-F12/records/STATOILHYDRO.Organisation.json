@@ -1,0 +1,23 @@
+{
+  "id": "volve:master-data--Organisation:STATOILHYDRO",
+  "kind": "osdu:wks:master-data--Organisation:1.2.0",
+  "acl": {
+    "owners": [
+      "data.default.owners@volve.example.com"
+    ],
+    "viewers": [
+      "data.default.viewers@volve.example.com"
+    ]
+  },
+  "legal": {
+    "legaltags": [
+      "volve-equinor-open-data-licence"
+    ],
+    "otherRelevantDataCountries": [
+      "NO"
+    ]
+  },
+  "data": {
+    "OrganisationName": "STATOILHYDRO"
+  }
+}

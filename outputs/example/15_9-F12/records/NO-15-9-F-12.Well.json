@@ -1,0 +1,50 @@
+{
+  "id": "volve:master-data--Well:NO-15-9-F-12",
+  "kind": "osdu:wks:master-data--Well:1.5.0",
+  "acl": {
+    "owners": [
+      "data.default.owners@volve.example.com"
+    ],
+    "viewers": [
+      "data.default.viewers@volve.example.com"
+    ]
+  },
+  "legal": {
+    "legaltags": [
+      "volve-equinor-open-data-licence"
+    ],
+    "otherRelevantDataCountries": [
+      "NO"
+    ]
+  },
+  "data": {
+    "CurrentOperatorID": "volve:master-data--Organisation:STATOILHYDRO:",
+    "FacilityName": "15/9-F-12",
+    "GeoContexts": [
+      {
+        "FieldID": "volve:master-data--Field:VOLVE:",
+        "GeoTypeID": "Field"
+      }
+    ],
+    "SpatialLocation": {
+      "AsIngestedCoordinates": {
+        "type": "AnyCrsFeatureCollection",
+        "CoordinateReferenceSystemID": "volve:reference-data--CoordinateReferenceSystem:Geographic2D:EPSG::4230:",
+        "persistableReferenceCrs": "{\"authCode\":{\"auth\":\"EPSG\",\"code\":\"4230\"},\"name\":\"GCS_European_1950\",\"type\":\"LBC\",\"ver\":\"PE_10_9_1\",\"wkt\":\"GEOGCS[\\\"GCS_European_1950\\\",DATUM[\\\"D_European_1950\\\",SPHEROID[\\\"International_1924\\\",6378388.0,297.0]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\",0.0174532925199433],AUTHORITY[\\\"EPSG\\\",4230]]\"}",
+        "features": [
+          {
+            "type": "AnyCrsFeature",
+            "properties": {},
+            "geometry": {
+              "type": "AnyCrsPoint",
+              "coordinates": [
+                1.88748,
+                58.441713
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}

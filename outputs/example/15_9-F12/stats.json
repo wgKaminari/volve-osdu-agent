@@ -1,0 +1,10 @@
+{
+  "grounding": {
+    "proposed": 12,
+    "grounded": 0,
+    "first_proposed": 4,
+    "first_grounded": 0
+  },
+  "pdf_attempts": 3,
+  "curve_attempts": 3
+}

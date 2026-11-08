@@ -1,0 +1,144 @@
+{
+  "id": "volve:work-product-component--WellLog:NO-15-9-F-12-WLC_PETRO_COMPUTED_INPUT_1",
+  "kind": "osdu:wks:work-product-component--WellLog:1.5.0",
+  "acl": {
+    "owners": [
+      "data.default.owners@volve.example.com"
+    ],
+    "viewers": [
+      "data.default.viewers@volve.example.com"
+    ]
+  },
+  "legal": {
+    "legaltags": [
+      "volve-equinor-open-data-licence"
+    ],
+    "otherRelevantDataCountries": [
+      "NO"
+    ]
+  },
+  "data": {
+    "Name": "WLC_PETRO_COMPUTED_INPUT_1.LAS",
+    "Datasets": [
+      "volve:dataset--File.Generic:NO-15-9-F-12-WLC_PETRO_COMPUTED_INPUT_1:"
+    ],
+    "WellboreID": "volve:master-data--Wellbore:NO-15-9-F-12:",
+    "NullValue": "-999.25",
+    "TopMeasuredDepth": 239.8776,
+    "BottomMeasuredDepth": 4186.7328,
+    "Curves": [
+      {
+        "CurveID": "CARB_FLAG",
+        "TopDepth": 3102.102,
+        "BaseDepth": 3519.9828,
+        "DepthUnit": "volve:reference-data--UnitOfMeasure:m:",
+        "Mnemonic": "CARB_FLAG",
+        "NumberOfColumns": 1,
+        "CurveDescription": "CARB_FLAG:UNKNOWN:rC:NONE:v1"
+      },
+      {
+        "CurveID": "COAL_FLAG",
+        "TopDepth": 3102.102,
+        "BaseDepth": 3505.3524,
+        "DepthUnit": "volve:reference-data--UnitOfMeasure:m:",
+        "Mnemonic": "COAL_FLAG",
+        "NumberOfColumns": 1,
+        "CurveDescription": "COAL_FLAG:UNKNOWN:rC:NONE:v1"
+      },
+      {
+        "CurveID": "DT",
+        "TopDepth": 1368.7044,
+        "BaseDepth": 3442.5636,
+        "DepthUnit": "volve:reference-data--UnitOfMeasure:m:",
+        "CurveUnit": "volve:reference-data--UnitOfMeasure:us%2Fft:",
+        "Mnemonic": "DT",
+        "NumberOfColumns": 1,
+        "CurveDescription": "DT:UNKNOWN:rC:NONE:v2"
+      },
+      {
+        "CurveID": "GR",
+        "TopDepth": 240.3348,
+        "BaseDepth": 4186.7328,
+        "DepthUnit": "volve:reference-data--UnitOfMeasure:m:",
+        "CurveUnit": "volve:reference-data--UnitOfMeasure:gAPI:",
+        "Mnemonic": "GR",
+        "LogCurveFamilyID": "volve:reference-data--LogCurveFamily:Gamma%20Ray:",
+        "NumberOfColumns": 1,
+        "CurveDescription": "GR:UNKNOWN:rC:NONE:v1"
+      },
+      {
+        "CurveID": "NPHI",
+        "TopDepth": 717.6516,
+        "BaseDepth": 3505.3524,
+        "DepthUnit": "volve:reference-data--UnitOfMeasure:m:",
+        "CurveUnit": "volve:reference-data--UnitOfMeasure:V%2Fm:",
+        "Mnemonic": "NPHI",
+        "LogCurveFamilyID": "volve:reference-data--LogCurveFamily:Neutron%20Porosity:",
+        "NumberOfColumns": 1,
+        "CurveDescription": "NPHI:UNKNOWN:rC:NONE:v1"
+      },
+      {
+        "CurveID": "RD",
+        "TopDepth": 239.8776,
+        "BaseDepth": 3505.962,
+        "DepthUnit": "volve:reference-data--UnitOfMeasure:m:",
+        "Mnemonic": "RD",
+        "NumberOfColumns": 1,
+        "CurveDescription": "RD:UNKNOWN:rC:NONE:v1"
+      },
+      {
+        "CurveID": "RHOB",
+        "TopDepth": 1349.9592,
+        "BaseDepth": 3507.486,
+        "DepthUnit": "volve:reference-data--UnitOfMeasure:m:",
+        "CurveUnit": "volve:reference-data--UnitOfMeasure:g%2Fcm3:",
+        "Mnemonic": "RHOB",
+        "LogCurveFamilyID": "volve:reference-data--LogCurveFamily:Bulk%20Density:",
+        "NumberOfColumns": 1,
+        "CurveDescription": "RHOB:UNKNOWN:rC:NONE:v1"
+      },
+      {
+        "CurveID": "ROP5_RM",
+        "TopDepth": 239.8776,
+        "BaseDepth": 3519.3732,
+        "DepthUnit": "volve:reference-data--UnitOfMeasure:m:",
+        "Mnemonic": "ROP5_RM",
+        "NumberOfColumns": 1,
+        "CurveDescription": "ROP5_RM:UNKNOWN:rC:NONE:v1"
+      },
+      {
+        "CurveID": "RS",
+        "TopDepth": 239.8776,
+        "BaseDepth": 3505.962,
+        "DepthUnit": "volve:reference-data--UnitOfMeasure:m:",
+        "Mnemonic": "RS",
+        "NumberOfColumns": 1,
+        "CurveDescription": "RS:UNKNOWN:rC:NONE:v1"
+      },
+      {
+        "CurveID": "RT",
+        "TopDepth": 239.8776,
+        "BaseDepth": 3505.962,
+        "DepthUnit": "volve:reference-data--UnitOfMeasure:m:",
+        "CurveUnit": "volve:reference-data--UnitOfMeasure:ohm.m:",
+        "Mnemonic": "RT",
+        "LogCurveFamilyID": "volve:reference-data--LogCurveFamily:Resistivity%20-%20Deep:",
+        "NumberOfColumns": 1,
+        "CurveDescription": "RT:UNKNOWN:rC:NONE:v1"
+      },
+      {
+        "CurveID": "SAND_FLAG",
+        "TopDepth": 3102.102,
+        "BaseDepth": 3505.962,
+        "DepthUnit": "volve:reference-data--UnitOfMeasure:m:",
+        "Mnemonic": "SAND_FLAG",
+        "NumberOfColumns": 1,
+        "CurveDescription": "SAND_FLAG:UNKNOWN:rC:NONE:v1"
+      }
+    ],
+    "SamplingInterval": 0.1524,
+    "ReferenceCurveID": "DEPTH",
+    "SamplingStart": 239.8776,
+    "SamplingStop": 4186.7328
+  }
+}

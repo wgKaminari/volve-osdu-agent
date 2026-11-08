@@ -1,0 +1,648 @@
+{
+  "volve:master-data--Organisation:STATOILHYDRO": {
+    "OrganisationName": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_INPUT_1.LAS",
+        "locator": "LAS:~Well/COMP",
+        "method": "parsed"
+      },
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_OUTPUT_1.LAS",
+        "locator": "LAS:~Well/COMP",
+        "method": "parsed"
+      }
+    ]
+  },
+  "volve:master-data--Field:VOLVE": {
+    "FieldName": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_INPUT_1.LAS",
+        "locator": "LAS:~Well/FLD",
+        "method": "parsed"
+      },
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_OUTPUT_1.LAS",
+        "locator": "LAS:~Well/FLD",
+        "method": "parsed"
+      }
+    ]
+  },
+  "volve:master-data--Well:NO-15-9-F-12": {
+    "FacilityName": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_INPUT_1.LAS",
+        "locator": "LAS:~Well/WELL",
+        "method": "llm_extracted",
+        "quote": "15/9-F-12",
+        "model": "qwen3-4b-8k",
+        "prompt_version": "identity-v1"
+      },
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_INPUT_1.LAS",
+        "locator": "LAS:~Well/UWI",
+        "method": "llm_extracted",
+        "quote": "15/9-F-12",
+        "model": "qwen3-4b-8k",
+        "prompt_version": "identity-v1"
+      },
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_OUTPUT_1.LAS",
+        "locator": "LAS:~Well/WELL",
+        "method": "llm_extracted",
+        "quote": "15/9-F-12",
+        "model": "qwen3-4b-8k",
+        "prompt_version": "identity-v1"
+      },
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_OUTPUT_1.LAS",
+        "locator": "LAS:~Well/UWI",
+        "method": "llm_extracted",
+        "quote": "15/9-F-12",
+        "model": "qwen3-4b-8k",
+        "prompt_version": "identity-v1"
+      },
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/PETROPHYSICAL_REPORT_1.PDF",
+        "locator": "PDF:p1",
+        "method": "llm_extracted",
+        "quote": "15/9-F-12",
+        "model": "qwen3-4b-8k",
+        "prompt_version": "identity-v1"
+      },
+      {
+        "source_file": "(pipeline)",
+        "locator": "rule: sidetrack suffix removed",
+        "method": "derived"
+      }
+    ],
+    "CurrentOperatorID": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_INPUT_1.LAS",
+        "locator": "LAS:~Well/COMP",
+        "method": "parsed"
+      },
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_OUTPUT_1.LAS",
+        "locator": "LAS:~Well/COMP",
+        "method": "parsed"
+      }
+    ],
+    "GeoContexts": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_INPUT_1.LAS",
+        "locator": "LAS:~Well/FLD",
+        "method": "parsed"
+      },
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_OUTPUT_1.LAS",
+        "locator": "LAS:~Well/FLD",
+        "method": "parsed"
+      }
+    ],
+    "SpatialLocation": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_INPUT_1.LAS",
+        "locator": "LAS:~Well/LAT",
+        "method": "parsed"
+      },
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_OUTPUT_1.LAS",
+        "locator": "LAS:~Well/LAT",
+        "method": "parsed"
+      },
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_INPUT_1.LAS",
+        "locator": "LAS:~Well/LON",
+        "method": "parsed"
+      },
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_OUTPUT_1.LAS",
+        "locator": "LAS:~Well/LON",
+        "method": "parsed"
+      },
+      {
+        "source_file": "(pipeline)",
+        "locator": "assumption: LAS LAT/LON are ED50 (EPSG:4230), see docs/architecture.md",
+        "method": "derived"
+      }
+    ]
+  },
+  "volve:dataset--File.Generic:NO-15-9-F-12-trajectory": {
+    "Name": [
+      {
+        "source_file": "(pipeline)",
+        "locator": "bulk file written by this pipeline",
+        "method": "derived"
+      }
+    ],
+    "DatasetProperties": [
+      {
+        "source_file": "(pipeline)",
+        "locator": "bulk file written by this pipeline",
+        "method": "derived"
+      }
+    ]
+  },
+  "volve:work-product-component--WellboreTrajectory:NO-15-9-F-12-F-12_ACTUAL": {
+    "Name": [
+      {
+        "source_file": "data/raw/volve_field_data/input_data/wellpaths/F-12_ACTUAL",
+        "locator": "file name",
+        "method": "parsed"
+      }
+    ],
+    "WellboreID": [
+      {
+        "source_file": "(pipeline)",
+        "locator": "well path assigned to this wellbore",
+        "method": "derived"
+      }
+    ],
+    "Datasets": [
+      {
+        "source_file": "(pipeline)",
+        "locator": "stations written as Parquet",
+        "method": "derived"
+      }
+    ],
+    "TopDepthMeasuredDepth": [
+      {
+        "source_file": "data/raw/volve_field_data/input_data/wellpaths/F-12_ACTUAL",
+        "locator": "WELLPATH:MD row 0",
+        "method": "parsed"
+      }
+    ],
+    "BaseDepthMeasuredDepth": [
+      {
+        "source_file": "data/raw/volve_field_data/input_data/wellpaths/F-12_ACTUAL",
+        "locator": "WELLPATH:MD row 210",
+        "method": "parsed"
+      }
+    ],
+    "VerticalMeasurement": [
+      {
+        "source_file": "data/raw/volve_field_data/input_data/wellpaths/F-12_ACTUAL",
+        "locator": "WELLPATH:unit line 'm RKB'",
+        "method": "parsed"
+      },
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_INPUT_1.LAS",
+        "locator": "LAS:~Well/ELEV",
+        "method": "parsed"
+      },
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_OUTPUT_1.LAS",
+        "locator": "LAS:~Well/ELEV",
+        "method": "parsed"
+      }
+    ],
+    "AvailableTrajectoryStationProperties": [
+      {
+        "source_file": "data/raw/volve_field_data/input_data/wellpaths/F-12_ACTUAL",
+        "locator": "WELLPATH:header and unit lines",
+        "method": "parsed"
+      }
+    ],
+    "IsDefinitive": [
+      {
+        "source_file": "(pipeline)",
+        "locator": "file name is not a plan",
+        "method": "derived"
+      }
+    ]
+  },
+  "volve:master-data--Wellbore:NO-15-9-F-12": {
+    "FacilityName": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_INPUT_1.LAS",
+        "locator": "LAS:~Well/WELL",
+        "method": "llm_extracted",
+        "quote": "15/9-F-12",
+        "model": "qwen3-4b-8k",
+        "prompt_version": "identity-v1"
+      },
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_INPUT_1.LAS",
+        "locator": "LAS:~Well/UWI",
+        "method": "llm_extracted",
+        "quote": "15/9-F-12",
+        "model": "qwen3-4b-8k",
+        "prompt_version": "identity-v1"
+      },
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_OUTPUT_1.LAS",
+        "locator": "LAS:~Well/WELL",
+        "method": "llm_extracted",
+        "quote": "15/9-F-12",
+        "model": "qwen3-4b-8k",
+        "prompt_version": "identity-v1"
+      },
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_OUTPUT_1.LAS",
+        "locator": "LAS:~Well/UWI",
+        "method": "llm_extracted",
+        "quote": "15/9-F-12",
+        "model": "qwen3-4b-8k",
+        "prompt_version": "identity-v1"
+      },
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/PETROPHYSICAL_REPORT_1.PDF",
+        "locator": "PDF:p1",
+        "method": "llm_extracted",
+        "quote": "15/9-F-12",
+        "model": "qwen3-4b-8k",
+        "prompt_version": "identity-v1"
+      }
+    ],
+    "NameAliases[0]": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_INPUT_1.LAS",
+        "locator": "LAS:~Well/UWI",
+        "method": "parsed",
+        "quote": "NO 15/9-F-12"
+      }
+    ],
+    "NameAliases[1]": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12",
+        "locator": "folder name",
+        "method": "parsed"
+      }
+    ],
+    "WellID": [
+      {
+        "source_file": "(pipeline)",
+        "locator": "rule: a sidetrack belongs to its parent's well",
+        "method": "derived"
+      }
+    ],
+    "CurrentOperatorID": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_INPUT_1.LAS",
+        "locator": "LAS:~Well/COMP",
+        "method": "parsed"
+      },
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_OUTPUT_1.LAS",
+        "locator": "LAS:~Well/COMP",
+        "method": "parsed"
+      }
+    ],
+    "GeoContexts": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_INPUT_1.LAS",
+        "locator": "LAS:~Well/FLD",
+        "method": "parsed"
+      },
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_OUTPUT_1.LAS",
+        "locator": "LAS:~Well/FLD",
+        "method": "parsed"
+      }
+    ],
+    "VerticalMeasurements[0]": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_INPUT_1.LAS",
+        "locator": "LAS:~Well/ELEV",
+        "method": "parsed"
+      },
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_OUTPUT_1.LAS",
+        "locator": "LAS:~Well/ELEV",
+        "method": "parsed"
+      }
+    ],
+    "DefaultVerticalMeasurementID": [
+      {
+        "source_file": "(pipeline)",
+        "locator": "KB is the depth datum",
+        "method": "derived"
+      }
+    ],
+    "DefinitiveTrajectoryID": [
+      {
+        "source_file": "(pipeline)",
+        "locator": "the only actual (non-plan) well path for this wellbore",
+        "method": "derived"
+      }
+    ]
+  },
+  "volve:dataset--File.Generic:NO-15-9-F-12-WLC_PETRO_COMPUTED_INPUT_1": {
+    "Name": [
+      {
+        "source_file": "(pipeline)",
+        "locator": "bulk file written by this pipeline",
+        "method": "derived"
+      }
+    ],
+    "DatasetProperties": [
+      {
+        "source_file": "(pipeline)",
+        "locator": "bulk file written by this pipeline",
+        "method": "derived"
+      }
+    ]
+  },
+  "volve:work-product-component--WellLog:NO-15-9-F-12-WLC_PETRO_COMPUTED_INPUT_1": {
+    "Name": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_INPUT_1.LAS",
+        "locator": "file name",
+        "method": "parsed"
+      }
+    ],
+    "WellboreID": [
+      {
+        "source_file": "(pipeline)",
+        "locator": "file belongs to this wellbore's bundle",
+        "method": "derived"
+      }
+    ],
+    "Datasets": [
+      {
+        "source_file": "(pipeline)",
+        "locator": "curve values written as Parquet",
+        "method": "derived"
+      }
+    ],
+    "TopMeasuredDepth": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_INPUT_1.LAS",
+        "locator": "LAS:~Well/STRT",
+        "method": "parsed"
+      }
+    ],
+    "SamplingStart": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_INPUT_1.LAS",
+        "locator": "LAS:~Well/STRT",
+        "method": "parsed"
+      }
+    ],
+    "BottomMeasuredDepth": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_INPUT_1.LAS",
+        "locator": "LAS:~Well/STOP",
+        "method": "parsed"
+      }
+    ],
+    "SamplingStop": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_INPUT_1.LAS",
+        "locator": "LAS:~Well/STOP",
+        "method": "parsed"
+      }
+    ],
+    "SamplingInterval": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_INPUT_1.LAS",
+        "locator": "LAS:~Well/STEP",
+        "method": "parsed"
+      }
+    ],
+    "NullValue": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_INPUT_1.LAS",
+        "locator": "LAS:~Well/NULL",
+        "method": "parsed"
+      }
+    ],
+    "ReferenceCurveID": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_INPUT_1.LAS",
+        "locator": "LAS:~Curve first curve",
+        "method": "parsed"
+      }
+    ],
+    "Curves[0]": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_INPUT_1.LAS",
+        "locator": "LAS:~Curve/CARB_FLAG",
+        "method": "parsed"
+      }
+    ],
+    "Curves[1]": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_INPUT_1.LAS",
+        "locator": "LAS:~Curve/COAL_FLAG",
+        "method": "parsed"
+      }
+    ],
+    "Curves[2]": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_INPUT_1.LAS",
+        "locator": "LAS:~Curve/DT",
+        "method": "parsed"
+      },
+      {
+        "source_file": "(pipeline)",
+        "locator": "curve mapping (llm qwen3-4b-8k curve-mapping-v1)",
+        "method": "derived"
+      }
+    ],
+    "Curves[3]": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_INPUT_1.LAS",
+        "locator": "LAS:~Curve/GR",
+        "method": "parsed"
+      },
+      {
+        "source_file": "(pipeline)",
+        "locator": "curve mapping (llm qwen3-4b-8k curve-mapping-v1)",
+        "method": "derived"
+      }
+    ],
+    "Curves[4]": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_INPUT_1.LAS",
+        "locator": "LAS:~Curve/NPHI",
+        "method": "parsed"
+      },
+      {
+        "source_file": "(pipeline)",
+        "locator": "curve mapping (llm qwen3-4b-8k curve-mapping-v1)",
+        "method": "derived"
+      }
+    ],
+    "Curves[5]": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_INPUT_1.LAS",
+        "locator": "LAS:~Curve/RD",
+        "method": "parsed"
+      }
+    ],
+    "Curves[6]": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_INPUT_1.LAS",
+        "locator": "LAS:~Curve/RHOB",
+        "method": "parsed"
+      },
+      {
+        "source_file": "(pipeline)",
+        "locator": "curve mapping (llm qwen3-4b-8k curve-mapping-v1)",
+        "method": "derived"
+      }
+    ],
+    "Curves[7]": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_INPUT_1.LAS",
+        "locator": "LAS:~Curve/ROP5_RM",
+        "method": "parsed"
+      }
+    ],
+    "Curves[8]": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_INPUT_1.LAS",
+        "locator": "LAS:~Curve/RS",
+        "method": "parsed"
+      }
+    ],
+    "Curves[9]": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_INPUT_1.LAS",
+        "locator": "LAS:~Curve/RT",
+        "method": "parsed"
+      },
+      {
+        "source_file": "(pipeline)",
+        "locator": "curve mapping (llm qwen3-4b-8k curve-mapping-v1)",
+        "method": "derived"
+      }
+    ],
+    "Curves[10]": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_INPUT_1.LAS",
+        "locator": "LAS:~Curve/SAND_FLAG",
+        "method": "parsed"
+      }
+    ]
+  },
+  "volve:dataset--File.Generic:NO-15-9-F-12-WLC_PETRO_COMPUTED_OUTPUT_1": {
+    "Name": [
+      {
+        "source_file": "(pipeline)",
+        "locator": "bulk file written by this pipeline",
+        "method": "derived"
+      }
+    ],
+    "DatasetProperties": [
+      {
+        "source_file": "(pipeline)",
+        "locator": "bulk file written by this pipeline",
+        "method": "derived"
+      }
+    ]
+  },
+  "volve:work-product-component--WellLog:NO-15-9-F-12-WLC_PETRO_COMPUTED_OUTPUT_1": {
+    "Name": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_OUTPUT_1.LAS",
+        "locator": "file name",
+        "method": "parsed"
+      }
+    ],
+    "WellboreID": [
+      {
+        "source_file": "(pipeline)",
+        "locator": "file belongs to this wellbore's bundle",
+        "method": "derived"
+      }
+    ],
+    "Datasets": [
+      {
+        "source_file": "(pipeline)",
+        "locator": "curve values written as Parquet",
+        "method": "derived"
+      }
+    ],
+    "TopMeasuredDepth": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_OUTPUT_1.LAS",
+        "locator": "LAS:~Well/STRT",
+        "method": "parsed"
+      }
+    ],
+    "SamplingStart": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_OUTPUT_1.LAS",
+        "locator": "LAS:~Well/STRT",
+        "method": "parsed"
+      }
+    ],
+    "BottomMeasuredDepth": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_OUTPUT_1.LAS",
+        "locator": "LAS:~Well/STOP",
+        "method": "parsed"
+      }
+    ],
+    "SamplingStop": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_OUTPUT_1.LAS",
+        "locator": "LAS:~Well/STOP",
+        "method": "parsed"
+      }
+    ],
+    "SamplingInterval": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_OUTPUT_1.LAS",
+        "locator": "LAS:~Well/STEP",
+        "method": "parsed"
+      }
+    ],
+    "NullValue": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_OUTPUT_1.LAS",
+        "locator": "LAS:~Well/NULL",
+        "method": "parsed"
+      }
+    ],
+    "ReferenceCurveID": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_OUTPUT_1.LAS",
+        "locator": "LAS:~Curve first curve",
+        "method": "parsed"
+      }
+    ],
+    "Curves[0]": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_OUTPUT_1.LAS",
+        "locator": "LAS:~Curve/BVW",
+        "method": "parsed"
+      }
+    ],
+    "Curves[1]": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_OUTPUT_1.LAS",
+        "locator": "LAS:~Curve/KLOGH",
+        "method": "parsed"
+      },
+      {
+        "source_file": "(pipeline)",
+        "locator": "curve mapping (llm qwen3-4b-8k curve-mapping-v1)",
+        "method": "derived"
+      }
+    ],
+    "Curves[2]": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_OUTPUT_1.LAS",
+        "locator": "LAS:~Curve/PHIF",
+        "method": "parsed"
+      }
+    ],
+    "Curves[3]": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_OUTPUT_1.LAS",
+        "locator": "LAS:~Curve/SW",
+        "method": "parsed"
+      }
+    ],
+    "Curves[4]": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_OUTPUT_1.LAS",
+        "locator": "LAS:~Curve/VSH",
+        "method": "parsed"
+      }
+    ]
+  }
+}

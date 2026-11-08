@@ -1,0 +1,553 @@
+{
+  "kind": "osdu:wks:Manifest:1.0.0",
+  "MasterData": [
+    {
+      "id": "volve:master-data--Organisation:STATOILHYDRO",
+      "kind": "osdu:wks:master-data--Organisation:1.2.0",
+      "acl": {
+        "owners": [
+          "data.default.owners@volve.example.com"
+        ],
+        "viewers": [
+          "data.default.viewers@volve.example.com"
+        ]
+      },
+      "legal": {
+        "legaltags": [
+          "volve-equinor-open-data-licence"
+        ],
+        "otherRelevantDataCountries": [
+          "NO"
+        ]
+      },
+      "data": {
+        "OrganisationName": "STATOILHYDRO"
+      }
+    },
+    {
+      "id": "volve:master-data--Field:VOLVE",
+      "kind": "osdu:wks:master-data--Field:1.1.0",
+      "acl": {
+        "owners": [
+          "data.default.owners@volve.example.com"
+        ],
+        "viewers": [
+          "data.default.viewers@volve.example.com"
+        ]
+      },
+      "legal": {
+        "legaltags": [
+          "volve-equinor-open-data-licence"
+        ],
+        "otherRelevantDataCountries": [
+          "NO"
+        ]
+      },
+      "data": {
+        "FieldName": "VOLVE"
+      }
+    },
+    {
+      "id": "volve:master-data--Well:NO-15-9-F-12",
+      "kind": "osdu:wks:master-data--Well:1.5.0",
+      "acl": {
+        "owners": [
+          "data.default.owners@volve.example.com"
+        ],
+        "viewers": [
+          "data.default.viewers@volve.example.com"
+        ]
+      },
+      "legal": {
+        "legaltags": [
+          "volve-equinor-open-data-licence"
+        ],
+        "otherRelevantDataCountries": [
+          "NO"
+        ]
+      },
+      "data": {
+        "CurrentOperatorID": "volve:master-data--Organisation:STATOILHYDRO:",
+        "FacilityName": "15/9-F-12",
+        "GeoContexts": [
+          {
+            "FieldID": "volve:master-data--Field:VOLVE:",
+            "GeoTypeID": "Field"
+          }
+        ],
+        "SpatialLocation": {
+          "AsIngestedCoordinates": {
+            "type": "AnyCrsFeatureCollection",
+            "CoordinateReferenceSystemID": "volve:reference-data--CoordinateReferenceSystem:Geographic2D:EPSG::4230:",
+            "persistableReferenceCrs": "{\"authCode\":{\"auth\":\"EPSG\",\"code\":\"4230\"},\"name\":\"GCS_European_1950\",\"type\":\"LBC\",\"ver\":\"PE_10_9_1\",\"wkt\":\"GEOGCS[\\\"GCS_European_1950\\\",DATUM[\\\"D_European_1950\\\",SPHEROID[\\\"International_1924\\\",6378388.0,297.0]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\",0.0174532925199433],AUTHORITY[\\\"EPSG\\\",4230]]\"}",
+            "features": [
+              {
+                "type": "AnyCrsFeature",
+                "properties": {},
+                "geometry": {
+                  "type": "AnyCrsPoint",
+                  "coordinates": [
+                    1.88748,
+                    58.441713
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "volve:master-data--Wellbore:NO-15-9-F-12",
+      "kind": "osdu:wks:master-data--Wellbore:1.5.1",
+      "acl": {
+        "owners": [
+          "data.default.owners@volve.example.com"
+        ],
+        "viewers": [
+          "data.default.viewers@volve.example.com"
+        ]
+      },
+      "legal": {
+        "legaltags": [
+          "volve-equinor-open-data-licence"
+        ],
+        "otherRelevantDataCountries": [
+          "NO"
+        ]
+      },
+      "data": {
+        "CurrentOperatorID": "volve:master-data--Organisation:STATOILHYDRO:",
+        "FacilityName": "15/9-F-12",
+        "NameAliases": [
+          {
+            "AliasName": "NO 15/9-F-12"
+          },
+          {
+            "AliasName": "15_9-F12"
+          }
+        ],
+        "GeoContexts": [
+          {
+            "FieldID": "volve:master-data--Field:VOLVE:",
+            "GeoTypeID": "Field"
+          }
+        ],
+        "WellID": "volve:master-data--Well:NO-15-9-F-12:",
+        "VerticalMeasurements": [
+          {
+            "VerticalMeasurement": 54.9,
+            "VerticalMeasurementTypeID": "volve:reference-data--VerticalMeasurementType:KellyBushing:",
+            "VerticalMeasurementPathID": "volve:reference-data--VerticalMeasurementPath:ELEV:",
+            "VerticalMeasurementUnitOfMeasureID": "volve:reference-data--UnitOfMeasure:m:",
+            "VerticalMeasurementID": "KB"
+          }
+        ],
+        "DefinitiveTrajectoryID": "volve:work-product-component--WellboreTrajectory:NO-15-9-F-12-F-12_ACTUAL:",
+        "DefaultVerticalMeasurementID": "KB"
+      }
+    }
+  ],
+  "Data": {
+    "WorkProductComponents": [
+      {
+        "id": "volve:work-product-component--WellboreTrajectory:NO-15-9-F-12-F-12_ACTUAL",
+        "kind": "osdu:wks:work-product-component--WellboreTrajectory:1.4.0",
+        "acl": {
+          "owners": [
+            "data.default.owners@volve.example.com"
+          ],
+          "viewers": [
+            "data.default.viewers@volve.example.com"
+          ]
+        },
+        "legal": {
+          "legaltags": [
+            "volve-equinor-open-data-licence"
+          ],
+          "otherRelevantDataCountries": [
+            "NO"
+          ]
+        },
+        "data": {
+          "Name": "F-12_ACTUAL",
+          "Datasets": [
+            "volve:dataset--File.Generic:NO-15-9-F-12-trajectory:"
+          ],
+          "WellboreID": "volve:master-data--Wellbore:NO-15-9-F-12:",
+          "TopDepthMeasuredDepth": 145.9,
+          "BaseDepthMeasuredDepth": 3520.0,
+          "VerticalMeasurement": {
+            "VerticalMeasurement": 54.9,
+            "VerticalMeasurementTypeID": "volve:reference-data--VerticalMeasurementType:KellyBushing:",
+            "VerticalMeasurementPathID": "volve:reference-data--VerticalMeasurementPath:ELEV:",
+            "VerticalMeasurementUnitOfMeasureID": "volve:reference-data--UnitOfMeasure:m:"
+          },
+          "AvailableTrajectoryStationProperties": [
+            {
+              "StationPropertyUnitID": "volve:reference-data--UnitOfMeasure:m:",
+              "Name": "md_m"
+            },
+            {
+              "StationPropertyUnitID": "volve:reference-data--UnitOfMeasure:dega:",
+              "Name": "inclination_deg"
+            },
+            {
+              "StationPropertyUnitID": "volve:reference-data--UnitOfMeasure:dega:",
+              "Name": "azimuth_deg"
+            },
+            {
+              "StationPropertyUnitID": "volve:reference-data--UnitOfMeasure:m:",
+              "Name": "tvd_m"
+            },
+            {
+              "StationPropertyUnitID": "volve:reference-data--UnitOfMeasure:m:",
+              "Name": "offset_ew_m"
+            },
+            {
+              "StationPropertyUnitID": "volve:reference-data--UnitOfMeasure:m:",
+              "Name": "offset_ns_m"
+            },
+            {
+              "StationPropertyUnitID": "volve:reference-data--UnitOfMeasure:m:",
+              "Name": "x_m"
+            },
+            {
+              "StationPropertyUnitID": "volve:reference-data--UnitOfMeasure:m:",
+              "Name": "y_m"
+            },
+            {
+              "StationPropertyUnitID": "volve:reference-data--UnitOfMeasure:1%2F30%20dega%2Fm:",
+              "Name": "dls_deg_per_30m"
+            }
+          ],
+          "IsDefinitive": true
+        }
+      },
+      {
+        "id": "volve:work-product-component--WellLog:NO-15-9-F-12-WLC_PETRO_COMPUTED_INPUT_1",
+        "kind": "osdu:wks:work-product-component--WellLog:1.5.0",
+        "acl": {
+          "owners": [
+            "data.default.owners@volve.example.com"
+          ],
+          "viewers": [
+            "data.default.viewers@volve.example.com"
+          ]
+        },
+        "legal": {
+          "legaltags": [
+            "volve-equinor-open-data-licence"
+          ],
+          "otherRelevantDataCountries": [
+            "NO"
+          ]
+        },
+        "data": {
+          "Name": "WLC_PETRO_COMPUTED_INPUT_1.LAS",
+          "Datasets": [
+            "volve:dataset--File.Generic:NO-15-9-F-12-WLC_PETRO_COMPUTED_INPUT_1:"
+          ],
+          "WellboreID": "volve:master-data--Wellbore:NO-15-9-F-12:",
+          "NullValue": "-999.25",
+          "TopMeasuredDepth": 239.8776,
+          "BottomMeasuredDepth": 4186.7328,
+          "Curves": [
+            {
+              "CurveID": "CARB_FLAG",
+              "TopDepth": 3102.102,
+              "BaseDepth": 3519.9828,
+              "DepthUnit": "volve:reference-data--UnitOfMeasure:m:",
+              "Mnemonic": "CARB_FLAG",
+              "NumberOfColumns": 1,
+              "CurveDescription": "CARB_FLAG:UNKNOWN:rC:NONE:v1"
+            },
+            {
+              "CurveID": "COAL_FLAG",
+              "TopDepth": 3102.102,
+              "BaseDepth": 3505.3524,
+              "DepthUnit": "volve:reference-data--UnitOfMeasure:m:",
+              "Mnemonic": "COAL_FLAG",
+              "NumberOfColumns": 1,
+              "CurveDescription": "COAL_FLAG:UNKNOWN:rC:NONE:v1"
+            },
+            {
+              "CurveID": "DT",
+              "TopDepth": 1368.7044,
+              "BaseDepth": 3442.5636,
+              "DepthUnit": "volve:reference-data--UnitOfMeasure:m:",
+              "CurveUnit": "volve:reference-data--UnitOfMeasure:us%2Fft:",
+              "Mnemonic": "DT",
+              "NumberOfColumns": 1,
+              "CurveDescription": "DT:UNKNOWN:rC:NONE:v2"
+            },
+            {
+              "CurveID": "GR",
+              "TopDepth": 240.3348,
+              "BaseDepth": 4186.7328,
+              "DepthUnit": "volve:reference-data--UnitOfMeasure:m:",
+              "CurveUnit": "volve:reference-data--UnitOfMeasure:gAPI:",
+              "Mnemonic": "GR",
+              "LogCurveFamilyID": "volve:reference-data--LogCurveFamily:Gamma%20Ray:",
+              "NumberOfColumns": 1,
+              "CurveDescription": "GR:UNKNOWN:rC:NONE:v1"
+            },
+            {
+              "CurveID": "NPHI",
+              "TopDepth": 717.6516,
+              "BaseDepth": 3505.3524,
+              "DepthUnit": "volve:reference-data--UnitOfMeasure:m:",
+              "CurveUnit": "volve:reference-data--UnitOfMeasure:V%2Fm:",
+              "Mnemonic": "NPHI",
+              "LogCurveFamilyID": "volve:reference-data--LogCurveFamily:Neutron%20Porosity:",
+              "NumberOfColumns": 1,
+              "CurveDescription": "NPHI:UNKNOWN:rC:NONE:v1"
+            },
+            {
+              "CurveID": "RD",
+              "TopDepth": 239.8776,
+              "BaseDepth": 3505.962,
+              "DepthUnit": "volve:reference-data--UnitOfMeasure:m:",
+              "Mnemonic": "RD",
+              "NumberOfColumns": 1,
+              "CurveDescription": "RD:UNKNOWN:rC:NONE:v1"
+            },
+            {
+              "CurveID": "RHOB",
+              "TopDepth": 1349.9592,
+              "BaseDepth": 3507.486,
+              "DepthUnit": "volve:reference-data--UnitOfMeasure:m:",
+              "CurveUnit": "volve:reference-data--UnitOfMeasure:g%2Fcm3:",
+              "Mnemonic": "RHOB",
+              "LogCurveFamilyID": "volve:reference-data--LogCurveFamily:Bulk%20Density:",
+              "NumberOfColumns": 1,
+              "CurveDescription": "RHOB:UNKNOWN:rC:NONE:v1"
+            },
+            {
+              "CurveID": "ROP5_RM",
+              "TopDepth": 239.8776,
+              "BaseDepth": 3519.3732,
+              "DepthUnit": "volve:reference-data--UnitOfMeasure:m:",
+              "Mnemonic": "ROP5_RM",
+              "NumberOfColumns": 1,
+              "CurveDescription": "ROP5_RM:UNKNOWN:rC:NONE:v1"
+            },
+            {
+              "CurveID": "RS",
+              "TopDepth": 239.8776,
+              "BaseDepth": 3505.962,
+              "DepthUnit": "volve:reference-data--UnitOfMeasure:m:",
+              "Mnemonic": "RS",
+              "NumberOfColumns": 1,
+              "CurveDescription": "RS:UNKNOWN:rC:NONE:v1"
+            },
+            {
+              "CurveID": "RT",
+              "TopDepth": 239.8776,
+              "BaseDepth": 3505.962,
+              "DepthUnit": "volve:reference-data--UnitOfMeasure:m:",
+              "CurveUnit": "volve:reference-data--UnitOfMeasure:ohm.m:",
+              "Mnemonic": "RT",
+              "LogCurveFamilyID": "volve:reference-data--LogCurveFamily:Resistivity%20-%20Deep:",
+              "NumberOfColumns": 1,
+              "CurveDescription": "RT:UNKNOWN:rC:NONE:v1"
+            },
+            {
+              "CurveID": "SAND_FLAG",
+              "TopDepth": 3102.102,
+              "BaseDepth": 3505.962,
+              "DepthUnit": "volve:reference-data--UnitOfMeasure:m:",
+              "Mnemonic": "SAND_FLAG",
+              "NumberOfColumns": 1,
+              "CurveDescription": "SAND_FLAG:UNKNOWN:rC:NONE:v1"
+            }
+          ],
+          "SamplingInterval": 0.1524,
+          "ReferenceCurveID": "DEPTH",
+          "SamplingStart": 239.8776,
+          "SamplingStop": 4186.7328
+        }
+      },
+      {
+        "id": "volve:work-product-component--WellLog:NO-15-9-F-12-WLC_PETRO_COMPUTED_OUTPUT_1",
+        "kind": "osdu:wks:work-product-component--WellLog:1.5.0",
+        "acl": {
+          "owners": [
+            "data.default.owners@volve.example.com"
+          ],
+          "viewers": [
+            "data.default.viewers@volve.example.com"
+          ]
+        },
+        "legal": {
+          "legaltags": [
+            "volve-equinor-open-data-licence"
+          ],
+          "otherRelevantDataCountries": [
+            "NO"
+          ]
+        },
+        "data": {
+          "Name": "WLC_PETRO_COMPUTED_OUTPUT_1.LAS",
+          "Datasets": [
+            "volve:dataset--File.Generic:NO-15-9-F-12-WLC_PETRO_COMPUTED_OUTPUT_1:"
+          ],
+          "WellboreID": "volve:master-data--Wellbore:NO-15-9-F-12:",
+          "NullValue": "-999.25",
+          "TopMeasuredDepth": 3102.102,
+          "BottomMeasuredDepth": 3505.8096,
+          "Curves": [
+            {
+              "CurveID": "BVW",
+              "TopDepth": 3102.102,
+              "BaseDepth": 3505.8096,
+              "DepthUnit": "volve:reference-data--UnitOfMeasure:m:",
+              "Mnemonic": "BVW",
+              "NumberOfColumns": 1,
+              "CurveDescription": "BVW:UNKNOWN:rC:NONE:v1"
+            },
+            {
+              "CurveID": "KLOGH",
+              "TopDepth": 3102.102,
+              "BaseDepth": 3505.3524,
+              "DepthUnit": "volve:reference-data--UnitOfMeasure:m:",
+              "CurveUnit": "volve:reference-data--UnitOfMeasure:mD:",
+              "Mnemonic": "KLOGH",
+              "NumberOfColumns": 1,
+              "CurveDescription": "KLOGH:UNKNOWN:rC:NONE:v1"
+            },
+            {
+              "CurveID": "PHIF",
+              "TopDepth": 3102.102,
+              "BaseDepth": 3505.3524,
+              "DepthUnit": "volve:reference-data--UnitOfMeasure:m:",
+              "Mnemonic": "PHIF",
+              "NumberOfColumns": 1,
+              "CurveDescription": "PHIF:UNKNOWN:rC:NONE:v1"
+            },
+            {
+              "CurveID": "SW",
+              "TopDepth": 3102.102,
+              "BaseDepth": 3505.8096,
+              "DepthUnit": "volve:reference-data--UnitOfMeasure:m:",
+              "Mnemonic": "SW",
+              "NumberOfColumns": 1,
+              "CurveDescription": "SW:UNKNOWN:rC:NONE:v1"
+            },
+            {
+              "CurveID": "VSH",
+              "TopDepth": 3102.102,
+              "BaseDepth": 3505.3524,
+              "DepthUnit": "volve:reference-data--UnitOfMeasure:m:",
+              "Mnemonic": "VSH",
+              "NumberOfColumns": 1,
+              "CurveDescription": "VSH:UNKNOWN:rC:NONE:v1"
+            }
+          ],
+          "SamplingInterval": 0.1524,
+          "ReferenceCurveID": "DEPTH",
+          "SamplingStart": 3102.102,
+          "SamplingStop": 3505.8096
+        }
+      }
+    ],
+    "Datasets": [
+      {
+        "id": "volve:dataset--File.Generic:NO-15-9-F-12-trajectory",
+        "kind": "osdu:wks:dataset--File.Generic:1.0.0",
+        "acl": {
+          "owners": [
+            "data.default.owners@volve.example.com"
+          ],
+          "viewers": [
+            "data.default.viewers@volve.example.com"
+          ]
+        },
+        "legal": {
+          "legaltags": [
+            "volve-equinor-open-data-licence"
+          ],
+          "otherRelevantDataCountries": [
+            "NO"
+          ]
+        },
+        "data": {
+          "Name": "NO-15-9-F-12-trajectory.parquet",
+          "DatasetProperties": {
+            "FileSourceInfo": {
+              "FileSource": "bulk/NO-15-9-F-12-trajectory.parquet",
+              "Name": "NO-15-9-F-12-trajectory.parquet",
+              "FileSize": "18223",
+              "Checksum": "9de357797a52ef57058a224737cd32f5",
+              "ChecksumAlgorithm": "MD5"
+            }
+          }
+        }
+      },
+      {
+        "id": "volve:dataset--File.Generic:NO-15-9-F-12-WLC_PETRO_COMPUTED_INPUT_1",
+        "kind": "osdu:wks:dataset--File.Generic:1.0.0",
+        "acl": {
+          "owners": [
+            "data.default.owners@volve.example.com"
+          ],
+          "viewers": [
+            "data.default.viewers@volve.example.com"
+          ]
+        },
+        "legal": {
+          "legaltags": [
+            "volve-equinor-open-data-licence"
+          ],
+          "otherRelevantDataCountries": [
+            "NO"
+          ]
+        },
+        "data": {
+          "Name": "NO-15-9-F-12-WLC_PETRO_COMPUTED_INPUT_1.parquet",
+          "DatasetProperties": {
+            "FileSourceInfo": {
+              "FileSource": "bulk/NO-15-9-F-12-WLC_PETRO_COMPUTED_INPUT_1.parquet",
+              "Name": "NO-15-9-F-12-WLC_PETRO_COMPUTED_INPUT_1.parquet",
+              "FileSize": "1104446",
+              "Checksum": "aeb4681f89a24dfb00eb88a62d3c20a3",
+              "ChecksumAlgorithm": "MD5"
+            }
+          }
+        }
+      },
+      {
+        "id": "volve:dataset--File.Generic:NO-15-9-F-12-WLC_PETRO_COMPUTED_OUTPUT_1",
+        "kind": "osdu:wks:dataset--File.Generic:1.0.0",
+        "acl": {
+          "owners": [
+            "data.default.owners@volve.example.com"
+          ],
+          "viewers": [
+            "data.default.viewers@volve.example.com"
+          ]
+        },
+        "legal": {
+          "legaltags": [
+            "volve-equinor-open-data-licence"
+          ],
+          "otherRelevantDataCountries": [
+            "NO"
+          ]
+        },
+        "data": {
+          "Name": "NO-15-9-F-12-WLC_PETRO_COMPUTED_OUTPUT_1.parquet",
+          "DatasetProperties": {
+            "FileSourceInfo": {
+              "FileSource": "bulk/NO-15-9-F-12-WLC_PETRO_COMPUTED_OUTPUT_1.parquet",
+              "Name": "NO-15-9-F-12-WLC_PETRO_COMPUTED_OUTPUT_1.parquet",
+              "FileSize": "111453",
+              "Checksum": "0a608433db3045ac4617bd6c5a502b94",
+              "ChecksumAlgorithm": "MD5"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

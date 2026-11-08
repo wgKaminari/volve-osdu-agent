@@ -1,0 +1,32 @@
+{
+  "id": "volve:dataset--File.Generic:NO-15-9-F-12-WLC_PETRO_COMPUTED_INPUT_1",
+  "kind": "osdu:wks:dataset--File.Generic:1.0.0",
+  "acl": {
+    "owners": [
+      "data.default.owners@volve.example.com"
+    ],
+    "viewers": [
+      "data.default.viewers@volve.example.com"
+    ]
+  },
+  "legal": {
+    "legaltags": [
+      "volve-equinor-open-data-licence"
+    ],
+    "otherRelevantDataCountries": [
+      "NO"
+    ]
+  },
+  "data": {
+    "Name": "NO-15-9-F-12-WLC_PETRO_COMPUTED_INPUT_1.parquet",
+    "DatasetProperties": {
+      "FileSourceInfo": {
+        "FileSource": "bulk/NO-15-9-F-12-WLC_PETRO_COMPUTED_INPUT_1.parquet",
+        "Name": "NO-15-9-F-12-WLC_PETRO_COMPUTED_INPUT_1.parquet",
+        "FileSize": "1104446",
+        "Checksum": "aeb4681f89a24dfb00eb88a62d3c20a3",
+        "ChecksumAlgorithm": "MD5"
+      }
+    }
+  }
+}

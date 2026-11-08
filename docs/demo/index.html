@@ -1,0 +1,404 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1'><title>Volve OSDU review</title><style>
+:root { --bg:#fbfaf7; --fg:#1d232b; --muted:#5d6670; --card:#ffffff; --line:#e3e0d8;
+  --warn:#9a5b00; --warn-bg:#fff4e0; --block:#a1262b; --block-bg:#fde8e8; --info:#285c8c;
+  --info-bg:#e6f0fa; --ok:#2f6b3a; --code:#f3f1ec; --accent:#0b5f6b; }
+@media (prefers-color-scheme: dark) { :root { --bg:#14181d; --fg:#e6e8eb; --muted:#9aa3ad;
+  --card:#1c2128; --line:#2c333c; --warn:#f0b35a; --warn-bg:#3a2c14; --block:#f08a8e;
+  --block-bg:#3b1d20; --info:#8cc0f0; --info-bg:#172a3d; --ok:#8fd19e; --code:#232a32;
+  --accent:#6cc5d1; } }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--fg);
+  font:15px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width: 980px; margin: 0 auto; padding: 32px 16px 64px; }
+h1 { font-size: 28px; margin: 0 0 4px; } h2 { font-size: 19px; margin: 36px 0 12px; }
+.sub { color: var(--muted); margin: 0 0 20px; }
+.stats { display:grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap:12px; }
+.stat { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:12px 14px; }
+.stat b { display:block; font-size:24px; } .stat span { color:var(--muted); font-size:13px; }
+.flag { border-radius:10px; padding:12px 14px; margin:10px 0; border:1px solid var(--line); }
+.flag.warn { background:var(--warn-bg); } .flag.block { background:var(--block-bg); }
+.flag.info { background:var(--info-bg); }
+.sev { font-weight:700; text-transform:uppercase; font-size:12px; letter-spacing:.04em; }
+.warn .sev { color:var(--warn); } .block .sev { color:var(--block); } .info .sev { color:var(--info); }
+table { width:100%; border-collapse:collapse; background:var(--card); border:1px solid var(--line);
+  border-radius:10px; overflow:hidden; font-size:14px; }
+th, td { text-align:left; padding:8px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+th { color:var(--muted); font-weight:600; }
+code, pre { font: 13px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace; }
+code { background:var(--code); padding:1px 5px; border-radius:4px; overflow-wrap:anywhere; }
+pre { background:var(--code); padding:12px; border-radius:8px; overflow:auto; max-height:420px; }
+details { background:var(--card); border:1px solid var(--line); border-radius:10px; margin:8px 0;
+  padding:8px 12px; } summary { cursor:pointer; font-weight:600; }
+.ok { color:var(--ok); font-weight:600; } .muted { color:var(--muted); }
+.table-wrap { overflow-x:auto; }
+footer { margin-top:40px; color:var(--muted); font-size:13px; }
+a { color: var(--accent); }
+</style></head><body><main>
+<h1>Wellbore 15/9-F-12</h1>
+<p class='sub'>Raw Volve files converted to OSDU records by <code>volve-osdu</code>. Every value below carries its source; anything a human must decide is a review flag.</p>
+<div class='stats'>
+<div class='stat'><b>10</b><span>OSDU records</span></div>
+<div class='stat'><b>6</b><span>review flags</span></div>
+<div class='stat'><b class='ok'>0</b><span>validation errors</span></div>
+<div class='stat'><b>8</b><span>LLM calls</span></div></div>
+<h2>Review flags</h2>
+<div class='flag warn'><span class='sev'>warn · ungrounded</span><div>dropped LLM value 3500.0: quote does not state a total depth</div><ul><li><b>3500.0</b> ← <code>PETROPHYSICAL_REPORT_1.PDF</code> PDF:p5 <span class='muted'>(llm_extracted)</span><br><span class="muted">“3500 3500”</span></li></ul></div>
+<div class='flag warn'><span class='sev'>warn · ungrounded</span><div>dropped LLM value 0.0: no quote</div><ul><li><b>0.0</b> ← <code>PETROPHYSICAL_REPORT_1.PDF</code> PDF:p0 <span class='muted'>(llm_extracted)</span></li></ul></div>
+<div class='flag warn'><span class='sev'>warn · ungrounded</span><div>dropped LLM value &#x27;15/9-F-12&#x27;: no quote</div><ul><li><b>15/9-F-12</b> ← <code>PETROPHYSICAL_REPORT_1.PDF</code> PDF:p0 <span class='muted'>(llm_extracted)</span></li></ul></div>
+<div class='flag warn'><span class='sev'>warn · ungrounded</span><div>dropped LLM value 0.0: no quote</div><ul><li><b>0.0</b> ← <code>PETROPHYSICAL_REPORT_1.PDF</code> PDF:p0 <span class='muted'>(llm_extracted)</span></li></ul></div>
+<div class='flag warn'><span class='sev'>warn · crs_assumed</span><div>LAS LAT/LON state no datum; recorded as ED50 (EPSG:4230). Confirm the datum before ingestion (an ED50/WGS84 mix-up moves the well ~100 m).</div><ul><li><b>58.441713</b> ← <code>WLC_PETRO_COMPUTED_INPUT_1.LAS</code> LAS:~Well/LAT <span class='muted'>(parsed)</span><br><code>WLC_PETRO_COMPUTED_OUTPUT_1.LAS</code> LAS:~Well/LAT <span class='muted'>(parsed)</span></li><li><b>1.88748</b> ← <code>WLC_PETRO_COMPUTED_INPUT_1.LAS</code> LAS:~Well/LON <span class='muted'>(parsed)</span><br><code>WLC_PETRO_COMPUTED_OUTPUT_1.LAS</code> LAS:~Well/LON <span class='muted'>(parsed)</span></li></ul></div>
+<div class='flag warn'><span class='sev'>warn · log_below_survey</span><div>WLC_PETRO_COMPUTED_INPUT_1.LAS curve GR has data down to 4186.7 m MD, 666.7 m below the final survey station at 3520.0 m MD (4,375 non-null samples deeper)</div><ul><li><b>4186.7328</b> ← <code>WLC_PETRO_COMPUTED_INPUT_1.LAS</code> LAS:~Curve/GR last non-null sample <span class='muted'>(parsed)</span></li><li><b>3520.0</b> ← <code>F-12_ACTUAL</code> WELLPATH:MD row 210 <span class='muted'>(parsed)</span></li></ul></div>
+<h2>Facts and where they came from</h2><div class='table-wrap'><table><tr><th>Fact</th><th>Value</th><th>Sources</th></tr>
+<tr><td>field_name</td><td>VOLVE </td><td><code>WLC_PETRO_COMPUTED_INPUT_1.LAS</code> LAS:~Well/FLD <span class='muted'>(parsed)</span><br><code>WLC_PETRO_COMPUTED_OUTPUT_1.LAS</code> LAS:~Well/FLD <span class='muted'>(parsed)</span></td></tr>
+<tr><td>kb_elevation_m</td><td>54.9 m</td><td><code>WLC_PETRO_COMPUTED_INPUT_1.LAS</code> LAS:~Well/ELEV <span class='muted'>(parsed)</span><br><code>WLC_PETRO_COMPUTED_OUTPUT_1.LAS</code> LAS:~Well/ELEV <span class='muted'>(parsed)</span></td></tr>
+<tr><td>operator_name</td><td>STATOILHYDRO </td><td><code>WLC_PETRO_COMPUTED_INPUT_1.LAS</code> LAS:~Well/COMP <span class='muted'>(parsed)</span><br><code>WLC_PETRO_COMPUTED_OUTPUT_1.LAS</code> LAS:~Well/COMP <span class='muted'>(parsed)</span></td></tr>
+<tr><td>surface_latitude_deg</td><td>58.441713 deg</td><td><code>WLC_PETRO_COMPUTED_INPUT_1.LAS</code> LAS:~Well/LAT <span class='muted'>(parsed)</span><br><code>WLC_PETRO_COMPUTED_OUTPUT_1.LAS</code> LAS:~Well/LAT <span class='muted'>(parsed)</span></td></tr>
+<tr><td>surface_longitude_deg</td><td>1.88748 deg</td><td><code>WLC_PETRO_COMPUTED_INPUT_1.LAS</code> LAS:~Well/LON <span class='muted'>(parsed)</span><br><code>WLC_PETRO_COMPUTED_OUTPUT_1.LAS</code> LAS:~Well/LON <span class='muted'>(parsed)</span></td></tr>
+</table></div>
+<h2>OSDU records (manifest content)</h2>
+<details><summary>work-product-component--WellboreTrajectory <span class='muted'>volve:work-product-component--WellboreTrajectory:NO-15-9-F-12-F-12_ACTUAL</span></summary><pre>{
+  &quot;Name&quot;: &quot;F-12_ACTUAL&quot;,
+  &quot;Datasets&quot;: [
+    &quot;volve:dataset--File.Generic:NO-15-9-F-12-trajectory:&quot;
+  ],
+  &quot;WellboreID&quot;: &quot;volve:master-data--Wellbore:NO-15-9-F-12:&quot;,
+  &quot;TopDepthMeasuredDepth&quot;: 145.9,
+  &quot;BaseDepthMeasuredDepth&quot;: 3520.0,
+  &quot;VerticalMeasurement&quot;: {
+    &quot;VerticalMeasurement&quot;: 54.9,
+    &quot;VerticalMeasurementTypeID&quot;: &quot;volve:reference-data--VerticalMeasurementType:KellyBushing:&quot;,
+    &quot;VerticalMeasurementPathID&quot;: &quot;volve:reference-data--VerticalMeasurementPath:ELEV:&quot;,
+    &quot;VerticalMeasurementUnitOfMeasureID&quot;: &quot;volve:reference-data--UnitOfMeasure:m:&quot;
+  },
+  &quot;AvailableTrajectoryStationProperties&quot;: [
+    {
+      &quot;StationPropertyUnitID&quot;: &quot;volve:reference-data--UnitOfMeasure:m:&quot;,
+      &quot;Name&quot;: &quot;md_m&quot;
+    },
+    {
+      &quot;StationPropertyUnitID&quot;: &quot;volve:reference-data--UnitOfMeasure:dega:&quot;,
+      &quot;Name&quot;: &quot;inclination_deg&quot;
+    },
+    {
+      &quot;StationPropertyUnitID&quot;: &quot;volve:reference-data--UnitOfMeasure:dega:&quot;,
+      &quot;Name&quot;: &quot;azimuth_deg&quot;
+    },
+    {
+      &quot;StationPropertyUnitID&quot;: &quot;volve:reference-data--UnitOfMeasure:m:&quot;,
+      &quot;Name&quot;: &quot;tvd_m&quot;
+    },
+    {
+      &quot;StationPropertyUnitID&quot;: &quot;volve:reference-data--UnitOfMeasure:m:&quot;,
+      &quot;Name&quot;: &quot;offset_ew_m&quot;
+    },
+    {
+      &quot;StationPropertyUnitID&quot;: &quot;volve:reference-data--UnitOfMeasure:m:&quot;,
+      &quot;Name&quot;: &quot;offset_ns_m&quot;
+    },
+    {
+      &quot;StationPropertyUnitID&quot;: &quot;volve:reference-data--UnitOfMeasure:m:&quot;,
+      &quot;Name&quot;: &quot;x_m&quot;
+    },
+    {
+      &quot;StationPropertyUnitID&quot;: &quot;volve:reference-data--UnitOfMeasure:m:&quot;,
+      &quot;Name&quot;: &quot;y_m&quot;
+    },
+    {
+      &quot;StationPropertyUnitID&quot;: &quot;volve:reference-data--UnitOfMeasure:1%2F30%20dega%2Fm:&quot;,
+      &quot;Name&quot;: &quot;dls_deg_per_30m&quot;
+    }
+  ],
+  &quot;IsDefinitive&quot;: true
+}</pre></details>
+<details><summary>dataset--File.Generic <span class='muted'>volve:dataset--File.Generic:NO-15-9-F-12-WLC_PETRO_COMPUTED_INPUT_1</span></summary><pre>{
+  &quot;Name&quot;: &quot;NO-15-9-F-12-WLC_PETRO_COMPUTED_INPUT_1.parquet&quot;,
+  &quot;DatasetProperties&quot;: {
+    &quot;FileSourceInfo&quot;: {
+      &quot;FileSource&quot;: &quot;bulk/NO-15-9-F-12-WLC_PETRO_COMPUTED_INPUT_1.parquet&quot;,
+      &quot;Name&quot;: &quot;NO-15-9-F-12-WLC_PETRO_COMPUTED_INPUT_1.parquet&quot;,
+      &quot;FileSize&quot;: &quot;1104446&quot;,
+      &quot;Checksum&quot;: &quot;aeb4681f89a24dfb00eb88a62d3c20a3&quot;,
+      &quot;ChecksumAlgorithm&quot;: &quot;MD5&quot;
+    }
+  }
+}</pre></details>
+<details><summary>work-product-component--WellLog <span class='muted'>volve:work-product-component--WellLog:NO-15-9-F-12-WLC_PETRO_COMPUTED_INPUT_1</span></summary><pre>{
+  &quot;Name&quot;: &quot;WLC_PETRO_COMPUTED_INPUT_1.LAS&quot;,
+  &quot;Datasets&quot;: [
+    &quot;volve:dataset--File.Generic:NO-15-9-F-12-WLC_PETRO_COMPUTED_INPUT_1:&quot;
+  ],
+  &quot;WellboreID&quot;: &quot;volve:master-data--Wellbore:NO-15-9-F-12:&quot;,
+  &quot;NullValue&quot;: &quot;-999.25&quot;,
+  &quot;TopMeasuredDepth&quot;: 239.8776,
+  &quot;BottomMeasuredDepth&quot;: 4186.7328,
+  &quot;Curves&quot;: [
+    {
+      &quot;CurveID&quot;: &quot;CARB_FLAG&quot;,
+      &quot;TopDepth&quot;: 3102.102,
+      &quot;BaseDepth&quot;: 3519.9828,
+      &quot;DepthUnit&quot;: &quot;volve:reference-data--UnitOfMeasure:m:&quot;,
+      &quot;Mnemonic&quot;: &quot;CARB_FLAG&quot;,
+      &quot;NumberOfColumns&quot;: 1,
+      &quot;CurveDescription&quot;: &quot;CARB_FLAG:UNKNOWN:rC:NONE:v1&quot;
+    },
+    {
+      &quot;CurveID&quot;: &quot;COAL_FLAG&quot;,
+      &quot;TopDepth&quot;: 3102.102,
+      &quot;BaseDepth&quot;: 3505.3524,
+      &quot;DepthUnit&quot;: &quot;volve:reference-data--UnitOfMeasure:m:&quot;,
+      &quot;Mnemonic&quot;: &quot;COAL_FLAG&quot;,
+      &quot;NumberOfColumns&quot;: 1,
+      &quot;CurveDescription&quot;: &quot;COAL_FLAG:UNKNOWN:rC:NONE:v1&quot;
+    },
+    {
+      &quot;CurveID&quot;: &quot;DT&quot;,
+      &quot;TopDepth&quot;: 1368.7044,
+      &quot;BaseDepth&quot;: 3442.5636,
+      &quot;DepthUnit&quot;: &quot;volve:reference-data--UnitOfMeasure:m:&quot;,
+      &quot;CurveUnit&quot;: &quot;volve:reference-data--UnitOfMeasure:us%2Fft:&quot;,
+      &quot;Mnemonic&quot;: &quot;DT&quot;,
+      &quot;NumberOfColumns&quot;: 1,
+      &quot;CurveDescription&quot;: &quot;DT:UNKNOWN:rC:NONE:v2&quot;
+    },
+    {
+      &quot;CurveID&quot;: &quot;GR&quot;,
+      &quot;TopDepth&quot;: 240.3348,
+      &quot;BaseDepth&quot;: 4186.7328,
+      &quot;DepthUnit&quot;: &quot;volve:reference-data--UnitOfMeasure:m:&quot;,
+      &quot;CurveUnit&quot;: &quot;volve:reference-data--UnitOfMeasure:gAPI:&quot;,
+      &quot;Mnemonic&quot;: &quot;GR&quot;,
+      &quot;LogCurveFamilyID&quot;: &quot;volve:reference-data--LogCurveFamily:Gamma%20Ray:&quot;,
+      &quot;NumberOfColumns&quot;: 1,
+      &quot;CurveDescription&quot;: &quot;GR:UNKNOWN:rC:NONE:v1&quot;
+    },
+    {
+      &quot;CurveID&quot;: &quot;NPHI&quot;,
+      &quot;TopDepth&quot;: 717.6516,
+      &quot;BaseDepth&quot;: 3505.3524,
+      &quot;DepthUnit&quot;: &quot;volve:reference-data--UnitOfMeasure:m:&quot;,
+      &quot;CurveUnit&quot;: &quot;volve:reference-data--UnitOfMeasure:V%2Fm:&quot;,
+      &quot;Mnemonic&quot;: &quot;NPHI&quot;,
+      &quot;LogCurveFamilyID&quot;: &quot;volve:reference-data--LogCurveFamily:Neutron%20Porosity:&quot;,
+      &quot;NumberOfColumns&quot;: 1,
+      &quot;CurveDescription&quot;: &quot;NPHI:UNKNOWN:rC:NONE:v1&quot;
+    },
+    {
+      &quot;CurveID&quot;: &quot;RD&quot;,
+      &quot;TopDepth&quot;: 239.8776,
+      &quot;BaseDepth&quot;: 3505.962,
+      &quot;DepthUnit&quot;: &quot;volve:reference-data--UnitOfMeasure:m:&quot;,
+      &quot;Mnemonic&quot;: &quot;RD&quot;,
+      &quot;NumberOfColumns&quot;: 1,
+      &quot;CurveDescription&quot;: &quot;RD:UNKNOWN:rC:NONE:v1&quot;
+    },
+    {
+      &quot;CurveID&quot;: &quot;RHOB&quot;,
+      &quot;TopDepth&quot;: 1349.9592,
+      &quot;BaseDepth&quot;: 3507.486,
+      &quot;DepthUnit&quot;: &quot;volve:reference-data--UnitOfMeasure:m:&quot;,
+      &quot;CurveUnit&quot;: &quot;volve:reference-data--UnitOfMeasure:g%2Fcm3:&quot;,
+      &quot;Mnemonic&quot;: &quot;RHOB&quot;,
+      &quot;LogCurveFamilyID&quot;: &quot;volve:reference-data--LogCurveFamily:Bulk%20Density:&quot;,
+      &quot;NumberOfColumns&quot;: 1,
+      &quot;CurveDescription&quot;: &quot;RHOB:UNKNOWN:rC:NONE:v1&quot;
+    },
+    {
+      &quot;CurveID&quot;: &quot;ROP5_RM&quot;,
+      &quot;TopDepth&quot;: 239.8776,
+      &quot;BaseDepth&quot;: 3519.3732,
+      &quot;DepthUnit&quot;: &quot;volve:reference-data--UnitOfMeasure:m:&quot;,
+      &quot;Mnemonic&quot;: &quot;ROP5_RM&quot;,
+      &quot;NumberOfColumns&quot;: 1,
+      &quot;CurveDescription&quot;: &quot;ROP5_RM:UNKNOWN:rC:NONE:v1&quot;
+    },
+    {
+      &quot;CurveID&quot;: &quot;RS&quot;,
+      &quot;TopDepth&quot;: 239.8776,
+      &quot;BaseDepth&quot;: 3505.962,
+      &quot;DepthUnit&quot;: &quot;volve:reference-data--UnitOfMeasure:m:&quot;,
+      &quot;Mnemonic&quot;: &quot;RS&quot;,
+      &quot;NumberOfColumns&quot;: 1,
+      &quot;CurveDescription&quot;: &quot;RS:UNKNOWN:rC:NONE:v1&quot;
+    },
+    {
+      &quot;CurveID&quot;: &quot;RT&quot;,
+      &quot;TopDepth&quot;: 239.8776,
+      &quot;BaseDepth&quot;: 3505.962,
+      &quot;DepthUnit&quot;: &quot;volve:reference-data--UnitOfMeasure:m:&quot;,
+      &quot;CurveUnit&quot;: &quot;volve:reference-data--UnitOfMeasure:ohm.m:&quot;,
+      &quot;Mnemonic&quot;: &quot;RT&quot;,
+      &quot;LogCurveFamilyID&quot;: &quot;volve:reference-data--LogCurveFamily:Resistivity%20-%20Deep:&quot;,
+      &quot;NumberOfColumns&quot;: 1,
+      &quot;CurveDescription&quot;: &quot;RT:UNKNOWN:rC:NONE:v1&quot;
+    },
+    {
+      &quot;CurveID&quot;: &quot;SAND_FLAG&quot;,
+      &quot;TopDepth&quot;: 3102.102,
+      &quot;BaseDepth&quot;: 3505.962,
+      &quot;DepthUnit&quot;: &quot;volve:reference-data--UnitOfMeasure:m:&quot;,
+      &quot;Mnemonic&quot;: &quot;SAND_FLAG&quot;,
+      &quot;NumberOfColumns&quot;: 1,
+      &quot;CurveDescription&quot;: &quot;SAND_FLAG:UNKNOWN:rC:NONE:v1&quot;
+    }
+  ],
+  &quot;SamplingInterval&quot;: 0.1524,
+  &quot;ReferenceCurveID&quot;: &quot;DEPTH&quot;,
+  &quot;SamplingStart&quot;: 239.8776,
+  &quot;SamplingStop&quot;: 4186.7328
+}</pre></details>
+<details><summary>dataset--File.Generic <span class='muted'>volve:dataset--File.Generic:NO-15-9-F-12-WLC_PETRO_COMPUTED_OUTPUT_1</span></summary><pre>{
+  &quot;Name&quot;: &quot;NO-15-9-F-12-WLC_PETRO_COMPUTED_OUTPUT_1.parquet&quot;,
+  &quot;DatasetProperties&quot;: {
+    &quot;FileSourceInfo&quot;: {
+      &quot;FileSource&quot;: &quot;bulk/NO-15-9-F-12-WLC_PETRO_COMPUTED_OUTPUT_1.parquet&quot;,
+      &quot;Name&quot;: &quot;NO-15-9-F-12-WLC_PETRO_COMPUTED_OUTPUT_1.parquet&quot;,
+      &quot;FileSize&quot;: &quot;111453&quot;,
+      &quot;Checksum&quot;: &quot;0a608433db3045ac4617bd6c5a502b94&quot;,
+      &quot;ChecksumAlgorithm&quot;: &quot;MD5&quot;
+    }
+  }
+}</pre></details>
+<details><summary>work-product-component--WellLog <span class='muted'>volve:work-product-component--WellLog:NO-15-9-F-12-WLC_PETRO_COMPUTED_OUTPUT_1</span></summary><pre>{
+  &quot;Name&quot;: &quot;WLC_PETRO_COMPUTED_OUTPUT_1.LAS&quot;,
+  &quot;Datasets&quot;: [
+    &quot;volve:dataset--File.Generic:NO-15-9-F-12-WLC_PETRO_COMPUTED_OUTPUT_1:&quot;
+  ],
+  &quot;WellboreID&quot;: &quot;volve:master-data--Wellbore:NO-15-9-F-12:&quot;,
+  &quot;NullValue&quot;: &quot;-999.25&quot;,
+  &quot;TopMeasuredDepth&quot;: 3102.102,
+  &quot;BottomMeasuredDepth&quot;: 3505.8096,
+  &quot;Curves&quot;: [
+    {
+      &quot;CurveID&quot;: &quot;BVW&quot;,
+      &quot;TopDepth&quot;: 3102.102,
+      &quot;BaseDepth&quot;: 3505.8096,
+      &quot;DepthUnit&quot;: &quot;volve:reference-data--UnitOfMeasure:m:&quot;,
+      &quot;Mnemonic&quot;: &quot;BVW&quot;,
+      &quot;NumberOfColumns&quot;: 1,
+      &quot;CurveDescription&quot;: &quot;BVW:UNKNOWN:rC:NONE:v1&quot;
+    },
+    {
+      &quot;CurveID&quot;: &quot;KLOGH&quot;,
+      &quot;TopDepth&quot;: 3102.102,
+      &quot;BaseDepth&quot;: 3505.3524,
+      &quot;DepthUnit&quot;: &quot;volve:reference-data--UnitOfMeasure:m:&quot;,
+      &quot;CurveUnit&quot;: &quot;volve:reference-data--UnitOfMeasure:mD:&quot;,
+      &quot;Mnemonic&quot;: &quot;KLOGH&quot;,
+      &quot;NumberOfColumns&quot;: 1,
+      &quot;CurveDescription&quot;: &quot;KLOGH:UNKNOWN:rC:NONE:v1&quot;
+    },
+    {
+      &quot;CurveID&quot;: &quot;PHIF&quot;,
+      &quot;TopDepth&quot;: 3102.102,
+      &quot;BaseDepth&quot;: 3505.3524,
+      &quot;DepthUnit&quot;: &quot;volve:reference-data--UnitOfMeasure:m:&quot;,
+      &quot;Mnemonic&quot;: &quot;PHIF&quot;,
+      &quot;NumberOfColumns&quot;: 1,
+      &quot;CurveDescription&quot;: &quot;PHIF:UNKNOWN:rC:NONE:v1&quot;
+    },
+    {
+      &quot;CurveID&quot;: &quot;SW&quot;,
+      &quot;TopDepth&quot;: 3102.102,
+      &quot;BaseDepth&quot;: 3505.8096,
+      &quot;DepthUnit&quot;: &quot;volve:reference-data--UnitOfMeasure:m:&quot;,
+      &quot;Mnemonic&quot;: &quot;SW&quot;,
+      &quot;NumberOfColumns&quot;: 1,
+      &quot;CurveDescription&quot;: &quot;SW:UNKNOWN:rC:NONE:v1&quot;
+    },
+    {
+      &quot;CurveID&quot;: &quot;VSH&quot;,
+      &quot;TopDepth&quot;: 3102.102,
+      &quot;BaseDepth&quot;: 3505.3524,
+      &quot;DepthUnit&quot;: &quot;volve:reference-data--UnitOfMeasure:m:&quot;,
+      &quot;Mnemonic&quot;: &quot;VSH&quot;,
+      &quot;NumberOfColumns&quot;: 1,
+      &quot;CurveDescription&quot;: &quot;VSH:UNKNOWN:rC:NONE:v1&quot;
+    }
+  ],
+  &quot;SamplingInterval&quot;: 0.1524,
+  &quot;ReferenceCurveID&quot;: &quot;DEPTH&quot;,
+  &quot;SamplingStart&quot;: 3102.102,
+  &quot;SamplingStop&quot;: 3505.8096
+}</pre></details>
+<details><summary>dataset--File.Generic <span class='muted'>volve:dataset--File.Generic:NO-15-9-F-12-trajectory</span></summary><pre>{
+  &quot;Name&quot;: &quot;NO-15-9-F-12-trajectory.parquet&quot;,
+  &quot;DatasetProperties&quot;: {
+    &quot;FileSourceInfo&quot;: {
+      &quot;FileSource&quot;: &quot;bulk/NO-15-9-F-12-trajectory.parquet&quot;,
+      &quot;Name&quot;: &quot;NO-15-9-F-12-trajectory.parquet&quot;,
+      &quot;FileSize&quot;: &quot;18223&quot;,
+      &quot;Checksum&quot;: &quot;9de357797a52ef57058a224737cd32f5&quot;,
+      &quot;ChecksumAlgorithm&quot;: &quot;MD5&quot;
+    }
+  }
+}</pre></details>
+<details><summary>master-data--Well <span class='muted'>volve:master-data--Well:NO-15-9-F-12</span></summary><pre>{
+  &quot;CurrentOperatorID&quot;: &quot;volve:master-data--Organisation:STATOILHYDRO:&quot;,
+  &quot;FacilityName&quot;: &quot;15/9-F-12&quot;,
+  &quot;GeoContexts&quot;: [
+    {
+      &quot;FieldID&quot;: &quot;volve:master-data--Field:VOLVE:&quot;,
+      &quot;GeoTypeID&quot;: &quot;Field&quot;
+    }
+  ],
+  &quot;SpatialLocation&quot;: {
+    &quot;AsIngestedCoordinates&quot;: {
+      &quot;type&quot;: &quot;AnyCrsFeatureCollection&quot;,
+      &quot;CoordinateReferenceSystemID&quot;: &quot;volve:reference-data--CoordinateReferenceSystem:Geographic2D:EPSG::4230:&quot;,
+      &quot;persistableReferenceCrs&quot;: &quot;{\&quot;authCode\&quot;:{\&quot;auth\&quot;:\&quot;EPSG\&quot;,\&quot;code\&quot;:\&quot;4230\&quot;},\&quot;name\&quot;:\&quot;GCS_European_1950\&quot;,\&quot;type\&quot;:\&quot;LBC\&quot;,\&quot;ver\&quot;:\&quot;PE_10_9_1\&quot;,\&quot;wkt\&quot;:\&quot;GEOGCS[\\\&quot;GCS_European_1950\\\&quot;,DATUM[\\\&quot;D_European_1950\\\&quot;,SPHEROID[\\\&quot;International_1924\\\&quot;,6378388.0,297.0]],PRIMEM[\\\&quot;Greenwich\\\&quot;,0.0],UNIT[\\\&quot;Degree\\\&quot;,0.0174532925199433],AUTHORITY[\\\&quot;EPSG\\\&quot;,4230]]\&quot;}&quot;,
+      &quot;features&quot;: [
+        {
+          &quot;type&quot;: &quot;AnyCrsFeature&quot;,
+          &quot;properties&quot;: {},
+          &quot;geometry&quot;: {
+            &quot;type&quot;: &quot;AnyCrsPoint&quot;,
+            &quot;coordinates&quot;: [
+              1.88748,
+              58.441713
+            ]
+          }
+        }
+      ]
+    }
+  }
+}</pre></details>
+<details><summary>master-data--Wellbore <span class='muted'>volve:master-data--Wellbore:NO-15-9-F-12</span></summary><pre>{
+  &quot;CurrentOperatorID&quot;: &quot;volve:master-data--Organisation:STATOILHYDRO:&quot;,
+  &quot;FacilityName&quot;: &quot;15/9-F-12&quot;,
+  &quot;NameAliases&quot;: [
+    {
+      &quot;AliasName&quot;: &quot;NO 15/9-F-12&quot;
+    },
+    {
+      &quot;AliasName&quot;: &quot;15_9-F12&quot;
+    }
+  ],
+  &quot;GeoContexts&quot;: [
+    {
+      &quot;FieldID&quot;: &quot;volve:master-data--Field:VOLVE:&quot;,
+      &quot;GeoTypeID&quot;: &quot;Field&quot;
+    }
+  ],
+  &quot;WellID&quot;: &quot;volve:master-data--Well:NO-15-9-F-12:&quot;,
+  &quot;VerticalMeasurements&quot;: [
+    {
+      &quot;VerticalMeasurement&quot;: 54.9,
+      &quot;VerticalMeasurementTypeID&quot;: &quot;volve:reference-data--VerticalMeasurementType:KellyBushing:&quot;,
+      &quot;VerticalMeasurementPathID&quot;: &quot;volve:reference-data--VerticalMeasurementPath:ELEV:&quot;,
+      &quot;VerticalMeasurementUnitOfMeasureID&quot;: &quot;volve:reference-data--UnitOfMeasure:m:&quot;,
+      &quot;VerticalMeasurementID&quot;: &quot;KB&quot;
+    }
+  ],
+  &quot;DefinitiveTrajectoryID&quot;: &quot;volve:work-product-component--WellboreTrajectory:NO-15-9-F-12-F-12_ACTUAL:&quot;,
+  &quot;DefaultVerticalMeasurementID&quot;: &quot;KB&quot;
+}</pre></details>
+<details><summary>master-data--Organisation <span class='muted'>volve:master-data--Organisation:STATOILHYDRO</span></summary><pre>{
+  &quot;OrganisationName&quot;: &quot;STATOILHYDRO&quot;
+}</pre></details>
+<details><summary>master-data--Field <span class='muted'>volve:master-data--Field:VOLVE</span></summary><pre>{
+  &quot;FieldName&quot;: &quot;VOLVE&quot;
+}</pre></details>
+<h2>Validation</h2>
+<p class='ok'>All records pass the pinned OSDU schemas and rules 1-10.</p>
+<p class='muted'>10 info notes (e.g. curves left unmapped).</p>
+<footer>Data: Equinor Volve open dataset (Equinor Open Data Licence), credit “Equinor and the Volve licence partners”. Generated by <a href='https://github.com/wgKaminari/volve-osdu-agent'>volve-osdu-agent</a>.</footer></main></body></html>

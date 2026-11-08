@@ -1,0 +1,32 @@
+{
+  "id": "volve:dataset--File.Generic:NO-15-9-F-12-trajectory",
+  "kind": "osdu:wks:dataset--File.Generic:1.0.0",
+  "acl": {
+    "owners": [
+      "data.default.owners@volve.example.com"
+    ],
+    "viewers": [
+      "data.default.viewers@volve.example.com"
+    ]
+  },
+  "legal": {
+    "legaltags": [
+      "volve-equinor-open-data-licence"
+    ],
+    "otherRelevantDataCountries": [
+      "NO"
+    ]
+  },
+  "data": {
+    "Name": "NO-15-9-F-12-trajectory.parquet",
+    "DatasetProperties": {
+      "FileSourceInfo": {
+        "FileSource": "bulk/NO-15-9-F-12-trajectory.parquet",
+        "Name": "NO-15-9-F-12-trajectory.parquet",
+        "FileSize": "18223",
+        "Checksum": "9de357797a52ef57058a224737cd32f5",
+        "ChecksumAlgorithm": "MD5"
+      }
+    }
+  }
+}

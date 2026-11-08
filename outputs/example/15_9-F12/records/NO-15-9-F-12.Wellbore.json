@@ -1,0 +1,50 @@
+{
+  "id": "volve:master-data--Wellbore:NO-15-9-F-12",
+  "kind": "osdu:wks:master-data--Wellbore:1.5.1",
+  "acl": {
+    "owners": [
+      "data.default.owners@volve.example.com"
+    ],
+    "viewers": [
+      "data.default.viewers@volve.example.com"
+    ]
+  },
+  "legal": {
+    "legaltags": [
+      "volve-equinor-open-data-licence"
+    ],
+    "otherRelevantDataCountries": [
+      "NO"
+    ]
+  },
+  "data": {
+    "CurrentOperatorID": "volve:master-data--Organisation:STATOILHYDRO:",
+    "FacilityName": "15/9-F-12",
+    "NameAliases": [
+      {
+        "AliasName": "NO 15/9-F-12"
+      },
+      {
+        "AliasName": "15_9-F12"
+      }
+    ],
+    "GeoContexts": [
+      {
+        "FieldID": "volve:master-data--Field:VOLVE:",
+        "GeoTypeID": "Field"
+      }
+    ],
+    "WellID": "volve:master-data--Well:NO-15-9-F-12:",
+    "VerticalMeasurements": [
+      {
+        "VerticalMeasurement": 54.9,
+        "VerticalMeasurementTypeID": "volve:reference-data--VerticalMeasurementType:KellyBushing:",
+        "VerticalMeasurementPathID": "volve:reference-data--VerticalMeasurementPath:ELEV:",
+        "VerticalMeasurementUnitOfMeasureID": "volve:reference-data--UnitOfMeasure:m:",
+        "VerticalMeasurementID": "KB"
+      }
+    ],
+    "DefinitiveTrajectoryID": "volve:work-product-component--WellboreTrajectory:NO-15-9-F-12-F-12_ACTUAL:",
+    "DefaultVerticalMeasurementID": "KB"
+  }
+}

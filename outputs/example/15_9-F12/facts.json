@@ -1,0 +1,85 @@
+{
+  "kb_elevation_m": {
+    "name": "kb_elevation_m",
+    "value": 54.9,
+    "unit": "m",
+    "provenance": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_INPUT_1.LAS",
+        "locator": "LAS:~Well/ELEV",
+        "method": "parsed"
+      },
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_OUTPUT_1.LAS",
+        "locator": "LAS:~Well/ELEV",
+        "method": "parsed"
+      }
+    ]
+  },
+  "surface_latitude_deg": {
+    "name": "surface_latitude_deg",
+    "value": 58.441713,
+    "unit": "deg",
+    "provenance": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_INPUT_1.LAS",
+        "locator": "LAS:~Well/LAT",
+        "method": "parsed"
+      },
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_OUTPUT_1.LAS",
+        "locator": "LAS:~Well/LAT",
+        "method": "parsed"
+      }
+    ]
+  },
+  "surface_longitude_deg": {
+    "name": "surface_longitude_deg",
+    "value": 1.88748,
+    "unit": "deg",
+    "provenance": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_INPUT_1.LAS",
+        "locator": "LAS:~Well/LON",
+        "method": "parsed"
+      },
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_OUTPUT_1.LAS",
+        "locator": "LAS:~Well/LON",
+        "method": "parsed"
+      }
+    ]
+  },
+  "field_name": {
+    "name": "field_name",
+    "value": "VOLVE",
+    "provenance": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_INPUT_1.LAS",
+        "locator": "LAS:~Well/FLD",
+        "method": "parsed"
+      },
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_OUTPUT_1.LAS",
+        "locator": "LAS:~Well/FLD",
+        "method": "parsed"
+      }
+    ]
+  },
+  "operator_name": {
+    "name": "operator_name",
+    "value": "STATOILHYDRO",
+    "provenance": [
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_INPUT_1.LAS",
+        "locator": "LAS:~Well/COMP",
+        "method": "parsed"
+      },
+      {
+        "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_OUTPUT_1.LAS",
+        "locator": "LAS:~Well/COMP",
+        "method": "parsed"
+      }
+    ]
+  }
+}

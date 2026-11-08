@@ -1,0 +1,241 @@
+{
+  "issues": [
+    {
+      "rule": 5,
+      "severity": "info",
+      "record_id": "volve:work-product-component--WellLog:NO-15-9-F-12-WLC_PETRO_COMPUTED_INPUT_1",
+      "path": "Curves[0].CurveUnit",
+      "message": "CARB_FLAG: unit not mapped, left empty"
+    },
+    {
+      "rule": 5,
+      "severity": "info",
+      "record_id": "volve:work-product-component--WellLog:NO-15-9-F-12-WLC_PETRO_COMPUTED_INPUT_1",
+      "path": "Curves[1].CurveUnit",
+      "message": "COAL_FLAG: unit not mapped, left empty"
+    },
+    {
+      "rule": 5,
+      "severity": "info",
+      "record_id": "volve:work-product-component--WellLog:NO-15-9-F-12-WLC_PETRO_COMPUTED_INPUT_1",
+      "path": "Curves[5].CurveUnit",
+      "message": "RD: unit not mapped, left empty"
+    },
+    {
+      "rule": 5,
+      "severity": "info",
+      "record_id": "volve:work-product-component--WellLog:NO-15-9-F-12-WLC_PETRO_COMPUTED_INPUT_1",
+      "path": "Curves[7].CurveUnit",
+      "message": "ROP5_RM: unit not mapped, left empty"
+    },
+    {
+      "rule": 5,
+      "severity": "info",
+      "record_id": "volve:work-product-component--WellLog:NO-15-9-F-12-WLC_PETRO_COMPUTED_INPUT_1",
+      "path": "Curves[8].CurveUnit",
+      "message": "RS: unit not mapped, left empty"
+    },
+    {
+      "rule": 5,
+      "severity": "info",
+      "record_id": "volve:work-product-component--WellLog:NO-15-9-F-12-WLC_PETRO_COMPUTED_INPUT_1",
+      "path": "Curves[10].CurveUnit",
+      "message": "SAND_FLAG: unit not mapped, left empty"
+    },
+    {
+      "rule": 5,
+      "severity": "info",
+      "record_id": "volve:work-product-component--WellLog:NO-15-9-F-12-WLC_PETRO_COMPUTED_OUTPUT_1",
+      "path": "Curves[0].CurveUnit",
+      "message": "BVW: unit not mapped, left empty"
+    },
+    {
+      "rule": 5,
+      "severity": "info",
+      "record_id": "volve:work-product-component--WellLog:NO-15-9-F-12-WLC_PETRO_COMPUTED_OUTPUT_1",
+      "path": "Curves[2].CurveUnit",
+      "message": "PHIF: unit not mapped, left empty"
+    },
+    {
+      "rule": 5,
+      "severity": "info",
+      "record_id": "volve:work-product-component--WellLog:NO-15-9-F-12-WLC_PETRO_COMPUTED_OUTPUT_1",
+      "path": "Curves[3].CurveUnit",
+      "message": "SW: unit not mapped, left empty"
+    },
+    {
+      "rule": 5,
+      "severity": "info",
+      "record_id": "volve:work-product-component--WellLog:NO-15-9-F-12-WLC_PETRO_COMPUTED_OUTPUT_1",
+      "path": "Curves[4].CurveUnit",
+      "message": "VSH: unit not mapped, left empty"
+    }
+  ],
+  "flags": [
+    {
+      "severity": "warn",
+      "fact": "td_md_m",
+      "reason": "ungrounded",
+      "message": "dropped LLM value 3500.0: quote does not state a total depth",
+      "candidates": [
+        {
+          "name": "td_md_m",
+          "value": 3500.0,
+          "unit": "m",
+          "provenance": [
+            {
+              "source_file": "data/raw/spwla_volve/15_9-F12/PETROPHYSICAL_REPORT_1.PDF",
+              "locator": "PDF:p5",
+              "method": "llm_extracted",
+              "quote": "3500 3500",
+              "model": "qwen3-4b-8k",
+              "prompt_version": "pdf-facts-v1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "severity": "warn",
+      "fact": "kop_md_m",
+      "reason": "ungrounded",
+      "message": "dropped LLM value 0.0: no quote",
+      "candidates": [
+        {
+          "name": "kop_md_m",
+          "value": 0.0,
+          "unit": "m",
+          "provenance": [
+            {
+              "source_file": "data/raw/spwla_volve/15_9-F12/PETROPHYSICAL_REPORT_1.PDF",
+              "locator": "PDF:p0",
+              "method": "llm_extracted",
+              "quote": "",
+              "model": "qwen3-4b-8k",
+              "prompt_version": "pdf-facts-v1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "severity": "warn",
+      "fact": "kickoff_wellbore_name",
+      "reason": "ungrounded",
+      "message": "dropped LLM value '15/9-F-12': no quote",
+      "candidates": [
+        {
+          "name": "kickoff_wellbore_name",
+          "value": "15/9-F-12",
+          "provenance": [
+            {
+              "source_file": "data/raw/spwla_volve/15_9-F12/PETROPHYSICAL_REPORT_1.PDF",
+              "locator": "PDF:p0",
+              "method": "llm_extracted",
+              "quote": "",
+              "model": "qwen3-4b-8k",
+              "prompt_version": "pdf-facts-v1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "severity": "warn",
+      "fact": "kb_elevation_m",
+      "reason": "ungrounded",
+      "message": "dropped LLM value 0.0: no quote",
+      "candidates": [
+        {
+          "name": "kb_elevation_m",
+          "value": 0.0,
+          "unit": "m",
+          "provenance": [
+            {
+              "source_file": "data/raw/spwla_volve/15_9-F12/PETROPHYSICAL_REPORT_1.PDF",
+              "locator": "PDF:p0",
+              "method": "llm_extracted",
+              "quote": "",
+              "model": "qwen3-4b-8k",
+              "prompt_version": "pdf-facts-v1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "severity": "warn",
+      "fact": "surface_location",
+      "reason": "crs_assumed",
+      "message": "LAS LAT/LON state no datum; recorded as ED50 (EPSG:4230). Confirm the datum before ingestion (an ED50/WGS84 mix-up moves the well ~100 m).",
+      "candidates": [
+        {
+          "name": "surface_latitude_deg",
+          "value": 58.441713,
+          "unit": "deg",
+          "provenance": [
+            {
+              "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_INPUT_1.LAS",
+              "locator": "LAS:~Well/LAT",
+              "method": "parsed"
+            },
+            {
+              "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_OUTPUT_1.LAS",
+              "locator": "LAS:~Well/LAT",
+              "method": "parsed"
+            }
+          ]
+        },
+        {
+          "name": "surface_longitude_deg",
+          "value": 1.88748,
+          "unit": "deg",
+          "provenance": [
+            {
+              "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_INPUT_1.LAS",
+              "locator": "LAS:~Well/LON",
+              "method": "parsed"
+            },
+            {
+              "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_OUTPUT_1.LAS",
+              "locator": "LAS:~Well/LON",
+              "method": "parsed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "severity": "warn",
+      "fact": "GR_base_md_m",
+      "reason": "log_below_survey",
+      "message": "WLC_PETRO_COMPUTED_INPUT_1.LAS curve GR has data down to 4186.7 m MD, 666.7 m below the final survey station at 3520.0 m MD (4,375 non-null samples deeper)",
+      "candidates": [
+        {
+          "name": "GR_base_md_m",
+          "value": 4186.7328,
+          "unit": "m",
+          "provenance": [
+            {
+              "source_file": "data/raw/spwla_volve/15_9-F12/WLC_PETRO_COMPUTED_INPUT_1.LAS",
+              "locator": "LAS:~Curve/GR last non-null sample",
+              "method": "parsed"
+            }
+          ]
+        },
+        {
+          "name": "final_survey_md_m",
+          "value": 3520.0,
+          "unit": "m",
+          "provenance": [
+            {
+              "source_file": "data/raw/volve_field_data/input_data/wellpaths/F-12_ACTUAL",
+              "locator": "WELLPATH:MD row 210",
+              "method": "parsed"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
