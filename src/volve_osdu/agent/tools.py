@@ -42,7 +42,7 @@ KEYWORDS = ("TD", "KOP", "RKB", "side-track", "kicked off", "kick off", "total d
 
 
 def search_pdf(
-    doc: PdfDocument, wellbore: str, max_pages: int = 6, max_chars: int = 16000
+    doc: PdfDocument, wellbore: str, max_pages: int = 5, max_chars: int = 12000
 ) -> list[PdfPage]:
     """Pages most likely to state this wellbore's depths: the name plus depth keywords."""
     scored = []

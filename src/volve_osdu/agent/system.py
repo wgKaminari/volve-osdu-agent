@@ -31,4 +31,9 @@ class AgentSystem:
             mappings=mappings,
             flags=state["flags"],
             trace=self.llm.trace[start:],
+            stats={
+                "grounding": state["grounding"],
+                "pdf_attempts": state["pdf_attempts"],
+                "curve_attempts": state["curve_attempts"],
+            },
         )

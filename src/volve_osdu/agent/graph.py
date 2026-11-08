@@ -38,7 +38,8 @@ from volve_osdu.validate.grounding import check_grounding
 
 logger = logging.getLogger(__name__)
 MAX_ATTEMPTS = 3  # first try + 2 retries (guide 6.1)
-CURVE_BATCH = 40
+NULL_CODES = {"", "NULL", "NONE", "UNKNOWN", "N/A"}  # models often spell "no value" as text
+CURVE_BATCH = 25  # keeps prompt + reasoning inside an 8k context
 PDF_FACTS = {"td_md_m": "m", "kop_md_m": "m", "kb_elevation_m": "m", "kickoff_wellbore_name": None}
 
 
@@ -80,6 +81,7 @@ class State(TypedDict, total=False):
     pdf_attempts: int
     pdf_facts: list[Fact]
     pdf_rejected: list[tuple[Fact, str]]
+    grounding: dict[str, int]  # proposed / grounded counts, all attempts and first attempt
     curve_pending: dict[str, list[dict[str, str]]]  # file -> curves still to map
     curve_feedback: dict[str, str]
     curve_attempts: int
@@ -98,6 +100,9 @@ def parse_reply(text: str, model: type[BaseModel]) -> BaseModel:
 class Agent:
     def __init__(self, llm: CachedLLM) -> None:
         self.llm = llm
+        # Identical curve lines (same mnemonic, unit, description) get the same mapping; the
+        # three 15/9-19 LFP files share ~150 curves, so this avoids mapping them three times.
+        self.memo: dict[tuple[str, str, str], CurveMapping] = {}
         graph = StateGraph(State)
         graph.add_node("identity", self.identity)
         graph.add_node("pdf_facts", self.pdf_facts)
@@ -126,6 +131,7 @@ class Agent:
             "pdf_attempts": 0,
             "pdf_facts": [],
             "pdf_rejected": [],
+            "grounding": {"proposed": 0, "grounded": 0, "first_proposed": 0, "first_grounded": 0},
             "curve_pending": pending,
             "curve_feedback": {},
             "curve_attempts": 0,
@@ -255,6 +261,7 @@ class Agent:
 
         accepted: dict[str, Fact] = {f.name: f for f in state["pdf_facts"]}
         rejected: list[tuple[Fact, str]] = []
+        before = len(accepted)
         for item in out.facts:
             if item.name not in PDF_FACTS or item.name in accepted:
                 continue
@@ -291,6 +298,13 @@ class Agent:
                 checked = checked.model_copy(update={"value": full})
             accepted[item.name] = checked
 
+        counts = dict(state["grounding"])
+        proposed = len(accepted) - before + len(rejected)
+        counts["proposed"] += proposed
+        counts["grounded"] += len(accepted) - before
+        if attempts == 1:
+            counts["first_proposed"] = proposed
+            counts["first_grounded"] = len(accepted) - before
         feedback = ""
         if rejected:
             feedback = (
@@ -300,6 +314,7 @@ class Agent:
         return {
             "pdf_facts": list(accepted.values()),
             "pdf_rejected": rejected,
+            "grounding": counts,
             "pdf_attempts": attempts,
             "pdf_pending": bool(rejected),
             "pdf_feedback": feedback,
@@ -315,7 +330,14 @@ class Agent:
         pending: dict[str, list[dict[str, str]]] = {}
         feedback: dict[str, str] = {}
         method = f"llm {self.llm.model} {prompt.version}"
-        for file, curves in state["curve_pending"].items():
+        for file, all_curves in state["curve_pending"].items():
+            curves = []
+            for curve in all_curves:
+                known = self.memo.get(_curve_key(curve))
+                if known is not None:
+                    mappings[file][curve["mnemonic"]] = known
+                else:
+                    curves.append(curve)
             for i in range(0, len(curves), CURVE_BATCH):
                 batch = curves[i : i + CURVE_BATCH]
                 table = "\n".join(
@@ -350,9 +372,9 @@ class Agent:
                         pending.setdefault(file, []).append(curve)
                         notes.append(f"- {curve['mnemonic']}: " + "; ".join(problems))
                     else:
-                        mappings[file][curve["mnemonic"]] = CurveMapping(
-                            curve["mnemonic"], unit, family, method=method
-                        )
+                        mapping = CurveMapping(curve["mnemonic"], unit, family, method=method)
+                        mappings[file][curve["mnemonic"]] = mapping
+                        self.memo[_curve_key(curve)] = mapping
                 if notes:
                     feedback[file] = (
                         "Fix these curves (choose a suggestion or null):\n" + "\n".join(notes)
@@ -401,7 +423,7 @@ class Agent:
 
 def _check_code(kind: str, code: str | None) -> tuple[str | None, str | None]:
     """(accepted code, problem). null is always acceptable: abstaining is allowed."""
-    if code is None or code == "":
+    if code is None or code.strip().upper() in NULL_CODES:
         return None, None
     if exists(kind, code):
         return code, None
@@ -410,6 +432,12 @@ def _check_code(kind: str, code: str | None) -> tuple[str | None, str | None]:
         return by_lower[code.lower()], None
     suggestions = ", ".join(repr(s) for s in lookup_reference(kind, code))
     return None, f"{kind} {code!r} does not exist; closest: {suggestions}"
+
+
+def _curve_key(curve: dict[str, str]) -> tuple[str, str, str]:
+    """Curve identity without the running index some LAS writers prefix ("10  GR:...")."""
+    description = re.sub(r"^\d+\s+", "", curve["description"].strip())
+    return curve["mnemonic"], curve["unit"], description
 
 
 def _quote_names(quote: str, name: str) -> bool:

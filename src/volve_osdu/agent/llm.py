@@ -33,6 +33,7 @@ class LLMResponse:
 
 class ChatBackend(Protocol):
     model: str
+    params: dict[str, Any]  # request parameters that change the answer; part of the cache key
 
     def chat(self, messages: Messages, temperature: float) -> LLMResponse: ...
 
@@ -40,23 +41,34 @@ class ChatBackend(Protocol):
 class OpenAICompatible:
     """Calls /chat/completions on any OpenAI-compatible server."""
 
-    def __init__(self, base_url: str, api_key: str, model: str, json_mode: bool = True) -> None:
+    def __init__(
+        self,
+        base_url: str,
+        api_key: str,
+        model: str,
+        json_mode: bool = True,
+        timeout: float = 600,
+        reasoning_effort: str | None = None,
+    ) -> None:
         from openai import OpenAI  # imported lazily: tests and the rules system never need it
 
         self.model = model
         self.json_mode = json_mode
-        self._client = OpenAI(base_url=base_url, api_key=api_key, max_retries=5, timeout=120)
+        self.params: dict[str, Any] = {}
+        if json_mode:
+            self.params["response_format"] = {"type": "json_object"}
+        if reasoning_effort:
+            self.params["reasoning_effort"] = reasoning_effort
+        # Local reasoning models (qwen3 on a laptop GPU) can need minutes per call.
+        self._client = OpenAI(base_url=base_url, api_key=api_key, max_retries=5, timeout=timeout)
 
     def chat(self, messages: Messages, temperature: float) -> LLMResponse:
         start = time.perf_counter()
-        extra: dict[str, Any] = (
-            {"response_format": {"type": "json_object"}} if self.json_mode else {}
-        )
         response = self._client.chat.completions.create(
             model=self.model,
             messages=messages,  # type: ignore[arg-type]
             temperature=temperature,
-            **extra,
+            **self.params,
         )
         usage = response.usage
         return LLMResponse(
@@ -72,6 +84,7 @@ class FakeBackend:
 
     def __init__(self, respond: Callable[[Messages], str], model: str = "fake") -> None:
         self.model = model
+        self.params: dict[str, Any] = {}
         self.respond = respond
         self.calls = 0
 
@@ -97,7 +110,12 @@ class CachedLLM:
         return self.backend.model
 
     def key(self, messages: Messages) -> str:
-        payload = {"model": self.model, "messages": messages, "temperature": self.temperature}
+        payload = {
+            "model": self.model,
+            "messages": messages,
+            "temperature": self.temperature,
+            **self.backend.params,
+        }
         return hashlib.sha256(json.dumps(payload, sort_keys=True).encode()).hexdigest()
 
     def complete(self, messages: Messages, *, node: str, prompt_version: str) -> str:
@@ -147,6 +165,8 @@ def from_env() -> CachedLLM:
         api_key=os.environ["LLM_API_KEY"],
         model=os.environ["LLM_MODEL"],
         json_mode=os.environ.get("LLM_JSON_MODE", "true").lower() != "false",
+        timeout=float(os.environ.get("LLM_TIMEOUT_S", "600")),
+        reasoning_effort=os.environ.get("LLM_REASONING_EFFORT") or None,
     )
     return CachedLLM(backend)
 
