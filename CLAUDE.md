@@ -53,6 +53,9 @@ uv run volve-osdu run --wellbore "15/9-F-12" --system rules   # one wellbore -> 
 uv run volve-osdu run --all --system rules                    # all 13 MVP wellbores
 uv run volve-osdu run --all --system agent                    # LLM agent (needs .env)
 uv run volve-osdu eval --systems rules,llm_only,agent   # full evaluation -> docs/results.md
+uv run volve-osdu eval --no-run                         # re-score existing outputs/eval-*
+uv run python scripts/draft_curve_labels.py             # (re)draft curve labels; refuses if any are reviewed
+uv run python scripts/make_demo.py outputs/example/15_9-F12 docs/demo/index.html   # demo page
 ```
 
 (Implement these commands as the milestones progress; keep this list accurate.)
