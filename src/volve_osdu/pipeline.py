@@ -45,6 +45,7 @@ class Judgement:
     flags: list[ReviewFlag] = field(default_factory=list)
     issues: list[Issue] = field(default_factory=list)
     trace: list[dict[str, Any]] = field(default_factory=list)  # one entry per LLM call
+    stats: dict[str, Any] = field(default_factory=dict)  # system-specific counters (stats.json)
 
 
 System = Callable[[Inventory, list[Fact]], Judgement]
@@ -143,6 +144,7 @@ def run_wellbore(bundle: Bundle, system: str | System, out_root: Path, namespace
     flags += judgement.flags
     issues += judgement.issues
     trace = judgement.trace
+    _write_json(out_dir / "stats.json", judgement.stats)
     # Rule 8 again, independent of the system: validators judge, whatever produced the fact.
     judgement.facts, grounding_flags = _grounded(judgement.facts, inv)
     flags += grounding_flags
@@ -182,6 +184,19 @@ def run_wellbore(bundle: Bundle, system: str | System, out_root: Path, namespace
     )
     field_rec = builder.field(resolved["field_name"]) if _has(resolved, "field_name") else None
     well = builder.well(well_name, resolved, operator, field_rec)
+    if "SpatialLocation" in well.data:
+        # LAS headers state no datum. Volve LAS files are known to mix ED50 and WGS84
+        # (docs/architecture.md), so the CRS we record is an assumption a human must confirm.
+        flags.append(
+            ReviewFlag(
+                severity="warn",
+                fact="surface_location",
+                reason="crs_assumed",
+                message="LAS LAT/LON state no datum; recorded as ED50 (EPSG:4230). Confirm the "
+                "datum before ingestion (an ED50/WGS84 mix-up moves the well ~100 m).",
+                candidates=[resolved["surface_latitude_deg"], resolved["surface_longitude_deg"]],
+            )
+        )
 
     records: list[Record] = [r for r in (operator, field_rec, well) if r is not None]
     bulk_dir = out_dir / "bulk"

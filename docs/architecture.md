@@ -51,6 +51,14 @@ The path list has both `MeasuredDepth` and `MD` (same meaning). Decided in M1: `
 everywhere. TD and KOP carry `VerticalReferenceID: "KB"` because the reports quote "m MD RKB".
 
 ### CRS of LAS LAT/LON
+
+**Update (M3):** the assumption below holds for 15/9-F-12 but NOT for the 15/9-19 LFP files. Their
+LAT/LON (58.435286, 1.928158) equal NPD's ED50 position (58.435903, 1.929736) converted to WGS84
+with the standard 3-parameter shift (-87, -98, -121 m): 58.435292, 1.928109, i.e. within ~3 m.
+So the Volve LAS files mix datums and state none. Every Well with a location now gets a
+`crs_assumed` warn flag; the 15/9-19 A/SR lat/lon gold rows are marked disputed.
+
+Original M0 note:
 NPD lists geodatum ED50 for these wellbores. The F-12 LAS LAT/LON (58.441713, 1.887480) matches the
 NPD values (58.441714, 1.887481) within 1e-6 deg, so LAS coordinates are taken as **ED50**:
 `reference-data--CoordinateReferenceSystem:Geographic2D:EPSG::4230`. The assumption is recorded in
@@ -114,13 +122,13 @@ START -> identity -> pdf_facts -> curves -> check --retry (max 2)--> pdf_facts .
   The answer needs a verbatim quote from the evidence that names exactly that wellbore
   ("15/9-F-1" does not pass on "15/9-F-1 A"); otherwise the name is left empty and flagged.
 - **pdf_facts** (`pdf-facts-v1`): `search_pdf` picks the report pages that name the wellbore (max
-  6 pages / 16k chars); the LLM returns td_md_m, kop_md_m, kickoff_wellbore_name, kb_elevation_m,
+  5 pages / 12k chars); the LLM returns td_md_m, kop_md_m, kickoff_wellbore_name, kb_elevation_m,
   each with page and quote. Rule 8 (`validate/grounding.py`) keeps a fact only if the quote is in the
   page text (whitespace-normalized) and the value is in the quote. Rejected facts go back to the
   LLM with the reason; still wrong after 3 attempts -> dropped + `ungrounded` warn flag. The
   pipeline re-runs rule 8 on whatever a system returns.
 - **curves** (`curve-mapping-v1`): the LLM proposes an OSDU unit code and LogCurveFamily per curve
-  (batches of 40). Codes not in the pinned lists are sent back with `lookup_reference` suggestions;
+  (batches of 25). Codes not in the pinned lists are sent back with `lookup_reference` suggestions;
   still wrong after 3 attempts -> unmapped + info flag. A case-only difference is fixed in code.
   Tool use is done by the graph (retrieval + feedback), not by function calling, so small and
   local models without tool-calling support work too.
