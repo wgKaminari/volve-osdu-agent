@@ -27,7 +27,7 @@ from volve_osdu.osdu.reference import load_reference_data
 from volve_osdu.reconcile import reconcile
 from volve_osdu.report import write_review
 from volve_osdu.validate import rules
-from volve_osdu.validate.grounding import check_grounding
+from volve_osdu.validate.grounding import check_grounding, semantic_problem
 from volve_osdu.validate.schema import validate_manifest, validate_record
 
 logger = logging.getLogger(__name__)
@@ -56,28 +56,11 @@ def rules_system(inv: Inventory, parsed: list[Fact]) -> Judgement:
     names = [f for f in parsed if f.name == "wellbore_name"]
     aliases = [(p.quote or str(f.value), p) for f in names for p in f.provenance]
     chosen = most_specific_name(names)
-    flags = []
-    if chosen is not None:
-        others = {
-            str(f.value)
-            for f in names
-            if f.value != chosen.value and not str(chosen.value).startswith(str(f.value))
-        }
-        if others:
-            flags.append(
-                ReviewFlag(
-                    severity="warn",
-                    fact="wellbore_name",
-                    reason="conflict",
-                    message=f"files name different wellbores: {chosen.value} vs {sorted(others)}",
-                    candidates=names,
-                )
-            )
     facts = pdf_rule_facts(inv.pdf, str(chosen.value)) if inv.pdf and chosen else []
     mappings = {
         log.path.name: [map_curve(c.mnemonic, c.unit) for c in log.curves] for log in inv.logs
     }
-    return Judgement(chosen, aliases, facts, mappings, flags)
+    return Judgement(chosen, aliases, facts, mappings)
 
 
 SYSTEMS: dict[str, System] = {"rules": rules_system}
@@ -140,9 +123,15 @@ def run_wellbore(bundle: Bundle, system: str | System, out_root: Path, namespace
     flags += judgement.flags
     issues += judgement.issues
     trace = judgement.trace
+    flags += _name_conflicts(
+        [f for f in parsed if f.name == "wellbore_name"], judgement.wellbore_name
+    )
     _write_json(out_dir / "stats.json", judgement.stats)
     # Rule 8 again, independent of the system: validators judge, whatever produced the fact.
-    judgement.facts, grounding_flags = _grounded(judgement.facts, inv)
+    wellbore_value = judgement.wellbore_name.value if judgement.wellbore_name else None
+    judgement.facts, grounding_flags = _grounded(
+        judgement.facts, inv, str(wellbore_value) if wellbore_value else None
+    )
     flags += grounding_flags
     if judgement.wellbore_name is None or judgement.wellbore_name.value is None:
         issues.append(
@@ -336,8 +325,32 @@ def _schema_and_model_issues(records: list[Record]) -> list[Issue]:
     return issues
 
 
-def _grounded(facts: list[Fact], inv: Inventory) -> tuple[list[Fact], list[ReviewFlag]]:
-    """Keep llm_extracted PDF facts only if their quote and value check out (rule 8)."""
+def _name_conflicts(names: list[Fact], chosen: Fact | None) -> list[ReviewFlag]:
+    """Headers naming a different wellbore than the chosen one (a parent well's name is fine)."""
+    if chosen is None or chosen.value is None:
+        return []
+    others = {
+        str(f.value)
+        for f in names
+        if f.value != chosen.value and not str(chosen.value).startswith(str(f.value))
+    }
+    if not others:
+        return []
+    return [
+        ReviewFlag(
+            severity="warn",
+            fact="wellbore_name",
+            reason="conflict",
+            message=f"files name different wellbores: {chosen.value} vs {sorted(others)}",
+            candidates=names,
+        )
+    ]
+
+
+def _grounded(
+    facts: list[Fact], inv: Inventory, wellbore: str | None
+) -> tuple[list[Fact], list[ReviewFlag]]:
+    """Keep llm_extracted PDF facts only if quote, value, type and wellbore check out (rule 8)."""
     kept, flags = [], []
     for fact in facts:
         prov = fact.provenance[0] if fact.provenance else None
@@ -350,6 +363,10 @@ def _grounded(facts: list[Fact], inv: Inventory) -> tuple[list[Fact], list[Revie
             short = str(fact.value).split("-", 1)[-1]  # "15/9-F-1" -> "F-1"
             quote = prov.quote or ""
             checked = fact if inv.pdf.find_quote(quote) and short in quote else None
+            reason = reason if checked is None else None
+        if checked is not None and wellbore is not None:
+            reason = semantic_problem(checked, wellbore)
+            checked = None if reason else checked
         if checked is None:
             flags.append(
                 ReviewFlag(

@@ -49,6 +49,7 @@ class OpenAICompatible:
         json_mode: bool = True,
         timeout: float = 600,
         reasoning_effort: str | None = None,
+        max_tokens: int | None = None,
     ) -> None:
         from openai import OpenAI  # imported lazily: tests and the rules system never need it
 
@@ -59,6 +60,10 @@ class OpenAICompatible:
             self.params["response_format"] = {"type": "json_object"}
         if reasoning_effort:
             self.params["reasoning_effort"] = reasoning_effort
+        # A safety cap against runaway generation (small local models can loop until the context
+        # is full). Deliberately not part of the cache key: it only changes replies that would
+        # exceed it, and those fail JSON parsing and go through the normal retry path.
+        self.max_tokens = max_tokens
         # Local reasoning models (qwen3 on a laptop GPU) can need minutes per call.
         self._client = OpenAI(base_url=base_url, api_key=api_key, max_retries=5, timeout=timeout)
 
@@ -69,6 +74,7 @@ class OpenAICompatible:
             messages=messages,  # type: ignore[arg-type]
             temperature=temperature,
             **self.params,
+            **({"max_tokens": self.max_tokens} if self.max_tokens else {}),
         )
         usage = response.usage
         return LLMResponse(
@@ -167,6 +173,7 @@ def from_env() -> CachedLLM:
         json_mode=os.environ.get("LLM_JSON_MODE", "true").lower() != "false",
         timeout=float(os.environ.get("LLM_TIMEOUT_S", "600")),
         reasoning_effort=os.environ.get("LLM_REASONING_EFFORT") or None,
+        max_tokens=int(os.environ.get("LLM_MAX_TOKENS", "3000")),
     )
     return CachedLLM(backend)
 

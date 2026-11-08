@@ -34,7 +34,7 @@ from volve_osdu.extract.pdf_rules import name_pattern
 from volve_osdu.facts import Fact, Provenance, ReviewFlag
 from volve_osdu.ingest.inventory import Inventory
 from volve_osdu.ingest.pdf import normalize_whitespace
-from volve_osdu.validate.grounding import check_grounding
+from volve_osdu.validate.grounding import check_grounding, semantic_problem
 
 logger = logging.getLogger(__name__)
 MAX_ATTEMPTS = 3  # first try + 2 retries (guide 6.1)
@@ -302,6 +302,10 @@ class Agent:
                     rejected.append((fact, f"{value!r} is not a wellbore name"))
                     continue
                 checked = checked.model_copy(update={"value": full})
+            problem = semantic_problem(checked, str(name.value))
+            if problem:
+                rejected.append((fact, problem))
+                continue
             accepted[item.name] = checked
 
         counts = dict(state["grounding"])
