@@ -150,7 +150,9 @@ START -> identity -> pdf_facts -> curves -> check --retry (max 2)--> pdf_facts .
 
 - **identity** (prompt `identity-v1`): evidence = LAS WELL/UWI values, folder name, report page 1.
   The answer needs a verbatim quote from the evidence that names exactly that wellbore
-  ("15/9-F-1" does not pass on "15/9-F-1 A"); otherwise the name is left empty and flagged.
+  ("15/9-F-1" does not pass on "15/9-F-1 A"). If the LLM abstains or its quote doesn't support
+  the name, the agent falls back to the most specific header name (the rules choice) and raises an
+  `identity_fallback` warn flag, so the wellbore is still built and a human sees why.
 - **pdf_facts** (`pdf-facts-v1`): `search_pdf` picks the report pages that name the wellbore (max
   5 pages / 12k chars); the LLM returns td_md_m, kop_md_m, kickoff_wellbore_name, kb_elevation_m,
   each with page and quote. Rule 8 (`validate/grounding.py`) keeps a fact only if the quote is in the

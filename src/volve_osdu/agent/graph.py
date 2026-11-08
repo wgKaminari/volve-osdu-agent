@@ -29,7 +29,7 @@ from volve_osdu.agent.prompting import load_prompt
 from volve_osdu.agent.tools import exists, lookup_reference, reference_codes, search_pdf
 from volve_osdu.config import relative
 from volve_osdu.extract.curves import CurveMapping
-from volve_osdu.extract.names import normalize_wellbore_name, short_to_full
+from volve_osdu.extract.names import most_specific_name, normalize_wellbore_name, short_to_full
 from volve_osdu.extract.pdf_rules import name_pattern
 from volve_osdu.facts import Fact, Provenance, ReviewFlag
 from volve_osdu.ingest.inventory import Inventory
@@ -196,17 +196,23 @@ class Agent:
         ]
         grounded = bool(name and support and _quote_names(out.quote, name))
         if not grounded:
-            if out.wellbore_name:
-                flags.append(
-                    ReviewFlag(
-                        severity="warn",
-                        fact="wellbore_name",
-                        reason="ungrounded",
-                        message=f"LLM name {out.wellbore_name!r} not supported by "
-                        f"quote {out.quote!r}; name left empty",
-                    )
+            # The LLM abstained or could not back its answer. Fall back to the deterministic
+            # choice (most specific header name) so the wellbore is still built, and say so.
+            fallback = most_specific_name([f for f in state["parsed"] if f.name == "wellbore_name"])
+            answer = f"LLM answer {out.wellbore_name!r} (quote {out.quote!r}) not supported"
+            if not out.wellbore_name:
+                answer = "LLM abstained"
+            flags.append(
+                ReviewFlag(
+                    severity="warn",
+                    fact="wellbore_name",
+                    reason="identity_fallback",
+                    message=f"{answer}; used the most specific header name "
+                    f"{fallback.value if fallback else None!r} instead",
+                    candidates=[fallback] if fallback else [],
                 )
-            return {"wellbore_name": None, "flags": state["flags"] + flags}
+            )
+            return {"wellbore_name": fallback, "flags": state["flags"] + flags}
 
         provenance = [
             p.model_copy(

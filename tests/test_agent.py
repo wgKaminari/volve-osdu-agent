@@ -118,13 +118,14 @@ def test_invented_curve_family_gets_suggestions_and_retry(tmp_path: Path) -> Non
     assert any("'GammaRay' does not exist; closest: 'Gamma Ray'" in p for p in prompts)
 
 
-def test_identity_without_supporting_quote_abstains(tmp_path: Path) -> None:
+def test_unsupported_identity_falls_back_to_header_name_and_is_flagged(tmp_path: Path) -> None:
     invented = {"wellbore_name": "15/9-F-14", "quote": "15/9-F-14", "source": "made up"}
     state, _ = run(
         scripted({"identity": [invented], "pdf": [GOOD_TD], "curves": [CURVES]}), tmp_path
     )
-    assert state["wellbore_name"] is None
-    assert any(f.fact == "wellbore_name" and f.reason == "ungrounded" for f in state["flags"])
+    assert state["wellbore_name"].value == "15/9-F-12"  # from the LAS headers, not the LLM
+    assert state["wellbore_name"].provenance[0].method == "parsed"
+    assert any(f.reason == "identity_fallback" for f in state["flags"])
 
 
 def test_second_run_is_served_from_cache(tmp_path: Path) -> None:

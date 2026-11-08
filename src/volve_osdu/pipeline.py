@@ -14,7 +14,7 @@ from typing import Any
 
 from volve_osdu.config import RAW, REFERENCE_DIR, Bundle, relative
 from volve_osdu.extract.curves import CurveMapping, map_curve
-from volve_osdu.extract.names import well_name_of
+from volve_osdu.extract.names import most_specific_name, well_name_of
 from volve_osdu.extract.parsed import FEET_TO_M, las_facts
 from volve_osdu.extract.pdf_rules import pdf_rule_facts
 from volve_osdu.facts import Fact, Issue, Provenance, ReviewFlag
@@ -55,11 +55,7 @@ def rules_system(inv: Inventory, parsed: list[Fact]) -> Judgement:
     """Baseline without LLM: most specific LAS name, regex on PDF prose, static curve dictionary."""
     names = [f for f in parsed if f.name == "wellbore_name"]
     aliases = [(p.quote or str(f.value), p) for f in names for p in f.provenance]
-    chosen = None
-    if names:
-        best = max(names, key=lambda f: len(str(f.value)))
-        sources = [p for f in names if f.value == best.value for p in f.provenance]
-        chosen = Fact(name="wellbore_name", value=best.value, provenance=sources)
+    chosen = most_specific_name(names)
     flags = []
     if chosen is not None:
         others = {

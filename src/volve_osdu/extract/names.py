@@ -2,6 +2,8 @@
 
 import re
 
+from volve_osdu.facts import Fact
+
 # Block/well, optional platform ("F-"), well number, optional sidetrack suffix (A, BT2, SR).
 _NAME = re.compile(r"^(\d+/\d+-(?:[A-Z]-)?\d+)\s*([A-Z]{1,2}\d?)?$")
 _PREFIX = re.compile(r"^NO[\s_]+")
@@ -29,3 +31,12 @@ def short_to_full(name: str, block: str = "15/9") -> str | None:
     if not re.match(r"^\d+/\d+-", name):
         name = f"{block}-{name}"
     return normalize_wellbore_name(name)
+
+
+def most_specific_name(names: list[Fact]) -> Fact | None:
+    """The longest parsed wellbore name ("15/9-19 A" over "15/9-19"), with all its sources."""
+    if not names:
+        return None
+    best = max(names, key=lambda f: len(str(f.value)))
+    sources = [p for f in names if f.value == best.value for p in f.provenance]
+    return Fact(name="wellbore_name", value=best.value, provenance=sources)
