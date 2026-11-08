@@ -1,0 +1,3564 @@
+{
+ "meta": {
+  "date": "2026-11-08 16:14 UTC",
+  "commit": "49fc55a"
+ },
+ "systems": {
+  "rules": {
+   "model": null,
+   "summary": {
+    "field_accuracy": {
+     "value": 0.9433962264150944,
+     "low": 0.8461538461538461,
+     "high": 1.0,
+     "n_units": 13,
+     "numerator": 50,
+     "denominator": 53
+    },
+    "abstention_accuracy": {
+     "value": 1.0,
+     "low": 1.0,
+     "high": 1.0,
+     "n_units": 11,
+     "numerator": 27,
+     "denominator": 27
+    },
+    "report_fact_accuracy": {
+     "value": 1.0,
+     "low": 1.0,
+     "high": 1.0,
+     "n_units": 8,
+     "numerator": 16,
+     "denominator": 16
+    },
+    "curve_unit_accuracy": {
+     "value": 1.0,
+     "low": 1.0,
+     "high": 1.0,
+     "n_units": 13,
+     "numerator": 816,
+     "denominator": 816
+    },
+    "curve_family_accuracy": {
+     "value": 0.5196078431372549,
+     "low": 0.4505146476642914,
+     "high": 0.7448275862068966,
+     "n_units": 13,
+     "numerator": 424,
+     "denominator": 816
+    },
+    "per_fact": {
+     "wellbore_name": {
+      "value": 1.0,
+      "low": 1.0,
+      "high": 1.0,
+      "n_units": 13,
+      "numerator": 13,
+      "denominator": 13
+     },
+     "kb_elevation_m": {
+      "value": 1.0,
+      "low": 1.0,
+      "high": 1.0,
+      "n_units": 6,
+      "numerator": 6,
+      "denominator": 6
+     },
+     "td_md_m": {
+      "value": 1.0,
+      "low": 1.0,
+      "high": 1.0,
+      "n_units": 7,
+      "numerator": 7,
+      "denominator": 7
+     },
+     "kop_md_m": {
+      "value": 1.0,
+      "low": 1.0,
+      "high": 1.0,
+      "n_units": 3,
+      "numerator": 3,
+      "denominator": 3
+     },
+     "latitude": {
+      "value": 1.0,
+      "low": 1.0,
+      "high": 1.0,
+      "n_units": 1,
+      "numerator": 1,
+      "denominator": 1
+     },
+     "longitude": {
+      "value": 1.0,
+      "low": 1.0,
+      "high": 1.0,
+      "n_units": 1,
+      "numerator": 1,
+      "denominator": 1
+     },
+     "operator": {
+      "value": 0.8181818181818182,
+      "low": 0.5454545454545454,
+      "high": 1.0,
+      "n_units": 11,
+      "numerator": 9,
+      "denominator": 11
+     },
+     "field": {
+      "value": 0.9090909090909091,
+      "low": 0.7272727272727273,
+      "high": 1.0,
+      "n_units": 11,
+      "numerator": 10,
+      "denominator": 11
+     }
+    },
+    "operator_strict": {
+     "value": 0.36363636363636365,
+     "low": 0.09090909090909091,
+     "high": 0.6363636363636364,
+     "n_units": 11,
+     "numerator": 4,
+     "denominator": 11
+    },
+    "grounding_final": {
+     "value": null,
+     "low": null,
+     "high": null,
+     "n_units": 0,
+     "numerator": 0,
+     "denominator": 0
+    },
+    "grounding_first_attempt": {
+     "value": null,
+     "low": null,
+     "high": null,
+     "n_units": 0,
+     "numerator": 0,
+     "denominator": 0
+    },
+    "hallucination_rate": {
+     "value": 0.0,
+     "low": 0.0,
+     "high": 0.0,
+     "n_units": 13,
+     "numerator": 0,
+     "denominator": 71
+    },
+    "validation_pass_rate": {
+     "value": 1.0,
+     "low": 1.0,
+     "high": 1.0,
+     "n_units": 13,
+     "numerator": 13,
+     "denominator": 13
+    },
+    "flag_precision": {
+     "value": 1.0,
+     "low": 1.0,
+     "high": 1.0,
+     "n_units": 15,
+     "numerator": 19,
+     "denominator": 19
+    },
+    "flag_recall": {
+     "value": 1.0,
+     "low": 1.0,
+     "high": 1.0,
+     "n_units": 15,
+     "numerator": 19,
+     "denominator": 19
+    },
+    "detected": [
+     [
+      "15_9-19SR",
+      "field_name",
+      "conflict"
+     ],
+     [
+      "15_9-19SR",
+      "operator_name",
+      "conflict"
+     ],
+     [
+      "15_9-F12",
+      "*",
+      "log_below_survey"
+     ],
+     [
+      "P01",
+      "*",
+      "log_below_survey"
+     ],
+     [
+      "P01",
+      "depth",
+      "unit_converted"
+     ],
+     [
+      "P02",
+      "*",
+      "log_below_survey"
+     ],
+     [
+      "P02",
+      "surface_location",
+      "outside_volve"
+     ],
+     [
+      "P03",
+      "*",
+      "log_below_survey"
+     ],
+     [
+      "P03",
+      "kb_elevation_m",
+      "conflict"
+     ],
+     [
+      "P04",
+      "trajectory",
+      "plan_not_actual"
+     ],
+     [
+      "P05",
+      "*",
+      "log_below_survey"
+     ],
+     [
+      "P06",
+      "field_name",
+      "conflict"
+     ],
+     [
+      "P07",
+      "wellbore_name",
+      "conflict"
+     ],
+     [
+      "P08",
+      "operator_name",
+      "conflict"
+     ],
+     [
+      "P09",
+      "surface_location",
+      "outside_volve"
+     ],
+     [
+      "P10",
+      "kb_elevation_m",
+      "unit_converted"
+     ],
+     [
+      "P11",
+      "kb_elevation_m",
+      "conflict"
+     ],
+     [
+      "P12",
+      "trajectory",
+      "plan_not_actual"
+     ],
+     [
+      "P13",
+      "*",
+      "log_below_survey"
+     ]
+    ],
+    "false_flags": [],
+    "missed_conflicts": [],
+    "llm": {
+     "calls": 0,
+     "calls_per_wellbore": 0.0,
+     "tokens_per_wellbore": 0.0,
+     "seconds_per_wellbore": 0.0,
+     "retries": 0,
+     "api_calls_this_run": 0
+    }
+   },
+   "outcomes": [
+    {
+     "wellbore": "15/9-19 A",
+     "fact": "wellbore_name",
+     "kind": "field",
+     "gold": "15/9-19 A",
+     "predicted": "15/9-19 A",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-19 A",
+     "fact": "kb_elevation_m",
+     "kind": "field",
+     "gold": "25.0",
+     "predicted": 25.0,
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-19 A",
+     "fact": "td_md_m",
+     "kind": "abstain",
+     "gold": "4131.0",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-19 A",
+     "fact": "kop_md_m",
+     "kind": "abstain",
+     "gold": "2178.0",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-19 A",
+     "fact": "latitude",
+     "kind": "disputed",
+     "gold": "58.435903",
+     "predicted": 58.435286,
+     "correct": null,
+     "note": "LAS LAT/LON are WGS84 (NPD's ED50 position shifted to WGS84 matches within ~3 m); NPD gives ED50"
+    },
+    {
+     "wellbore": "15/9-19 A",
+     "fact": "longitude",
+     "kind": "disputed",
+     "gold": "1.929736",
+     "predicted": 1.928158,
+     "correct": null,
+     "note": "LAS LAT/LON are WGS84; NPD gives ED50"
+    },
+    {
+     "wellbore": "15/9-19 A",
+     "fact": "operator",
+     "kind": "field",
+     "gold": "Den norske stats oljeselskap a.s",
+     "predicted": "STATOIL PETROLEUM AS",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-19 A",
+     "fact": "operator_strict",
+     "kind": "strict",
+     "gold": "Den norske stats oljeselskap a.s",
+     "predicted": "STATOIL PETROLEUM AS",
+     "correct": false,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-19 A",
+     "fact": "field",
+     "kind": "field",
+     "gold": "VOLVE",
+     "predicted": "VOLVE",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-19 BT2",
+     "fact": "wellbore_name",
+     "kind": "field",
+     "gold": "15/9-19 BT2",
+     "predicted": "15/9-19 BT2",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-19 SR",
+     "fact": "wellbore_name",
+     "kind": "field",
+     "gold": "15/9-19 SR",
+     "predicted": "15/9-19 SR",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-19 SR",
+     "fact": "kb_elevation_m",
+     "kind": "disputed",
+     "gold": "22.0",
+     "predicted": 25.0,
+     "correct": null,
+     "note": "the 15/9-19 SR LAS (LFP) says KB 25.0 m; NPD says 22.0"
+    },
+    {
+     "wellbore": "15/9-19 SR",
+     "fact": "td_md_m",
+     "kind": "abstain",
+     "gold": "4641.0",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-19 SR",
+     "fact": "kop_md_m",
+     "kind": "abstain",
+     "gold": null,
+     "predicted": null,
+     "correct": true,
+     "note": "NPD has no value (not applicable): correct output is null"
+    },
+    {
+     "wellbore": "15/9-19 SR",
+     "fact": "latitude",
+     "kind": "disputed",
+     "gold": "58.435903",
+     "predicted": 58.435286,
+     "correct": null,
+     "note": "LAS LAT/LON are WGS84; NPD gives ED50"
+    },
+    {
+     "wellbore": "15/9-19 SR",
+     "fact": "longitude",
+     "kind": "disputed",
+     "gold": "1.929736",
+     "predicted": 1.928158,
+     "correct": null,
+     "note": "LAS LAT/LON are WGS84; NPD gives ED50"
+    },
+    {
+     "wellbore": "15/9-19 SR",
+     "fact": "operator",
+     "kind": "field",
+     "gold": "Den norske stats oljeselskap a.s",
+     "predicted": null,
+     "correct": false,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-19 SR",
+     "fact": "operator_strict",
+     "kind": "strict",
+     "gold": "Den norske stats oljeselskap a.s",
+     "predicted": null,
+     "correct": false,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-19 SR",
+     "fact": "field",
+     "kind": "field",
+     "gold": "VOLVE",
+     "predicted": null,
+     "correct": false,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1",
+     "fact": "wellbore_name",
+     "kind": "field",
+     "gold": "15/9-F-1",
+     "predicted": "15/9-F-1",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1",
+     "fact": "kb_elevation_m",
+     "kind": "field",
+     "gold": "54.9",
+     "predicted": 54.9,
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1",
+     "fact": "td_md_m",
+     "kind": "field",
+     "gold": "3632.0",
+     "predicted": 3632.0,
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1",
+     "fact": "kop_md_m",
+     "kind": "abstain",
+     "gold": null,
+     "predicted": null,
+     "correct": true,
+     "note": "NPD has no value (not applicable): correct output is null"
+    },
+    {
+     "wellbore": "15/9-F-1",
+     "fact": "latitude",
+     "kind": "abstain",
+     "gold": "58.441642",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-1",
+     "fact": "longitude",
+     "kind": "abstain",
+     "gold": "1.887419",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-1",
+     "fact": "operator",
+     "kind": "field",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "Statoil Petroleum",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1",
+     "fact": "operator_strict",
+     "kind": "strict",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "Statoil Petroleum",
+     "correct": false,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1",
+     "fact": "field",
+     "kind": "field",
+     "gold": "VOLVE",
+     "predicted": "VOLVE",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 A",
+     "fact": "wellbore_name",
+     "kind": "field",
+     "gold": "15/9-F-1 A",
+     "predicted": "15/9-F-1 A",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 A",
+     "fact": "kb_elevation_m",
+     "kind": "field",
+     "gold": "54.9",
+     "predicted": 54.9,
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 A",
+     "fact": "td_md_m",
+     "kind": "field",
+     "gold": "3682.0",
+     "predicted": 3682.0,
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 A",
+     "fact": "kop_md_m",
+     "kind": "field",
+     "gold": "2620.0",
+     "predicted": 2620.0,
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 A",
+     "fact": "latitude",
+     "kind": "abstain",
+     "gold": "58.441642",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-1 A",
+     "fact": "longitude",
+     "kind": "abstain",
+     "gold": "1.887419",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-1 A",
+     "fact": "operator",
+     "kind": "field",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "Statoil Petroleum AS",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 A",
+     "fact": "operator_strict",
+     "kind": "strict",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "Statoil Petroleum AS",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 A",
+     "fact": "field",
+     "kind": "field",
+     "gold": "VOLVE",
+     "predicted": "VOLVE",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 B",
+     "fact": "wellbore_name",
+     "kind": "field",
+     "gold": "15/9-F-1 B",
+     "predicted": "15/9-F-1 B",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 B",
+     "fact": "kb_elevation_m",
+     "kind": "field",
+     "gold": "54.9",
+     "predicted": 54.9,
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 B",
+     "fact": "td_md_m",
+     "kind": "field",
+     "gold": "3465.0",
+     "predicted": 3465.0,
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 B",
+     "fact": "kop_md_m",
+     "kind": "disputed",
+     "gold": "2604.0",
+     "predicted": 2617.0,
+     "correct": null,
+     "note": "F-1 petrophysical report says KOP 2617 m MD RKB; NPD says 2604"
+    },
+    {
+     "wellbore": "15/9-F-1 B",
+     "fact": "latitude",
+     "kind": "abstain",
+     "gold": "58.441642",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-1 B",
+     "fact": "longitude",
+     "kind": "abstain",
+     "gold": "1.887419",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-1 B",
+     "fact": "operator",
+     "kind": "field",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "Statoil Petroleum",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 B",
+     "fact": "operator_strict",
+     "kind": "strict",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "Statoil Petroleum",
+     "correct": false,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 B",
+     "fact": "field",
+     "kind": "field",
+     "gold": "VOLVE",
+     "predicted": "VOLVE",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 C",
+     "fact": "wellbore_name",
+     "kind": "field",
+     "gold": "15/9-F-1 C",
+     "predicted": "15/9-F-1 C",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 C",
+     "fact": "kb_elevation_m",
+     "kind": "field",
+     "gold": "54.9",
+     "predicted": 54.9,
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 C",
+     "fact": "td_md_m",
+     "kind": "field",
+     "gold": "4094.0",
+     "predicted": 4094.0,
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 C",
+     "fact": "kop_md_m",
+     "kind": "field",
+     "gold": "1364.0",
+     "predicted": 1364.0,
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 C",
+     "fact": "latitude",
+     "kind": "abstain",
+     "gold": "58.441642",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-1 C",
+     "fact": "longitude",
+     "kind": "abstain",
+     "gold": "1.887419",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-1 C",
+     "fact": "operator",
+     "kind": "field",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "Statoil Petroleum",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 C",
+     "fact": "operator_strict",
+     "kind": "strict",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "Statoil Petroleum",
+     "correct": false,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 C",
+     "fact": "field",
+     "kind": "field",
+     "gold": "VOLVE",
+     "predicted": "VOLVE",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11",
+     "fact": "wellbore_name",
+     "kind": "field",
+     "gold": "15/9-F-11",
+     "predicted": "15/9-F-11",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11",
+     "fact": "kb_elevation_m",
+     "kind": "abstain",
+     "gold": "54.9",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-11",
+     "fact": "td_md_m",
+     "kind": "disputed",
+     "gold": "4562.0",
+     "predicted": 347.0,
+     "correct": null,
+     "note": "NPD's 4562 m is the TD of technical sidetrack F-11 T2; the F-11 report, well path and LAS all end the original hole at ~347 m"
+    },
+    {
+     "wellbore": "15/9-F-11",
+     "fact": "kop_md_m",
+     "kind": "abstain",
+     "gold": null,
+     "predicted": null,
+     "correct": true,
+     "note": "NPD has no value (not applicable): correct output is null"
+    },
+    {
+     "wellbore": "15/9-F-11",
+     "fact": "latitude",
+     "kind": "abstain",
+     "gold": "58.441656",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-11",
+     "fact": "longitude",
+     "kind": "abstain",
+     "gold": "1.887464",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-11",
+     "fact": "operator",
+     "kind": "field",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "STATOIL PETRPOLEUM AS",
+     "correct": false,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11",
+     "fact": "operator_strict",
+     "kind": "strict",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "STATOIL PETRPOLEUM AS",
+     "correct": false,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11",
+     "fact": "field",
+     "kind": "field",
+     "gold": "VOLVE",
+     "predicted": "VOLVE",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11 A",
+     "fact": "wellbore_name",
+     "kind": "field",
+     "gold": "15/9-F-11 A",
+     "predicted": "15/9-F-11 A",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11 A",
+     "fact": "kb_elevation_m",
+     "kind": "field",
+     "gold": "54.9",
+     "predicted": 54.9,
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11 A",
+     "fact": "td_md_m",
+     "kind": "field",
+     "gold": "3762.0",
+     "predicted": 3762.0,
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11 A",
+     "fact": "kop_md_m",
+     "kind": "disputed",
+     "gold": "2578.0",
+     "predicted": 2586.0,
+     "correct": null,
+     "note": "F-11 report says KOP 2586 m MD RKB; NPD says 2578"
+    },
+    {
+     "wellbore": "15/9-F-11 A",
+     "fact": "latitude",
+     "kind": "abstain",
+     "gold": "58.441656",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-11 A",
+     "fact": "longitude",
+     "kind": "abstain",
+     "gold": "1.887464",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-11 A",
+     "fact": "operator",
+     "kind": "field",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "Statoil Petroleum AS",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11 A",
+     "fact": "operator_strict",
+     "kind": "strict",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "Statoil Petroleum AS",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11 A",
+     "fact": "field",
+     "kind": "field",
+     "gold": "VOLVE",
+     "predicted": "VOLVE",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11 B",
+     "fact": "wellbore_name",
+     "kind": "field",
+     "gold": "15/9-F-11 B",
+     "predicted": "15/9-F-11 B",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11 B",
+     "fact": "kb_elevation_m",
+     "kind": "abstain",
+     "gold": "54.9",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-11 B",
+     "fact": "td_md_m",
+     "kind": "field",
+     "gold": "4770.0",
+     "predicted": 4770.0,
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11 B",
+     "fact": "kop_md_m",
+     "kind": "disputed",
+     "gold": "2586.0",
+     "predicted": 2585.0,
+     "correct": null,
+     "note": "F-11 report says KOP 2585 m MD RKB; NPD says 2586"
+    },
+    {
+     "wellbore": "15/9-F-11 B",
+     "fact": "latitude",
+     "kind": "abstain",
+     "gold": "58.441656",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-11 B",
+     "fact": "longitude",
+     "kind": "abstain",
+     "gold": "1.887464",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-11 B",
+     "fact": "operator",
+     "kind": "field",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "Statoil Petroleum AS",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11 B",
+     "fact": "operator_strict",
+     "kind": "strict",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "Statoil Petroleum AS",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11 B",
+     "fact": "field",
+     "kind": "field",
+     "gold": "VOLVE",
+     "predicted": "VOLVE",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11 T2",
+     "fact": "wellbore_name",
+     "kind": "field",
+     "gold": "15/9-F-11 T2",
+     "predicted": "15/9-F-11 T2",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-12",
+     "fact": "wellbore_name",
+     "kind": "field",
+     "gold": "15/9-F-12",
+     "predicted": "15/9-F-12",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-12",
+     "fact": "kb_elevation_m",
+     "kind": "disputed",
+     "gold": "54.0",
+     "predicted": 54.9,
+     "correct": null,
+     "note": "Both F-12 LAS files say 54.9 m KB; NPD says 54.0"
+    },
+    {
+     "wellbore": "15/9-F-12",
+     "fact": "td_md_m",
+     "kind": "abstain",
+     "gold": "3520.0",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-12",
+     "fact": "kop_md_m",
+     "kind": "abstain",
+     "gold": null,
+     "predicted": null,
+     "correct": true,
+     "note": "NPD has no value (not applicable): correct output is null"
+    },
+    {
+     "wellbore": "15/9-F-12",
+     "fact": "latitude",
+     "kind": "field",
+     "gold": "58.441714",
+     "predicted": 58.441713,
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-12",
+     "fact": "longitude",
+     "kind": "field",
+     "gold": "1.887481",
+     "predicted": 1.88748,
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-12",
+     "fact": "operator",
+     "kind": "field",
+     "gold": "Statoil ASA (old)",
+     "predicted": "STATOILHYDRO",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-12",
+     "fact": "operator_strict",
+     "kind": "strict",
+     "gold": "Statoil ASA (old)",
+     "predicted": "STATOILHYDRO",
+     "correct": false,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-12",
+     "fact": "field",
+     "kind": "field",
+     "gold": "VOLVE",
+     "predicted": "VOLVE",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-15 D",
+     "fact": "wellbore_name",
+     "kind": "field",
+     "gold": "15/9-F-15 D",
+     "predicted": "15/9-F-15 D",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-15 D",
+     "fact": "kb_elevation_m",
+     "kind": "abstain",
+     "gold": "54.9",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-15 D",
+     "fact": "td_md_m",
+     "kind": "field",
+     "gold": "4685.0",
+     "predicted": 4685.0,
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-15 D",
+     "fact": "kop_md_m",
+     "kind": "field",
+     "gold": "1380.0",
+     "predicted": 1380.0,
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-15 D",
+     "fact": "latitude",
+     "kind": "abstain",
+     "gold": "58.441586",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-15 D",
+     "fact": "longitude",
+     "kind": "abstain",
+     "gold": "1.887542",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-15 D",
+     "fact": "operator",
+     "kind": "field",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "STATOIL PETROLEUM AS",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-15 D",
+     "fact": "operator_strict",
+     "kind": "strict",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "STATOIL PETROLEUM AS",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-15 D",
+     "fact": "field",
+     "kind": "field",
+     "gold": "VOLVE",
+     "predicted": "VOLVE",
+     "correct": true,
+     "note": ""
+    }
+   ]
+  },
+  "llm_only": {
+   "model": "qwen3-4b-8k",
+   "summary": {
+    "field_accuracy": {
+     "value": 0.7169811320754716,
+     "low": 0.6136363636363636,
+     "high": 0.8301886792452831,
+     "n_units": 13,
+     "numerator": 38,
+     "denominator": 53
+    },
+    "abstention_accuracy": {
+     "value": 1.0,
+     "low": 1.0,
+     "high": 1.0,
+     "n_units": 11,
+     "numerator": 27,
+     "denominator": 27
+    },
+    "report_fact_accuracy": {
+     "value": 0.25,
+     "low": 0.05555555555555555,
+     "high": 0.5,
+     "n_units": 8,
+     "numerator": 4,
+     "denominator": 16
+    },
+    "curve_unit_accuracy": {
+     "value": 0.2647058823529412,
+     "low": 0.17434715821812596,
+     "high": 0.5056497175141242,
+     "n_units": 13,
+     "numerator": 216,
+     "denominator": 816
+    },
+    "curve_family_accuracy": {
+     "value": 0.3321078431372549,
+     "low": 0.2913907284768212,
+     "high": 0.353887399463807,
+     "n_units": 13,
+     "numerator": 271,
+     "denominator": 816
+    },
+    "per_fact": {
+     "wellbore_name": {
+      "value": 1.0,
+      "low": 1.0,
+      "high": 1.0,
+      "n_units": 13,
+      "numerator": 13,
+      "denominator": 13
+     },
+     "kb_elevation_m": {
+      "value": 0.16666666666666666,
+      "low": 0.0,
+      "high": 0.5,
+      "n_units": 6,
+      "numerator": 1,
+      "denominator": 6
+     },
+     "td_md_m": {
+      "value": 0.14285714285714285,
+      "low": 0.0,
+      "high": 0.42857142857142855,
+      "n_units": 7,
+      "numerator": 1,
+      "denominator": 7
+     },
+     "kop_md_m": {
+      "value": 0.6666666666666666,
+      "low": 0.0,
+      "high": 1.0,
+      "n_units": 3,
+      "numerator": 2,
+      "denominator": 3
+     },
+     "latitude": {
+      "value": 1.0,
+      "low": 1.0,
+      "high": 1.0,
+      "n_units": 1,
+      "numerator": 1,
+      "denominator": 1
+     },
+     "longitude": {
+      "value": 1.0,
+      "low": 1.0,
+      "high": 1.0,
+      "n_units": 1,
+      "numerator": 1,
+      "denominator": 1
+     },
+     "operator": {
+      "value": 0.8181818181818182,
+      "low": 0.5454545454545454,
+      "high": 1.0,
+      "n_units": 11,
+      "numerator": 9,
+      "denominator": 11
+     },
+     "field": {
+      "value": 0.9090909090909091,
+      "low": 0.7272727272727273,
+      "high": 1.0,
+      "n_units": 11,
+      "numerator": 10,
+      "denominator": 11
+     }
+    },
+    "operator_strict": {
+     "value": 0.36363636363636365,
+     "low": 0.09090909090909091,
+     "high": 0.6363636363636364,
+     "n_units": 11,
+     "numerator": 4,
+     "denominator": 11
+    },
+    "grounding_final": {
+     "value": 0.12121212121212122,
+     "low": 0.0,
+     "high": 0.3125,
+     "n_units": 11,
+     "numerator": 4,
+     "denominator": 33
+    },
+    "grounding_first_attempt": {
+     "value": null,
+     "low": null,
+     "high": null,
+     "n_units": 0,
+     "numerator": 0,
+     "denominator": 0
+    },
+    "hallucination_rate": {
+     "value": 0.0,
+     "low": 0.0,
+     "high": 0.0,
+     "n_units": 13,
+     "numerator": 0,
+     "denominator": 52
+    },
+    "validation_pass_rate": {
+     "value": 1.0,
+     "low": 1.0,
+     "high": 1.0,
+     "n_units": 13,
+     "numerator": 13,
+     "denominator": 13
+    },
+    "flag_precision": {
+     "value": 1.0,
+     "low": 1.0,
+     "high": 1.0,
+     "n_units": 14,
+     "numerator": 18,
+     "denominator": 18
+    },
+    "flag_recall": {
+     "value": 0.9473684210526315,
+     "low": 0.8235294117647058,
+     "high": 1.0,
+     "n_units": 15,
+     "numerator": 18,
+     "denominator": 19
+    },
+    "detected": [
+     [
+      "15_9-19SR",
+      "field_name",
+      "conflict"
+     ],
+     [
+      "15_9-19SR",
+      "operator_name",
+      "conflict"
+     ],
+     [
+      "15_9-F12",
+      "*",
+      "log_below_survey"
+     ],
+     [
+      "P01",
+      "*",
+      "log_below_survey"
+     ],
+     [
+      "P01",
+      "depth",
+      "unit_converted"
+     ],
+     [
+      "P02",
+      "*",
+      "log_below_survey"
+     ],
+     [
+      "P02",
+      "surface_location",
+      "outside_volve"
+     ],
+     [
+      "P03",
+      "*",
+      "log_below_survey"
+     ],
+     [
+      "P03",
+      "kb_elevation_m",
+      "conflict"
+     ],
+     [
+      "P04",
+      "trajectory",
+      "plan_not_actual"
+     ],
+     [
+      "P05",
+      "*",
+      "log_below_survey"
+     ],
+     [
+      "P06",
+      "field_name",
+      "conflict"
+     ],
+     [
+      "P07",
+      "wellbore_name",
+      "conflict"
+     ],
+     [
+      "P08",
+      "operator_name",
+      "conflict"
+     ],
+     [
+      "P09",
+      "surface_location",
+      "outside_volve"
+     ],
+     [
+      "P10",
+      "kb_elevation_m",
+      "unit_converted"
+     ],
+     [
+      "P12",
+      "trajectory",
+      "plan_not_actual"
+     ],
+     [
+      "P13",
+      "*",
+      "log_below_survey"
+     ]
+    ],
+    "false_flags": [],
+    "missed_conflicts": [
+     [
+      "P11",
+      "kb_elevation_m",
+      "conflict"
+     ]
+    ],
+    "llm": {
+     "calls": 13,
+     "calls_per_wellbore": 1.0,
+     "tokens_per_wellbore": 3677.846153846154,
+     "seconds_per_wellbore": 68.84092307692308,
+     "retries": 0,
+     "api_calls_this_run": 0
+    }
+   },
+   "outcomes": [
+    {
+     "wellbore": "15/9-19 A",
+     "fact": "wellbore_name",
+     "kind": "field",
+     "gold": "15/9-19 A",
+     "predicted": "15/9-19 A",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-19 A",
+     "fact": "kb_elevation_m",
+     "kind": "field",
+     "gold": "25.0",
+     "predicted": 25.0,
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-19 A",
+     "fact": "td_md_m",
+     "kind": "abstain",
+     "gold": "4131.0",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-19 A",
+     "fact": "kop_md_m",
+     "kind": "abstain",
+     "gold": "2178.0",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-19 A",
+     "fact": "latitude",
+     "kind": "disputed",
+     "gold": "58.435903",
+     "predicted": 58.435286,
+     "correct": null,
+     "note": "LAS LAT/LON are WGS84 (NPD's ED50 position shifted to WGS84 matches within ~3 m); NPD gives ED50"
+    },
+    {
+     "wellbore": "15/9-19 A",
+     "fact": "longitude",
+     "kind": "disputed",
+     "gold": "1.929736",
+     "predicted": 1.928158,
+     "correct": null,
+     "note": "LAS LAT/LON are WGS84; NPD gives ED50"
+    },
+    {
+     "wellbore": "15/9-19 A",
+     "fact": "operator",
+     "kind": "field",
+     "gold": "Den norske stats oljeselskap a.s",
+     "predicted": "STATOIL PETROLEUM AS",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-19 A",
+     "fact": "operator_strict",
+     "kind": "strict",
+     "gold": "Den norske stats oljeselskap a.s",
+     "predicted": "STATOIL PETROLEUM AS",
+     "correct": false,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-19 A",
+     "fact": "field",
+     "kind": "field",
+     "gold": "VOLVE",
+     "predicted": "VOLVE",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-19 BT2",
+     "fact": "wellbore_name",
+     "kind": "field",
+     "gold": "15/9-19 BT2",
+     "predicted": "15/9-19 BT2",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-19 SR",
+     "fact": "wellbore_name",
+     "kind": "field",
+     "gold": "15/9-19 SR",
+     "predicted": "15/9-19 SR",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-19 SR",
+     "fact": "kb_elevation_m",
+     "kind": "disputed",
+     "gold": "22.0",
+     "predicted": 25.0,
+     "correct": null,
+     "note": "the 15/9-19 SR LAS (LFP) says KB 25.0 m; NPD says 22.0"
+    },
+    {
+     "wellbore": "15/9-19 SR",
+     "fact": "td_md_m",
+     "kind": "abstain",
+     "gold": "4641.0",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-19 SR",
+     "fact": "kop_md_m",
+     "kind": "abstain",
+     "gold": null,
+     "predicted": null,
+     "correct": true,
+     "note": "NPD has no value (not applicable): correct output is null"
+    },
+    {
+     "wellbore": "15/9-19 SR",
+     "fact": "latitude",
+     "kind": "disputed",
+     "gold": "58.435903",
+     "predicted": 58.435286,
+     "correct": null,
+     "note": "LAS LAT/LON are WGS84; NPD gives ED50"
+    },
+    {
+     "wellbore": "15/9-19 SR",
+     "fact": "longitude",
+     "kind": "disputed",
+     "gold": "1.929736",
+     "predicted": 1.928158,
+     "correct": null,
+     "note": "LAS LAT/LON are WGS84; NPD gives ED50"
+    },
+    {
+     "wellbore": "15/9-19 SR",
+     "fact": "operator",
+     "kind": "field",
+     "gold": "Den norske stats oljeselskap a.s",
+     "predicted": null,
+     "correct": false,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-19 SR",
+     "fact": "operator_strict",
+     "kind": "strict",
+     "gold": "Den norske stats oljeselskap a.s",
+     "predicted": null,
+     "correct": false,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-19 SR",
+     "fact": "field",
+     "kind": "field",
+     "gold": "VOLVE",
+     "predicted": null,
+     "correct": false,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1",
+     "fact": "wellbore_name",
+     "kind": "field",
+     "gold": "15/9-F-1",
+     "predicted": "15/9-F-1",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1",
+     "fact": "kb_elevation_m",
+     "kind": "field",
+     "gold": "54.9",
+     "predicted": null,
+     "correct": false,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1",
+     "fact": "td_md_m",
+     "kind": "field",
+     "gold": "3632.0",
+     "predicted": null,
+     "correct": false,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1",
+     "fact": "kop_md_m",
+     "kind": "abstain",
+     "gold": null,
+     "predicted": null,
+     "correct": true,
+     "note": "NPD has no value (not applicable): correct output is null"
+    },
+    {
+     "wellbore": "15/9-F-1",
+     "fact": "latitude",
+     "kind": "abstain",
+     "gold": "58.441642",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-1",
+     "fact": "longitude",
+     "kind": "abstain",
+     "gold": "1.887419",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-1",
+     "fact": "operator",
+     "kind": "field",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "Statoil Petroleum",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1",
+     "fact": "operator_strict",
+     "kind": "strict",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "Statoil Petroleum",
+     "correct": false,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1",
+     "fact": "field",
+     "kind": "field",
+     "gold": "VOLVE",
+     "predicted": "VOLVE",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 A",
+     "fact": "wellbore_name",
+     "kind": "field",
+     "gold": "15/9-F-1 A",
+     "predicted": "15/9-F-1 A",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 A",
+     "fact": "kb_elevation_m",
+     "kind": "field",
+     "gold": "54.9",
+     "predicted": null,
+     "correct": false,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 A",
+     "fact": "td_md_m",
+     "kind": "field",
+     "gold": "3682.0",
+     "predicted": null,
+     "correct": false,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 A",
+     "fact": "kop_md_m",
+     "kind": "field",
+     "gold": "2620.0",
+     "predicted": null,
+     "correct": false,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 A",
+     "fact": "latitude",
+     "kind": "abstain",
+     "gold": "58.441642",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-1 A",
+     "fact": "longitude",
+     "kind": "abstain",
+     "gold": "1.887419",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-1 A",
+     "fact": "operator",
+     "kind": "field",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "Statoil Petroleum AS",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 A",
+     "fact": "operator_strict",
+     "kind": "strict",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "Statoil Petroleum AS",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 A",
+     "fact": "field",
+     "kind": "field",
+     "gold": "VOLVE",
+     "predicted": "VOLVE",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 B",
+     "fact": "wellbore_name",
+     "kind": "field",
+     "gold": "15/9-F-1 B",
+     "predicted": "15/9-F-1 B",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 B",
+     "fact": "kb_elevation_m",
+     "kind": "field",
+     "gold": "54.9",
+     "predicted": null,
+     "correct": false,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 B",
+     "fact": "td_md_m",
+     "kind": "field",
+     "gold": "3465.0",
+     "predicted": null,
+     "correct": false,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 B",
+     "fact": "kop_md_m",
+     "kind": "disputed",
+     "gold": "2604.0",
+     "predicted": null,
+     "correct": null,
+     "note": "F-1 petrophysical report says KOP 2617 m MD RKB; NPD says 2604"
+    },
+    {
+     "wellbore": "15/9-F-1 B",
+     "fact": "latitude",
+     "kind": "abstain",
+     "gold": "58.441642",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-1 B",
+     "fact": "longitude",
+     "kind": "abstain",
+     "gold": "1.887419",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-1 B",
+     "fact": "operator",
+     "kind": "field",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "Statoil Petroleum",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 B",
+     "fact": "operator_strict",
+     "kind": "strict",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "Statoil Petroleum",
+     "correct": false,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 B",
+     "fact": "field",
+     "kind": "field",
+     "gold": "VOLVE",
+     "predicted": "VOLVE",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 C",
+     "fact": "wellbore_name",
+     "kind": "field",
+     "gold": "15/9-F-1 C",
+     "predicted": "15/9-F-1 C",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 C",
+     "fact": "kb_elevation_m",
+     "kind": "field",
+     "gold": "54.9",
+     "predicted": null,
+     "correct": false,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 C",
+     "fact": "td_md_m",
+     "kind": "field",
+     "gold": "4094.0",
+     "predicted": 4094.0,
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 C",
+     "fact": "kop_md_m",
+     "kind": "field",
+     "gold": "1364.0",
+     "predicted": 1364.0,
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 C",
+     "fact": "latitude",
+     "kind": "abstain",
+     "gold": "58.441642",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-1 C",
+     "fact": "longitude",
+     "kind": "abstain",
+     "gold": "1.887419",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-1 C",
+     "fact": "operator",
+     "kind": "field",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "Statoil Petroleum",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 C",
+     "fact": "operator_strict",
+     "kind": "strict",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "Statoil Petroleum",
+     "correct": false,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 C",
+     "fact": "field",
+     "kind": "field",
+     "gold": "VOLVE",
+     "predicted": "VOLVE",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11",
+     "fact": "wellbore_name",
+     "kind": "field",
+     "gold": "15/9-F-11",
+     "predicted": "15/9-F-11",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11",
+     "fact": "kb_elevation_m",
+     "kind": "abstain",
+     "gold": "54.9",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-11",
+     "fact": "td_md_m",
+     "kind": "disputed",
+     "gold": "4562.0",
+     "predicted": null,
+     "correct": null,
+     "note": "NPD's 4562 m is the TD of technical sidetrack F-11 T2; the F-11 report, well path and LAS all end the original hole at ~347 m"
+    },
+    {
+     "wellbore": "15/9-F-11",
+     "fact": "kop_md_m",
+     "kind": "abstain",
+     "gold": null,
+     "predicted": null,
+     "correct": true,
+     "note": "NPD has no value (not applicable): correct output is null"
+    },
+    {
+     "wellbore": "15/9-F-11",
+     "fact": "latitude",
+     "kind": "abstain",
+     "gold": "58.441656",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-11",
+     "fact": "longitude",
+     "kind": "abstain",
+     "gold": "1.887464",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-11",
+     "fact": "operator",
+     "kind": "field",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "STATOIL PETRPOLEUM AS",
+     "correct": false,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11",
+     "fact": "operator_strict",
+     "kind": "strict",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "STATOIL PETRPOLEUM AS",
+     "correct": false,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11",
+     "fact": "field",
+     "kind": "field",
+     "gold": "VOLVE",
+     "predicted": "VOLVE",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11 A",
+     "fact": "wellbore_name",
+     "kind": "field",
+     "gold": "15/9-F-11 A",
+     "predicted": "15/9-F-11 A",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11 A",
+     "fact": "kb_elevation_m",
+     "kind": "field",
+     "gold": "54.9",
+     "predicted": null,
+     "correct": false,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11 A",
+     "fact": "td_md_m",
+     "kind": "field",
+     "gold": "3762.0",
+     "predicted": null,
+     "correct": false,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11 A",
+     "fact": "kop_md_m",
+     "kind": "disputed",
+     "gold": "2578.0",
+     "predicted": null,
+     "correct": null,
+     "note": "F-11 report says KOP 2586 m MD RKB; NPD says 2578"
+    },
+    {
+     "wellbore": "15/9-F-11 A",
+     "fact": "latitude",
+     "kind": "abstain",
+     "gold": "58.441656",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-11 A",
+     "fact": "longitude",
+     "kind": "abstain",
+     "gold": "1.887464",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-11 A",
+     "fact": "operator",
+     "kind": "field",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "Statoil Petroleum AS",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11 A",
+     "fact": "operator_strict",
+     "kind": "strict",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "Statoil Petroleum AS",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11 A",
+     "fact": "field",
+     "kind": "field",
+     "gold": "VOLVE",
+     "predicted": "VOLVE",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11 B",
+     "fact": "wellbore_name",
+     "kind": "field",
+     "gold": "15/9-F-11 B",
+     "predicted": "15/9-F-11 B",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11 B",
+     "fact": "kb_elevation_m",
+     "kind": "abstain",
+     "gold": "54.9",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-11 B",
+     "fact": "td_md_m",
+     "kind": "field",
+     "gold": "4770.0",
+     "predicted": null,
+     "correct": false,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11 B",
+     "fact": "kop_md_m",
+     "kind": "disputed",
+     "gold": "2586.0",
+     "predicted": null,
+     "correct": null,
+     "note": "F-11 report says KOP 2585 m MD RKB; NPD says 2586"
+    },
+    {
+     "wellbore": "15/9-F-11 B",
+     "fact": "latitude",
+     "kind": "abstain",
+     "gold": "58.441656",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-11 B",
+     "fact": "longitude",
+     "kind": "abstain",
+     "gold": "1.887464",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-11 B",
+     "fact": "operator",
+     "kind": "field",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "Statoil Petroleum AS",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11 B",
+     "fact": "operator_strict",
+     "kind": "strict",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "Statoil Petroleum AS",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11 B",
+     "fact": "field",
+     "kind": "field",
+     "gold": "VOLVE",
+     "predicted": "VOLVE",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11 T2",
+     "fact": "wellbore_name",
+     "kind": "field",
+     "gold": "15/9-F-11 T2",
+     "predicted": "15/9-F-11 T2",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-12",
+     "fact": "wellbore_name",
+     "kind": "field",
+     "gold": "15/9-F-12",
+     "predicted": "15/9-F-12",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-12",
+     "fact": "kb_elevation_m",
+     "kind": "disputed",
+     "gold": "54.0",
+     "predicted": 54.9,
+     "correct": null,
+     "note": "Both F-12 LAS files say 54.9 m KB; NPD says 54.0"
+    },
+    {
+     "wellbore": "15/9-F-12",
+     "fact": "td_md_m",
+     "kind": "abstain",
+     "gold": "3520.0",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-12",
+     "fact": "kop_md_m",
+     "kind": "abstain",
+     "gold": null,
+     "predicted": null,
+     "correct": true,
+     "note": "NPD has no value (not applicable): correct output is null"
+    },
+    {
+     "wellbore": "15/9-F-12",
+     "fact": "latitude",
+     "kind": "field",
+     "gold": "58.441714",
+     "predicted": 58.441713,
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-12",
+     "fact": "longitude",
+     "kind": "field",
+     "gold": "1.887481",
+     "predicted": 1.88748,
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-12",
+     "fact": "operator",
+     "kind": "field",
+     "gold": "Statoil ASA (old)",
+     "predicted": "STATOILHYDRO",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-12",
+     "fact": "operator_strict",
+     "kind": "strict",
+     "gold": "Statoil ASA (old)",
+     "predicted": "STATOILHYDRO",
+     "correct": false,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-12",
+     "fact": "field",
+     "kind": "field",
+     "gold": "VOLVE",
+     "predicted": "VOLVE",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-15 D",
+     "fact": "wellbore_name",
+     "kind": "field",
+     "gold": "15/9-F-15 D",
+     "predicted": "15/9-F-15 D",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-15 D",
+     "fact": "kb_elevation_m",
+     "kind": "abstain",
+     "gold": "54.9",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-15 D",
+     "fact": "td_md_m",
+     "kind": "field",
+     "gold": "4685.0",
+     "predicted": null,
+     "correct": false,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-15 D",
+     "fact": "kop_md_m",
+     "kind": "field",
+     "gold": "1380.0",
+     "predicted": 1380.0,
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-15 D",
+     "fact": "latitude",
+     "kind": "abstain",
+     "gold": "58.441586",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-15 D",
+     "fact": "longitude",
+     "kind": "abstain",
+     "gold": "1.887542",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-15 D",
+     "fact": "operator",
+     "kind": "field",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "STATOIL PETROLEUM AS",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-15 D",
+     "fact": "operator_strict",
+     "kind": "strict",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "STATOIL PETROLEUM AS",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-15 D",
+     "fact": "field",
+     "kind": "field",
+     "gold": "VOLVE",
+     "predicted": "VOLVE",
+     "correct": true,
+     "note": ""
+    }
+   ]
+  },
+  "agent": {
+   "model": "qwen3-4b-8k",
+   "summary": {
+    "field_accuracy": {
+     "value": 0.9056603773584906,
+     "low": 0.782608695652174,
+     "high": 1.0,
+     "n_units": 13,
+     "numerator": 48,
+     "denominator": 53
+    },
+    "abstention_accuracy": {
+     "value": 1.0,
+     "low": 1.0,
+     "high": 1.0,
+     "n_units": 11,
+     "numerator": 27,
+     "denominator": 27
+    },
+    "report_fact_accuracy": {
+     "value": 0.875,
+     "low": 0.5714285714285714,
+     "high": 1.0,
+     "n_units": 8,
+     "numerator": 14,
+     "denominator": 16
+    },
+    "curve_unit_accuracy": {
+     "value": 0.7291666666666666,
+     "low": 0.6982142857142857,
+     "high": 0.8017492711370262,
+     "n_units": 13,
+     "numerator": 595,
+     "denominator": 816
+    },
+    "curve_family_accuracy": {
+     "value": 0.31862745098039214,
+     "low": 0.2991379310344828,
+     "high": 0.34303534303534305,
+     "n_units": 13,
+     "numerator": 260,
+     "denominator": 816
+    },
+    "per_fact": {
+     "wellbore_name": {
+      "value": 1.0,
+      "low": 1.0,
+      "high": 1.0,
+      "n_units": 13,
+      "numerator": 13,
+      "denominator": 13
+     },
+     "kb_elevation_m": {
+      "value": 0.8333333333333334,
+      "low": 0.5,
+      "high": 1.0,
+      "n_units": 6,
+      "numerator": 5,
+      "denominator": 6
+     },
+     "td_md_m": {
+      "value": 0.8571428571428571,
+      "low": 0.5714285714285714,
+      "high": 1.0,
+      "n_units": 7,
+      "numerator": 6,
+      "denominator": 7
+     },
+     "kop_md_m": {
+      "value": 1.0,
+      "low": 1.0,
+      "high": 1.0,
+      "n_units": 3,
+      "numerator": 3,
+      "denominator": 3
+     },
+     "latitude": {
+      "value": 1.0,
+      "low": 1.0,
+      "high": 1.0,
+      "n_units": 1,
+      "numerator": 1,
+      "denominator": 1
+     },
+     "longitude": {
+      "value": 1.0,
+      "low": 1.0,
+      "high": 1.0,
+      "n_units": 1,
+      "numerator": 1,
+      "denominator": 1
+     },
+     "operator": {
+      "value": 0.8181818181818182,
+      "low": 0.5454545454545454,
+      "high": 1.0,
+      "n_units": 11,
+      "numerator": 9,
+      "denominator": 11
+     },
+     "field": {
+      "value": 0.9090909090909091,
+      "low": 0.7272727272727273,
+      "high": 1.0,
+      "n_units": 11,
+      "numerator": 10,
+      "denominator": 11
+     }
+    },
+    "operator_strict": {
+     "value": 0.36363636363636365,
+     "low": 0.09090909090909091,
+     "high": 0.6363636363636364,
+     "n_units": 11,
+     "numerator": 4,
+     "denominator": 11
+    },
+    "grounding_final": {
+     "value": 0.75,
+     "low": 0.5,
+     "high": 0.9444444444444444,
+     "n_units": 9,
+     "numerator": 27,
+     "denominator": 36
+    },
+    "grounding_first_attempt": {
+     "value": 0.75,
+     "low": 0.5,
+     "high": 0.9444444444444444,
+     "n_units": 9,
+     "numerator": 27,
+     "denominator": 36
+    },
+    "hallucination_rate": {
+     "value": 0.0,
+     "low": 0.0,
+     "high": 0.0,
+     "n_units": 13,
+     "numerator": 0,
+     "denominator": 69
+    },
+    "validation_pass_rate": {
+     "value": 1.0,
+     "low": 1.0,
+     "high": 1.0,
+     "n_units": 13,
+     "numerator": 13,
+     "denominator": 13
+    },
+    "flag_precision": {
+     "value": 1.0,
+     "low": 1.0,
+     "high": 1.0,
+     "n_units": 15,
+     "numerator": 19,
+     "denominator": 19
+    },
+    "flag_recall": {
+     "value": 1.0,
+     "low": 1.0,
+     "high": 1.0,
+     "n_units": 15,
+     "numerator": 19,
+     "denominator": 19
+    },
+    "detected": [
+     [
+      "15_9-19SR",
+      "field_name",
+      "conflict"
+     ],
+     [
+      "15_9-19SR",
+      "operator_name",
+      "conflict"
+     ],
+     [
+      "15_9-F12",
+      "*",
+      "log_below_survey"
+     ],
+     [
+      "P01",
+      "*",
+      "log_below_survey"
+     ],
+     [
+      "P01",
+      "depth",
+      "unit_converted"
+     ],
+     [
+      "P02",
+      "*",
+      "log_below_survey"
+     ],
+     [
+      "P02",
+      "surface_location",
+      "outside_volve"
+     ],
+     [
+      "P03",
+      "*",
+      "log_below_survey"
+     ],
+     [
+      "P03",
+      "kb_elevation_m",
+      "conflict"
+     ],
+     [
+      "P04",
+      "trajectory",
+      "plan_not_actual"
+     ],
+     [
+      "P05",
+      "*",
+      "log_below_survey"
+     ],
+     [
+      "P06",
+      "field_name",
+      "conflict"
+     ],
+     [
+      "P07",
+      "wellbore_name",
+      "conflict"
+     ],
+     [
+      "P08",
+      "operator_name",
+      "conflict"
+     ],
+     [
+      "P09",
+      "surface_location",
+      "outside_volve"
+     ],
+     [
+      "P10",
+      "kb_elevation_m",
+      "unit_converted"
+     ],
+     [
+      "P11",
+      "kb_elevation_m",
+      "conflict"
+     ],
+     [
+      "P12",
+      "trajectory",
+      "plan_not_actual"
+     ],
+     [
+      "P13",
+      "*",
+      "log_below_survey"
+     ]
+    ],
+    "false_flags": [],
+    "missed_conflicts": [],
+    "llm": {
+     "calls": 102,
+     "calls_per_wellbore": 7.846153846153846,
+     "tokens_per_wellbore": 11811.384615384615,
+     "seconds_per_wellbore": 193.7543076923077,
+     "retries": 12,
+     "api_calls_this_run": 0
+    }
+   },
+   "outcomes": [
+    {
+     "wellbore": "15/9-19 A",
+     "fact": "wellbore_name",
+     "kind": "field",
+     "gold": "15/9-19 A",
+     "predicted": "15/9-19 A",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-19 A",
+     "fact": "kb_elevation_m",
+     "kind": "field",
+     "gold": "25.0",
+     "predicted": 25.0,
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-19 A",
+     "fact": "td_md_m",
+     "kind": "abstain",
+     "gold": "4131.0",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-19 A",
+     "fact": "kop_md_m",
+     "kind": "abstain",
+     "gold": "2178.0",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-19 A",
+     "fact": "latitude",
+     "kind": "disputed",
+     "gold": "58.435903",
+     "predicted": 58.435286,
+     "correct": null,
+     "note": "LAS LAT/LON are WGS84 (NPD's ED50 position shifted to WGS84 matches within ~3 m); NPD gives ED50"
+    },
+    {
+     "wellbore": "15/9-19 A",
+     "fact": "longitude",
+     "kind": "disputed",
+     "gold": "1.929736",
+     "predicted": 1.928158,
+     "correct": null,
+     "note": "LAS LAT/LON are WGS84; NPD gives ED50"
+    },
+    {
+     "wellbore": "15/9-19 A",
+     "fact": "operator",
+     "kind": "field",
+     "gold": "Den norske stats oljeselskap a.s",
+     "predicted": "STATOIL PETROLEUM AS",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-19 A",
+     "fact": "operator_strict",
+     "kind": "strict",
+     "gold": "Den norske stats oljeselskap a.s",
+     "predicted": "STATOIL PETROLEUM AS",
+     "correct": false,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-19 A",
+     "fact": "field",
+     "kind": "field",
+     "gold": "VOLVE",
+     "predicted": "VOLVE",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-19 BT2",
+     "fact": "wellbore_name",
+     "kind": "field",
+     "gold": "15/9-19 BT2",
+     "predicted": "15/9-19 BT2",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-19 SR",
+     "fact": "wellbore_name",
+     "kind": "field",
+     "gold": "15/9-19 SR",
+     "predicted": "15/9-19 SR",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-19 SR",
+     "fact": "kb_elevation_m",
+     "kind": "disputed",
+     "gold": "22.0",
+     "predicted": 25.0,
+     "correct": null,
+     "note": "the 15/9-19 SR LAS (LFP) says KB 25.0 m; NPD says 22.0"
+    },
+    {
+     "wellbore": "15/9-19 SR",
+     "fact": "td_md_m",
+     "kind": "abstain",
+     "gold": "4641.0",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-19 SR",
+     "fact": "kop_md_m",
+     "kind": "abstain",
+     "gold": null,
+     "predicted": null,
+     "correct": true,
+     "note": "NPD has no value (not applicable): correct output is null"
+    },
+    {
+     "wellbore": "15/9-19 SR",
+     "fact": "latitude",
+     "kind": "disputed",
+     "gold": "58.435903",
+     "predicted": 58.435286,
+     "correct": null,
+     "note": "LAS LAT/LON are WGS84; NPD gives ED50"
+    },
+    {
+     "wellbore": "15/9-19 SR",
+     "fact": "longitude",
+     "kind": "disputed",
+     "gold": "1.929736",
+     "predicted": 1.928158,
+     "correct": null,
+     "note": "LAS LAT/LON are WGS84; NPD gives ED50"
+    },
+    {
+     "wellbore": "15/9-19 SR",
+     "fact": "operator",
+     "kind": "field",
+     "gold": "Den norske stats oljeselskap a.s",
+     "predicted": null,
+     "correct": false,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-19 SR",
+     "fact": "operator_strict",
+     "kind": "strict",
+     "gold": "Den norske stats oljeselskap a.s",
+     "predicted": null,
+     "correct": false,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-19 SR",
+     "fact": "field",
+     "kind": "field",
+     "gold": "VOLVE",
+     "predicted": null,
+     "correct": false,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1",
+     "fact": "wellbore_name",
+     "kind": "field",
+     "gold": "15/9-F-1",
+     "predicted": "15/9-F-1",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1",
+     "fact": "kb_elevation_m",
+     "kind": "field",
+     "gold": "54.9",
+     "predicted": null,
+     "correct": false,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1",
+     "fact": "td_md_m",
+     "kind": "field",
+     "gold": "3632.0",
+     "predicted": null,
+     "correct": false,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1",
+     "fact": "kop_md_m",
+     "kind": "abstain",
+     "gold": null,
+     "predicted": null,
+     "correct": true,
+     "note": "NPD has no value (not applicable): correct output is null"
+    },
+    {
+     "wellbore": "15/9-F-1",
+     "fact": "latitude",
+     "kind": "abstain",
+     "gold": "58.441642",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-1",
+     "fact": "longitude",
+     "kind": "abstain",
+     "gold": "1.887419",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-1",
+     "fact": "operator",
+     "kind": "field",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "Statoil Petroleum",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1",
+     "fact": "operator_strict",
+     "kind": "strict",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "Statoil Petroleum",
+     "correct": false,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1",
+     "fact": "field",
+     "kind": "field",
+     "gold": "VOLVE",
+     "predicted": "VOLVE",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 A",
+     "fact": "wellbore_name",
+     "kind": "field",
+     "gold": "15/9-F-1 A",
+     "predicted": "15/9-F-1 A",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 A",
+     "fact": "kb_elevation_m",
+     "kind": "field",
+     "gold": "54.9",
+     "predicted": 54.9,
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 A",
+     "fact": "td_md_m",
+     "kind": "field",
+     "gold": "3682.0",
+     "predicted": 3682.0,
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 A",
+     "fact": "kop_md_m",
+     "kind": "field",
+     "gold": "2620.0",
+     "predicted": 2620.0,
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 A",
+     "fact": "latitude",
+     "kind": "abstain",
+     "gold": "58.441642",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-1 A",
+     "fact": "longitude",
+     "kind": "abstain",
+     "gold": "1.887419",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-1 A",
+     "fact": "operator",
+     "kind": "field",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "Statoil Petroleum AS",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 A",
+     "fact": "operator_strict",
+     "kind": "strict",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "Statoil Petroleum AS",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 A",
+     "fact": "field",
+     "kind": "field",
+     "gold": "VOLVE",
+     "predicted": "VOLVE",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 B",
+     "fact": "wellbore_name",
+     "kind": "field",
+     "gold": "15/9-F-1 B",
+     "predicted": "15/9-F-1 B",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 B",
+     "fact": "kb_elevation_m",
+     "kind": "field",
+     "gold": "54.9",
+     "predicted": 54.9,
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 B",
+     "fact": "td_md_m",
+     "kind": "field",
+     "gold": "3465.0",
+     "predicted": 3465.0,
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 B",
+     "fact": "kop_md_m",
+     "kind": "disputed",
+     "gold": "2604.0",
+     "predicted": 2617.0,
+     "correct": null,
+     "note": "F-1 petrophysical report says KOP 2617 m MD RKB; NPD says 2604"
+    },
+    {
+     "wellbore": "15/9-F-1 B",
+     "fact": "latitude",
+     "kind": "abstain",
+     "gold": "58.441642",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-1 B",
+     "fact": "longitude",
+     "kind": "abstain",
+     "gold": "1.887419",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-1 B",
+     "fact": "operator",
+     "kind": "field",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "Statoil Petroleum",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 B",
+     "fact": "operator_strict",
+     "kind": "strict",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "Statoil Petroleum",
+     "correct": false,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 B",
+     "fact": "field",
+     "kind": "field",
+     "gold": "VOLVE",
+     "predicted": "VOLVE",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 C",
+     "fact": "wellbore_name",
+     "kind": "field",
+     "gold": "15/9-F-1 C",
+     "predicted": "15/9-F-1 C",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 C",
+     "fact": "kb_elevation_m",
+     "kind": "field",
+     "gold": "54.9",
+     "predicted": 54.9,
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 C",
+     "fact": "td_md_m",
+     "kind": "field",
+     "gold": "4094.0",
+     "predicted": 4094.0,
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 C",
+     "fact": "kop_md_m",
+     "kind": "field",
+     "gold": "1364.0",
+     "predicted": 1364.0,
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 C",
+     "fact": "latitude",
+     "kind": "abstain",
+     "gold": "58.441642",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-1 C",
+     "fact": "longitude",
+     "kind": "abstain",
+     "gold": "1.887419",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-1 C",
+     "fact": "operator",
+     "kind": "field",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "Statoil Petroleum",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 C",
+     "fact": "operator_strict",
+     "kind": "strict",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "Statoil Petroleum",
+     "correct": false,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-1 C",
+     "fact": "field",
+     "kind": "field",
+     "gold": "VOLVE",
+     "predicted": "VOLVE",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11",
+     "fact": "wellbore_name",
+     "kind": "field",
+     "gold": "15/9-F-11",
+     "predicted": "15/9-F-11",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11",
+     "fact": "kb_elevation_m",
+     "kind": "abstain",
+     "gold": "54.9",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-11",
+     "fact": "td_md_m",
+     "kind": "disputed",
+     "gold": "4562.0",
+     "predicted": 347.0,
+     "correct": null,
+     "note": "NPD's 4562 m is the TD of technical sidetrack F-11 T2; the F-11 report, well path and LAS all end the original hole at ~347 m"
+    },
+    {
+     "wellbore": "15/9-F-11",
+     "fact": "kop_md_m",
+     "kind": "abstain",
+     "gold": null,
+     "predicted": null,
+     "correct": true,
+     "note": "NPD has no value (not applicable): correct output is null"
+    },
+    {
+     "wellbore": "15/9-F-11",
+     "fact": "latitude",
+     "kind": "abstain",
+     "gold": "58.441656",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-11",
+     "fact": "longitude",
+     "kind": "abstain",
+     "gold": "1.887464",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-11",
+     "fact": "operator",
+     "kind": "field",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "STATOIL PETRPOLEUM AS",
+     "correct": false,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11",
+     "fact": "operator_strict",
+     "kind": "strict",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "STATOIL PETRPOLEUM AS",
+     "correct": false,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11",
+     "fact": "field",
+     "kind": "field",
+     "gold": "VOLVE",
+     "predicted": "VOLVE",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11 A",
+     "fact": "wellbore_name",
+     "kind": "field",
+     "gold": "15/9-F-11 A",
+     "predicted": "15/9-F-11 A",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11 A",
+     "fact": "kb_elevation_m",
+     "kind": "field",
+     "gold": "54.9",
+     "predicted": 54.9,
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11 A",
+     "fact": "td_md_m",
+     "kind": "field",
+     "gold": "3762.0",
+     "predicted": 3762.0,
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11 A",
+     "fact": "kop_md_m",
+     "kind": "disputed",
+     "gold": "2578.0",
+     "predicted": 2586.0,
+     "correct": null,
+     "note": "F-11 report says KOP 2586 m MD RKB; NPD says 2578"
+    },
+    {
+     "wellbore": "15/9-F-11 A",
+     "fact": "latitude",
+     "kind": "abstain",
+     "gold": "58.441656",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-11 A",
+     "fact": "longitude",
+     "kind": "abstain",
+     "gold": "1.887464",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-11 A",
+     "fact": "operator",
+     "kind": "field",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "Statoil Petroleum AS",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11 A",
+     "fact": "operator_strict",
+     "kind": "strict",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "Statoil Petroleum AS",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11 A",
+     "fact": "field",
+     "kind": "field",
+     "gold": "VOLVE",
+     "predicted": "VOLVE",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11 B",
+     "fact": "wellbore_name",
+     "kind": "field",
+     "gold": "15/9-F-11 B",
+     "predicted": "15/9-F-11 B",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11 B",
+     "fact": "kb_elevation_m",
+     "kind": "abstain",
+     "gold": "54.9",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-11 B",
+     "fact": "td_md_m",
+     "kind": "field",
+     "gold": "4770.0",
+     "predicted": 4770.0,
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11 B",
+     "fact": "kop_md_m",
+     "kind": "disputed",
+     "gold": "2586.0",
+     "predicted": 2585.0,
+     "correct": null,
+     "note": "F-11 report says KOP 2585 m MD RKB; NPD says 2586"
+    },
+    {
+     "wellbore": "15/9-F-11 B",
+     "fact": "latitude",
+     "kind": "abstain",
+     "gold": "58.441656",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-11 B",
+     "fact": "longitude",
+     "kind": "abstain",
+     "gold": "1.887464",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-11 B",
+     "fact": "operator",
+     "kind": "field",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "Statoil Petroleum AS",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11 B",
+     "fact": "operator_strict",
+     "kind": "strict",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "Statoil Petroleum AS",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11 B",
+     "fact": "field",
+     "kind": "field",
+     "gold": "VOLVE",
+     "predicted": "VOLVE",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-11 T2",
+     "fact": "wellbore_name",
+     "kind": "field",
+     "gold": "15/9-F-11 T2",
+     "predicted": "15/9-F-11 T2",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-12",
+     "fact": "wellbore_name",
+     "kind": "field",
+     "gold": "15/9-F-12",
+     "predicted": "15/9-F-12",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-12",
+     "fact": "kb_elevation_m",
+     "kind": "disputed",
+     "gold": "54.0",
+     "predicted": 54.9,
+     "correct": null,
+     "note": "Both F-12 LAS files say 54.9 m KB; NPD says 54.0"
+    },
+    {
+     "wellbore": "15/9-F-12",
+     "fact": "td_md_m",
+     "kind": "abstain",
+     "gold": "3520.0",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-12",
+     "fact": "kop_md_m",
+     "kind": "abstain",
+     "gold": null,
+     "predicted": null,
+     "correct": true,
+     "note": "NPD has no value (not applicable): correct output is null"
+    },
+    {
+     "wellbore": "15/9-F-12",
+     "fact": "latitude",
+     "kind": "field",
+     "gold": "58.441714",
+     "predicted": 58.441713,
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-12",
+     "fact": "longitude",
+     "kind": "field",
+     "gold": "1.887481",
+     "predicted": 1.88748,
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-12",
+     "fact": "operator",
+     "kind": "field",
+     "gold": "Statoil ASA (old)",
+     "predicted": "STATOILHYDRO",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-12",
+     "fact": "operator_strict",
+     "kind": "strict",
+     "gold": "Statoil ASA (old)",
+     "predicted": "STATOILHYDRO",
+     "correct": false,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-12",
+     "fact": "field",
+     "kind": "field",
+     "gold": "VOLVE",
+     "predicted": "VOLVE",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-15 D",
+     "fact": "wellbore_name",
+     "kind": "field",
+     "gold": "15/9-F-15 D",
+     "predicted": "15/9-F-15 D",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-15 D",
+     "fact": "kb_elevation_m",
+     "kind": "abstain",
+     "gold": "54.9",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-15 D",
+     "fact": "td_md_m",
+     "kind": "field",
+     "gold": "4685.0",
+     "predicted": 4685.0,
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-15 D",
+     "fact": "kop_md_m",
+     "kind": "field",
+     "gold": "1380.0",
+     "predicted": 1380.0,
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-15 D",
+     "fact": "latitude",
+     "kind": "abstain",
+     "gold": "58.441586",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-15 D",
+     "fact": "longitude",
+     "kind": "abstain",
+     "gold": "1.887542",
+     "predicted": null,
+     "correct": true,
+     "note": "no input states this value"
+    },
+    {
+     "wellbore": "15/9-F-15 D",
+     "fact": "operator",
+     "kind": "field",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "STATOIL PETROLEUM AS",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-15 D",
+     "fact": "operator_strict",
+     "kind": "strict",
+     "gold": "Statoil Petroleum AS",
+     "predicted": "STATOIL PETROLEUM AS",
+     "correct": true,
+     "note": ""
+    },
+    {
+     "wellbore": "15/9-F-15 D",
+     "fact": "field",
+     "kind": "field",
+     "gold": "VOLVE",
+     "predicted": "VOLVE",
+     "correct": true,
+     "note": ""
+    }
+   ]
+  }
+ }
+}

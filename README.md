@@ -108,7 +108,9 @@ How to read it:
   [`docs/results_agent_run1.md`](docs/results_agent_run1.md).
 
 Full report with per-field tables, disputed gold, every error and the run configuration:
-[`docs/results.md`](docs/results.md).
+[`docs/results.md`](docs/results.md). Illustrated version with charts:
+[`docs/report.html`](docs/report.html) (download and open in a browser). Raw numbers:
+[`docs/results.json`](docs/results.json).
 
 ## What the evaluation found in Equinor's data
 
