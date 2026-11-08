@@ -37,6 +37,7 @@ SCORED_FACTS = [
     "field",
 ]
 BOOTSTRAP_RESAMPLES = 2000
+REPORT_FACTS = {"kb_elevation_m", "td_md_m", "kop_md_m"}  # facts that need reading report prose
 
 
 @dataclass(frozen=True)
@@ -227,11 +228,13 @@ def ratio_with_ci(per_wellbore: dict[str, tuple[int, int]], seed: int = 0) -> Es
 
 
 def per_wellbore(
-    outcomes: list[Outcome], kind: str, fact: str | None = None
+    outcomes: list[Outcome], kind: str, fact: str | set[str] | None = None
 ) -> dict[str, tuple[int, int]]:
+    """(correct, total) per wellbore for one kind of outcome, optionally only some facts."""
+    facts = {fact} if isinstance(fact, str) else fact
     counts: dict[str, tuple[int, int]] = {}
     for o in outcomes:
-        if o.kind != kind or (fact is not None and o.fact != fact) or o.correct is None:
+        if o.kind != kind or (facts is not None and o.fact not in facts) or o.correct is None:
             continue
         n, d = counts.get(o.wellbore, (0, 0))
         counts[o.wellbore] = (n + int(o.correct), d + 1)

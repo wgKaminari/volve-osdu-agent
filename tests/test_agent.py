@@ -136,3 +136,22 @@ def test_second_run_is_served_from_cache(tmp_path: Path) -> None:
     assert first.api_calls == 3
     assert second.api_calls == 0 and second_backend.calls == 0
     assert all(t["cached"] for t in second.trace)
+
+
+def test_llm_only_parser_keeps_good_parts_of_a_partly_bad_reply() -> None:
+    from volve_osdu.agent.llm_only import parse_lenient
+
+    reply = json.dumps(
+        {
+            "wellbore_name": "15/9-F-1 A",
+            "facts": [
+                {"name": "td_md_m", "value": 3682, "page": 5, "quote": "TD @ 3682 m"},
+                {"name": "kop_md_m", "value": None, "page": 5, "quote": ""},
+            ],
+            "curves": [{"mnemonic": "GR", "unit_code": "gAPI", "family": "Gamma Ray"}, "junk"],
+        }
+    )
+    out = parse_lenient(reply)
+    assert out.wellbore_name == "15/9-F-1 A"
+    assert [f.name for f in out.facts] == ["td_md_m"]
+    assert [c.mnemonic for c in out.curves] == ["GR"]

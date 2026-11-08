@@ -7,11 +7,12 @@ verification feedback and retries. Inputs are capped to fit an 8k-token local co
 is reported in stats.json.
 """
 
+import json
 import logging
 
 from pydantic import BaseModel, ValidationError
 
-from volve_osdu.agent.graph import NULL_CODES, PDF_FACTS, CurveOut, PdfFactOut, parse_reply
+from volve_osdu.agent.graph import NULL_CODES, PDF_FACTS, CurveOut, PdfFactOut
 from volve_osdu.agent.llm import CachedLLM
 from volve_osdu.agent.prompting import load_prompt
 from volve_osdu.agent.tools import exists, reference_codes
@@ -66,9 +67,8 @@ class LlmOnlySystem:
         flags: list[ReviewFlag] = []
         try:
             reply = self.llm.complete(messages, node="llm_only", prompt_version=prompt.version)
-            out = parse_reply(reply, LlmOnlyOut)
-            assert isinstance(out, LlmOnlyOut)
-        except (ValueError, ValidationError) as exc:
+            out = parse_lenient(reply)
+        except ValueError as exc:
             logger.warning("llm_only reply unusable: %s", exc)
             out = LlmOnlyOut()
             flags.append(
@@ -158,6 +158,36 @@ class LlmOnlySystem:
                 "report_chars_total": len(report),
             },
         )
+
+
+def parse_lenient(reply: str) -> LlmOnlyOut:
+    """Keep every well-formed part of the reply; drop only the items that don't fit the schema.
+
+    One malformed fact must not discard the wellbore name and all other answers: the baseline
+    should be judged on what the model said, not on our parser.
+    """
+    start, end = reply.find("{"), reply.rfind("}")
+    if start < 0 or end < start:
+        raise ValueError("reply contains no JSON object")
+    raw = json.loads(reply[start : end + 1])
+    if not isinstance(raw, dict):
+        raise ValueError("reply is not a JSON object")
+    name = raw.get("wellbore_name")
+    return LlmOnlyOut(
+        wellbore_name=name if isinstance(name, str) else None,
+        facts=_items(raw.get("facts"), PdfFactOut),
+        curves=_items(raw.get("curves"), CurveOut),
+    )
+
+
+def _items(values: object, model: type[BaseModel]) -> list:  # noqa: ANN401
+    items = []
+    for value in values if isinstance(values, list) else []:
+        try:
+            items.append(model.model_validate(value))
+        except ValidationError:
+            continue
+    return items
 
 
 def _valid(kind: str, code: str | None) -> str | None:

@@ -154,7 +154,8 @@ class CachedLLM:
                 "cached": hit,
                 "prompt_tokens": response.prompt_tokens,
                 "completion_tokens": response.completion_tokens,
-                "latency_s": 0.0 if hit else response.latency_s,
+                "latency_s": 0.0 if hit else response.latency_s,  # wall time of this call
+                "model_latency_s": response.latency_s,  # time the model took when first asked
             }
         )
         return response.text

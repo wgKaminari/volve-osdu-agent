@@ -57,6 +57,7 @@ def write_report(
     rows = [
         ("Field accuracy (recoverable, undisputed)", "field_accuracy"),
         ("Abstention accuracy (value not in inputs)", "abstention_accuracy"),
+        ("Report-prose facts (KB, TD, KOP)", "report_fact_accuracy"),
         ("Curve unit accuracy (unreviewed labels)", "curve_unit_accuracy"),
         ("Curve family accuracy (unreviewed labels)", "curve_family_accuracy"),
         ("Grounding: report facts kept / proposed", "grounding_final"),
@@ -85,6 +86,21 @@ def write_report(
         "gold is never edited to match a system.",
         "- **Local small model.** LLM numbers come from the model and settings in Run "
         "configuration; a stronger hosted model only needs a different `.env`.",
+    ]
+    lines += [
+        "",
+        "## Changes made after looking at results (all reported)",
+        "",
+        "- **Agent run 1** ([results_agent_run1.md](results_agent_run1.md)) showed facts that "
+        "were quoted verbatim but were the wrong kind of fact or the wrong wellbore (TD 347 m "
+        "taken as KB elevation; the kick-off point of 15/9-F-11 T2 given to 15/9-F-11). Rule 8 "
+        "gained generic semantic checks: fact keyword in the quote, plausible range, wellbore "
+        "attribution. Prompts were not changed. Compare the two reports for the effect.",
+        "- **Agent identity fallback:** when the model abstains on the wellbore name, the most "
+        "specific header name is used and flagged (`identity_fallback`) instead of building "
+        "nothing.",
+        "- **llm_only parser:** made lenient (keep valid items, drop malformed ones), so the "
+        "baseline is judged on its answers, not on a strict parser that discarded whole replies.",
     ]
     lines += [
         "",
@@ -173,7 +189,8 @@ def write_report(
         )
     lines += [
         "",
-        "Seconds are model time of uncached calls as first recorded (cache hits count 0).",
+        "Seconds = model time per wellbore when each call was first made (from the cache "
+        "records), on a laptop RTX 3050 Ti (4 GB). Re-runs from cache take no model time.",
         "",
     ]
 

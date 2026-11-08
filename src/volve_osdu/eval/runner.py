@@ -82,6 +82,7 @@ def summarize(result: SystemResult, bundles: list[Bundle]) -> dict[str, Any]:
     s: dict[str, Any] = {
         "field_accuracy": m.ratio_with_ci(m.per_wellbore(o, "field")),
         "abstention_accuracy": m.ratio_with_ci(m.per_wellbore(o, "abstain")),
+        "report_fact_accuracy": m.ratio_with_ci(m.per_wellbore(o, "field", m.REPORT_FACTS)),
         "curve_unit_accuracy": m.ratio_with_ci(m.per_wellbore(o, "curve_unit")),
         "curve_family_accuracy": m.ratio_with_ci(m.per_wellbore(o, "curve_family")),
         "per_fact": {
@@ -148,7 +149,7 @@ def summarize(result: SystemResult, bundles: list[Bundle]) -> dict[str, Any]:
         "calls": len(traces),
         "calls_per_wellbore": len(traces) / n,
         "tokens_per_wellbore": sum(t["prompt_tokens"] + t["completion_tokens"] for t in traces) / n,
-        "seconds_per_wellbore": sum(t["latency_s"] for t in traces) / n,
+        "seconds_per_wellbore": sum(t.get("model_latency_s", t["latency_s"]) for t in traces) / n,
         "retries": sum(
             1
             for p in result.real.values()
@@ -160,14 +161,25 @@ def summarize(result: SystemResult, bundles: list[Bundle]) -> dict[str, Any]:
 
 
 def git_commit() -> str:
+    """Short commit hash, with "-dirty" if tracked source files have uncommitted changes."""
     try:
-        return subprocess.run(
-            ["git", "rev-parse", "--short", "HEAD"],
-            cwd=ROOT,
-            check=True,
-            capture_output=True,
-            text=True,
-        ).stdout.strip()
+
+        def git(*args: str) -> str:
+            return subprocess.run(
+                ["git", *args], cwd=ROOT, check=True, capture_output=True, text=True
+            ).stdout.strip()
+
+        dirty = git(
+            "status",
+            "--porcelain",
+            "--untracked-files=no",
+            "--",
+            "src",
+            "scripts",
+            "data/gold",
+            "configs",
+        )
+        return git("rev-parse", "--short", "HEAD") + ("-dirty" if dirty else "")
     except (OSError, subprocess.CalledProcessError):
         return "unknown"
 
