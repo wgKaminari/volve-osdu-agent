@@ -48,6 +48,12 @@ FACT_KEYWORDS = {
     "kb_elevation_m": re.compile(r"\bR?KB\b|elevation|kelly", re.IGNORECASE),
     "kickoff_wellbore_name": re.compile(r"side-?track|kick(?:ed)?[- ]?off", re.IGNORECASE),
 }
+FACT_LABELS = {
+    "td_md_m": "total depth",
+    "kop_md_m": "kick-off point",
+    "kb_elevation_m": "KB elevation",
+    "kickoff_wellbore_name": "parent wellbore",
+}
 # Physically plausible ranges for Volve (metres). Outside them a value is a mix-up, not a fact.
 FACT_RANGES = {
     "td_md_m": (50.0, 10000.0),
@@ -63,7 +69,7 @@ def semantic_problem(fact: Fact, wellbore: str) -> str | None:
     quote = normalize_whitespace(prov.quote or "") if prov else ""
     keyword = FACT_KEYWORDS.get(fact.name)
     if keyword and not keyword.search(quote):
-        return f"quote does not state a {fact.name.removesuffix('_m').replace('_', ' ')}"
+        return f"quote does not state a {FACT_LABELS.get(fact.name, fact.name)}"
     if fact.name in FACT_RANGES and isinstance(fact.value, float | int):
         low, high = FACT_RANGES[fact.name]
         if not low <= float(fact.value) <= high:
