@@ -41,3 +41,6 @@ select = ["E", "F", "I", "UP", "B"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+
+[tool.ruff.lint.per-file-ignores]
+"scripts/make_demo.py" = ["E501"]  # inline CSS

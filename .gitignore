@@ -14,8 +14,10 @@ data/raw/
 # LLM response cache
 .cache/
 
-# Run outputs (one example run will be allowed later)
-outputs/
+# Run outputs, except the committed example run (JSON + review only; bulk Parquet stays local)
+outputs/*
+!outputs/example/
+outputs/example/**/bulk/
 
 # Private notes (application, outreach) - local only
 docs/private/

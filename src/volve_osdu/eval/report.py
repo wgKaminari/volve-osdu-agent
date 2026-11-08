@@ -9,6 +9,7 @@ from volve_osdu.config import Bundle
 from volve_osdu.eval import metrics as m
 from volve_osdu.eval.conflicts import load_conflicts
 from volve_osdu.eval.metrics import Estimate
+from volve_osdu.eval.perturb import PERTURBATIONS
 
 PINS = {
     "spwla_volve": "c293edf",
@@ -68,6 +69,23 @@ def write_report(
     for label, key in rows:
         lines.append(f"| {label} | " + " | ".join(summaries[n][key].fmt() for n in names) + " |")
 
+    lines += [
+        "",
+        "## Read this first (caveats)",
+        "",
+        "- **No held-out set.** The rules regexes and curve dictionary were written after "
+        "reading these same 13 bundles, so its scores are optimistic (fit to the test set). The "
+        "agent's prompts are generic and were not tuned per wellbore.",
+        "- **Curve labels are not independent of the rules dictionary**: both were drafted by the "
+        "same author with the same unit conventions, so rules curve-unit accuracy is near 100% by "
+        "construction. The LLM systems' curve numbers, after owner review, are the real signal.",
+        "- **Small n.** 13 wellbores, header gold for 11; some per-field rows have 1-7 values. The "
+        "confidence intervals are wide on purpose.",
+        "- **Disputed gold is excluded from accuracy** and listed below with each system's value; "
+        "gold is never edited to match a system.",
+        "- **Local small model.** LLM numbers come from the model and settings in Run "
+        "configuration; a stronger hosted model only needs a different `.env`.",
+    ]
     lines += [
         "",
         "## Per-field accuracy",
@@ -171,7 +189,7 @@ def write_report(
         f"`{os.environ.get('LLM_REASONING_EFFORT') or 'default'}`, temperature 0",
         f"- Prompt versions: {', '.join(prompts) or '-'}",
         "- Data pins: " + ", ".join(f"{k} {v}" for k, v in PINS.items()),
-        f"- Perturbations: {len({c.bundle for c in conflicts if c.bundle.startswith('P')})} "
+        f"- Perturbations: {len(PERTURBATIONS)} "
         "(`src/volve_osdu/eval/perturb.py`), conflicts in `data/gold/conflicts.csv`",
         "",
     ]

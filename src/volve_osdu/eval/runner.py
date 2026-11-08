@@ -44,6 +44,15 @@ def make_system(name: str) -> tuple[str | System, Any]:
     return (AgentSystem(llm) if name == "agent" else LlmOnlySystem(llm)), llm
 
 
+def load_system(name: str, bundles: list[Bundle]) -> SystemResult:
+    """Re-score an earlier run from its output folders (no system is run, no LLM is called)."""
+    root = OUTPUTS / f"eval-{name}"
+    real = {b.canonical_name: read_prediction(root / "real" / b.folder.name) for b in bundles}
+    perturbed = {p.id: read_prediction(root / "perturbed" / p.id) for p in PERTURBATIONS}
+    models = {t["model"] for pred in real.values() for t in pred.trace}
+    return SystemResult(name, ", ".join(sorted(models)) or None, real, perturbed)
+
+
 def run_system(name: str, bundles: list[Bundle]) -> SystemResult:
     system, llm = make_system(name)
     root = OUTPUTS / f"eval-{name}"
@@ -163,14 +172,14 @@ def git_commit() -> str:
         return "unknown"
 
 
-def evaluate(systems: list[str], report_path: Path) -> list[SystemResult]:
+def evaluate(systems: list[str], report_path: Path, run: bool = True) -> list[SystemResult]:
     from volve_osdu.eval.report import write_report
 
     bundles = load_bundles()
     results = []
     for name in systems:
         logger.info("evaluating %s", name)
-        result = run_system(name, bundles)
+        result = run_system(name, bundles) if run else load_system(name, bundles)
         score(result, bundles)
         results.append(result)
     summaries = {r.name: summarize(r, bundles) for r in results}

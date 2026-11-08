@@ -1,7 +1,37 @@
 # Architecture notes
 
 Working document. Records design decisions and the answers to the open questions in
-`PROJECT_GUIDE.md` section 5.2. Status: updated after Milestone 1 (2026-11-07).
+`PROJECT_GUIDE.md` section 5.2. Status: updated after Milestone 3 (2026-11-08).
+
+## Overview
+
+```mermaid
+flowchart TD
+    subgraph inputs["Inputs per wellbore (configs/wells.yaml)"]
+        LAS["LAS logs"]
+        PDF["Petrophysical report PDF"]
+        WP["Well path (actual only)"]
+    end
+    LAS --> INV["1 inventory + parsed LAS facts<br/>(deterministic)"]
+    PDF --> INV
+    WP --> INV
+    INV --> SYS{"system"}
+    SYS -->|rules| RULES["regex on report text<br/>static curve dictionary"]
+    SYS -->|llm_only| ONE["one prompt per wellbore"]
+    SYS -->|agent| G["LangGraph: identity → pdf_facts → curves → check"]
+    G -->|"retry with errors (max 2)"| G
+    RULES --> REC
+    ONE --> REC
+    G --> REC["5 reconcile (rule 9)<br/>6 build records (osdu-python-models)"]
+    REC --> VAL["7 validate: JSON schema M27.1, rules 2-8, 10"]
+    VAL --> OUT["manifest.json · records/ · bulk/*.parquet<br/>provenance.json · review.md · trace.jsonl"]
+    GOLD[("held-out gold:<br/>NPD headers, Well_picks,<br/>curve labels, conflicts")] -.->|"eval only"| EV["volve-osdu eval → docs/results.md"]
+    OUT --> EV
+```
+
+The LLM never produces a number on its own: report facts must quote the page verbatim and the
+quote must contain the value (rule 8), curve codes must exist in the pinned OSDU lists (rule 3),
+and everything else (depths, coordinates, sampling) is parsed by code.
 
 ## Data sources and pins
 

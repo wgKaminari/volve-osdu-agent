@@ -26,6 +26,7 @@ def main(argv: list[str] | None = None) -> int:
         "--systems", default="rules,llm_only,agent", help="comma-separated: rules, llm_only, agent"
     )
     ev.add_argument("--report", type=Path, default=ROOT / "docs" / "results.md")
+    ev.add_argument("--no-run", action="store_true", help="re-score existing outputs/eval-*")
     args = parser.parse_args(argv)
 
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
@@ -35,7 +36,7 @@ def main(argv: list[str] | None = None) -> int:
         from volve_osdu.eval.runner import evaluate
 
         try:
-            evaluate([s.strip() for s in args.systems.split(",")], args.report)
+            evaluate([s.strip() for s in args.systems.split(",")], args.report, run=not args.no_run)
         except RuntimeError as exc:  # missing LLM settings
             logger.error("%s", exc)
             return 2
