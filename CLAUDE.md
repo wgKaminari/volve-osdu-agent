@@ -57,6 +57,7 @@ uv run volve-osdu eval --no-run                         # re-score existing outp
 uv run python scripts/draft_curve_labels.py             # (re)draft curve labels; refuses if any are reviewed
 uv run python scripts/make_demo.py outputs/example/15_9-F12 docs/demo/index.html   # demo page
 uv run python scripts/make_report.py                    # docs/report.html (charts) from docs/results.json
+uv run --group notebook python scripts/make_notebook.py # notebooks/evaluation_report.ipynb (executed)
 ```
 
 (Implement these commands as the milestones progress; keep this list accurate.)

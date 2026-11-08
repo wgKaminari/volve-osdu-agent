@@ -8,21 +8,22 @@ agent run, kept for transparency), the 15/9-F-12 input files (depth figure) and 
 """
 
 import html
-import json
 import logging
 import math
-import re
 
-from volve_osdu.config import ROOT, find_bundle
+from volve_osdu.config import ROOT
 from volve_osdu.eval.conflicts import load_conflicts
-from volve_osdu.eval.metrics import load_curve_labels, load_header_gold
-from volve_osdu.ingest.las import read_las
-from volve_osdu.ingest.wellpath import read_wellpath
+from volve_osdu.eval.metrics import load_curve_labels
+from volve_osdu.eval.reportdata import (
+    RUN1_ROWS,
+    SYSTEMS,
+    datum_checks,
+    f12_curve_ranges,
+    load_results,
+    run1_values,
+)
 
-RESULTS = ROOT / "docs" / "results.json"
-RUN1 = ROOT / "docs" / "results_agent_run1.md"
 OUT = ROOT / "docs" / "report.html"
-SYSTEMS = ["rules", "llm_only", "agent"]
 LABEL = {"rules": "rules", "llm_only": "llm_only", "agent": "agent"}
 SLOT = {"rules": "--series-1", "llm_only": "--series-2", "agent": "--series-3"}
 
@@ -296,24 +297,6 @@ def fig_detection(res: dict) -> str:
 
 # --- Figure 5: agent run 1 -> run 2 dumbbell ---------------------------------------------------
 
-RUN1_ROWS = {
-    "Field accuracy": "field_accuracy",
-    "Abstention accuracy": "abstention_accuracy",
-    "Grounding: report facts kept": "grounding_final",
-    "Review-flag precision": "flag_precision",
-    "Review-flag recall": "flag_recall",
-}
-
-
-def run1_values() -> dict[str, float]:
-    text = RUN1.read_text(encoding="utf-8")
-    values = {}
-    for label, key in RUN1_ROWS.items():
-        m = re.search(rf"^\| {re.escape(label)}[^|]*\| (\d+)%", text, re.MULTILINE)
-        if m:
-            values[key] = int(m.group(1)) / 100
-    return values
-
 
 def fig_runs(res: dict) -> str:
     before = run1_values()
@@ -350,16 +333,8 @@ def fig_runs(res: dict) -> str:
 
 
 def fig_f12() -> tuple[str, float, float]:
-    bundle = find_bundle("15/9-F-12")
-    survey = read_wellpath(bundle.wellpath).base_md
-    curves = []
-    for path in bundle.las:
-        for c in read_las(path).curves:
-            if c.top_depth is not None and c.base_depth is not None:
-                curves.append(
-                    (c.mnemonic, path.stem.split("_")[-2].lower(), c.top_depth, c.base_depth)
-                )
-    curves.sort(key=lambda c: -c[3])
+    ranges, survey = f12_curve_ranges()
+    curves = [(c.mnemonic, c.file, c.top_md, c.base_md) for c in ranges]
     width, left, row_h, top = 980, 150, 20, 22
     max_md = math.ceil(max(c[3] for c in curves) / 500) * 500
     plot_w = width - left - 30
@@ -400,47 +375,8 @@ def fig_f12() -> tuple[str, float, float]:
 # --- Figure 7: datum check ---------------------------------------------------------------------
 
 
-def to_ecef(lat: float, lon: float, a: float, f: float) -> tuple[float, float, float]:
-    e2 = f * (2 - f)
-    la, lo = math.radians(lat), math.radians(lon)
-    n = a / math.sqrt(1 - e2 * math.sin(la) ** 2)
-    return (
-        n * math.cos(la) * math.cos(lo),
-        n * math.cos(la) * math.sin(lo),
-        n * (1 - e2) * math.sin(la),
-    )
-
-
-def to_geodetic(x: float, y: float, z: float, a: float, f: float) -> tuple[float, float]:
-    e2 = f * (2 - f)
-    lon, p = math.atan2(y, x), math.hypot(x, y)
-    lat = math.atan2(z, p * (1 - e2))
-    for _ in range(10):
-        n = a / math.sqrt(1 - e2 * math.sin(lat) ** 2)
-        lat = math.atan2(z + e2 * n * math.sin(lat), p)
-    return math.degrees(lat), math.degrees(lon)
-
-
-def ed50_to_wgs84(lat: float, lon: float) -> tuple[float, float]:
-    """EPSG:1133 style 3-parameter shift (-87, -98, -121 m); accurate to a few metres here."""
-    x, y, z = to_ecef(lat, lon, 6378388.0, 1 / 297.0)
-    return to_geodetic(x - 87, y - 98, z - 121, 6378137.0, 1 / 298.257223563)
-
-
-def metres(a: tuple[float, float], b: tuple[float, float]) -> float:
-    dlat = (a[0] - b[0]) * 111_320
-    dlon = (a[1] - b[1]) * 111_320 * math.cos(math.radians(a[0]))
-    return math.hypot(dlat, dlon)
-
-
 def fig_datum() -> tuple[str, list[tuple[str, float, float]]]:
-    gold = load_header_gold()
-    rows = []
-    for name in ("15/9-F-12", "15/9-19 A"):
-        las = read_las(find_bundle(name).las[0])
-        las_pos = (float(las.header_value("LAT")), float(las.header_value("LON")))  # type: ignore[arg-type]
-        npd = (float(gold[(name, "latitude")]["value"]), float(gold[(name, "longitude")]["value"]))
-        rows.append((name, metres(las_pos, npd), metres(las_pos, ed50_to_wgs84(*npd))))
+    rows = [(d.wellbore, d.vs_ed50_m, d.vs_wgs84_m) for d in datum_checks()]
     width, left, bar_h = 980, 150, 20
     max_m = max(max(r[1], r[2]) for r in rows)
     plot_w = width - left - 200
@@ -514,7 +450,7 @@ def cost_table(res: dict) -> str:
 
 
 def build() -> str:
-    doc = json.loads(RESULTS.read_text(encoding="utf-8"))
+    doc = load_results()
     res, meta = doc["systems"], doc["meta"]
     a = res["agent"]["summary"]
     lo = res["llm_only"]["summary"]
