@@ -27,6 +27,35 @@ NPD_FIELDS: dict[str, tuple[str, str | None]] = {
 DISPUTED: dict[tuple[str, str], str] = {
     ("15/9-F-12", "kb_elevation_m"): "Both F-12 LAS files say 54.9 m KB; NPD says 54.0",
     ("15/9-F-1 B", "kop_md_m"): "F-1 petrophysical report says KOP 2617 m MD RKB; NPD says 2604",
+    # Found in M3 by comparing inputs with NPD (docs/architecture.md):
+    ("15/9-F-11", "td_md_m"): "NPD's 4562 m is the TD of technical sidetrack F-11 T2; the F-11 "
+    "report, well path and LAS all end the original hole at ~347 m",
+    ("15/9-F-11 A", "kop_md_m"): "F-11 report says KOP 2586 m MD RKB; NPD says 2578",
+    ("15/9-F-11 B", "kop_md_m"): "F-11 report says KOP 2585 m MD RKB; NPD says 2586",
+    ("15/9-19 SR", "kb_elevation_m"): "the 15/9-19 SR LAS (LFP) says KB 25.0 m; NPD says 22.0",
+    ("15/9-19 A", "latitude"): "LAS LAT/LON are WGS84 (NPD's ED50 position shifted to WGS84 "
+    "matches within ~3 m); NPD gives ED50",
+    ("15/9-19 A", "longitude"): "LAS LAT/LON are WGS84; NPD gives ED50",
+    ("15/9-19 SR", "latitude"): "LAS LAT/LON are WGS84; NPD gives ED50",
+    ("15/9-19 SR", "longitude"): "LAS LAT/LON are WGS84; NPD gives ED50",
+}
+
+# Names the operator has had over time, as written in our inputs and in NPD. Scoring treats a
+# name in the same group as correct ("alias" scoring); "strict" scoring needs an exact match.
+OPERATOR_ALIASES: dict[str, set[str]] = {
+    "Equinor": {
+        "equinor",
+        "equinor energy as",
+        "statoil",
+        "statoil asa",
+        "statoil asa (old)",
+        "statoil petroleum",
+        "statoil petroleum as",
+        "statoilhydro",
+        "statoilhydro asa",
+        "den norske stats oljeselskap a.s",
+        "den norske stats oljeselskap as",
+    },
 }
 
 
@@ -39,6 +68,9 @@ class GoldValue:
     source: str
     disputed: bool
     note: str
+    recoverable: bool | None = None  # can any input file state this value? (recoverable.py)
+    recoverable_note: str = ""
+    annotations_reviewed: bool = False  # disputed/recoverable notes need the owner's review
 
 
 @dataclass(frozen=True)

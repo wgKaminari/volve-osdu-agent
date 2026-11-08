@@ -1,0 +1,270 @@
+mnemonic,las_unit,uom_code,family,confidence,occurrences,note,drafted_by,reviewed
+ABDCQF01,g/cm3,g/cm3,,,8,meaning not clear enough from mnemonic/description: abstain,claude,false
+ABDCQF02,g/cm3,g/cm3,,,8,meaning not clear enough from mnemonic/description: abstain,claude,false
+ABDCQF03,g/cm3,g/cm3,,,8,meaning not clear enough from mnemonic/description: abstain,claude,false
+ABDCQF04,g/cm3,g/cm3,,,8,meaning not clear enough from mnemonic/description: abstain,claude,false
+AC,US/F,us/ft,Compressional Slowness,high,1,description: Sonic Transit Time (Slowness),claude,false
+BADDATA_FLAG,unitless,Euc,,,1,bad-data flag: no matching family,claude,false
+BS,IN,in,Bit Size,high,1,,claude,false
+BS,inches,in,Bit Size,high,9,,claude,false
+BVW,V/V,m3/m3,,,5,bulk volume water: no matching family in the pinned list,claude,false
+BVW,v/v,m3/m3,,,5,bulk volume water: no matching family in the pinned list,claude,false
+BVW,v/v_decimal,m3/m3,,,1,bulk volume water: no matching family in the pinned list,claude,false
+BWV,,,,,1,unclear; no unit given: abstain,claude,false
+CALI,IN,in,Caliper,high,1,,claude,false
+CALI,inches,in,Caliper,high,8,,claude,false
+CARB_FLAG,UNITLESS,Euc,,,2,carbonate flag: no matching family,claude,false
+CARB_FLAG,UNKNOWN,,,,2,carbonate flag: no matching family; unit stated as UNKNOWN: abstain,claude,false
+CARB_FLAG,V/V,m3/m3,,,1,carbonate flag: no matching family,claude,false
+CARB_FLAG,unitless,Euc,,,2,carbonate flag: no matching family,claude,false
+COAL_FLAG,UNITLESS,Euc,Coal Flag,high,3,,claude,false
+COAL_FLAG,UNKNOWN,,Coal Flag,high,2,unit stated as UNKNOWN: abstain,claude,false
+COAL_FLAG,unitless,Euc,Coal Flag,high,6,,claude,false
+DELTA,V/V,m3/m3,,,1,NPHI-PORD difference,claude,false
+DEN,G/CC,g/cm3,Bulk Density,high,1,description: Bulk Density,claude,false
+DRHO,g/cm3,g/cm3,Bulk Density Correction,high,8,,claude,false
+DT,,,Compressional Slowness,high,1,no unit given: abstain,claude,false
+DT,us/ft,us/ft,Compressional Slowness,high,6,,claude,false
+DTS,us/ft,us/ft,Shear Slowness,high,4,,claude,false
+GR,API,gAPI,Gamma Ray,high,10,,claude,false
+GR,GAPI,gAPI,Gamma Ray,high,1,,claude,false
+GRMAX,GAPI,gAPI,Gamma Ray Shale,high,1,description: Gamma Ray Shale Value,claude,false
+GRMIN,GAPI,gAPI,Gamma Ray Clean,high,1,description: Gamma Ray Clean Value,claude,false
+J,,,,,1,Leverett J computed curve; no unit given: abstain,claude,false
+KLHC_INT,MD,mD,,,1,unclear,claude,false
+KLOGH,MD,mD,Horizontal Permeability,high,4,description: Calculated Horizontal PERMEABILITY,claude,false
+KLOGH,mD,mD,Horizontal Permeability,high,8,description: Calculated Horizontal PERMEABILITY,claude,false
+KLOGV,MD,mD,Vertical Permeability,high,2,description: Vertical PERMEABILITY,claude,false
+LFP_AI,kPa.s/m,kPa.s/m,Acoustic Impedance,high,2,,claude,false
+LFP_AI_B,kPa.s/m,kPa.s/m,Acoustic Impedance,medium,3,variant of LFP_AI,claude,false
+LFP_AI_G,kPa.s/m,kPa.s/m,Acoustic Impedance,medium,3,variant of LFP_AI,claude,false
+LFP_AI_LOG,kPa.s/m,kPa.s/m,Acoustic Impedance,high,2,,claude,false
+LFP_AI_O,kPa.s/m,kPa.s/m,Acoustic Impedance,medium,3,variant of LFP_AI,claude,false
+LFP_AI_V,kPa.s/m,kPa.s/m,Acoustic Impedance,medium,3,variant of LFP_AI,claude,false
+LFP_API,g/cm3,g/cm3,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_BADDATA,unitless,Euc,,,3,bad-data flag,claude,false
+LFP_BS,inches,in,Bit Size,high,1,,claude,false
+LFP_BVWE,v/v_decimal,m3/m3,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_BVWT,v/v_decimal,m3/m3,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_CALI,inches,in,Caliper,high,2,,claude,false
+LFP_COAL,unitless,Euc,Coal Flag,medium,3,LFP coal indicator,claude,false
+LFP_DT,us/ft,us/ft,Compressional Slowness,high,3,,claude,false
+LFP_DTCORFSFLAG,unitless,Euc,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_DTLOGFLAG,unitless,Euc,,,2,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_DTS,us/ft,us/ft,Shear Slowness,high,3,,claude,false
+LFP_DTSLOGFLAG,unitless,Euc,,,1,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_DTS_B,us/ft,us/ft,Shear Slowness,medium,3,variant of LFP_DTS,claude,false
+LFP_DTS_G,us/ft,us/ft,Shear Slowness,medium,3,variant of LFP_DTS,claude,false
+LFP_DTS_GC,us/ft,us/ft,Shear Slowness,medium,3,variant of LFP_DTS,claude,false
+LFP_DTS_LOG,us/ft,us/ft,Shear Slowness,high,2,,claude,false
+LFP_DTS_O,us/ft,us/ft,Shear Slowness,medium,3,variant of LFP_DTS,claude,false
+LFP_DTS_V,us/ft,us/ft,Shear Slowness,medium,3,variant of LFP_DTS,claude,false
+LFP_DT_B,us/ft,us/ft,Compressional Slowness,medium,3,variant of LFP_DT,claude,false
+LFP_DT_G,us/ft,us/ft,Compressional Slowness,medium,3,variant of LFP_DT,claude,false
+LFP_DT_LOG,us/ft,us/ft,Compressional Slowness,high,3,measured log,claude,false
+LFP_DT_O,us/ft,us/ft,Compressional Slowness,medium,3,variant of LFP_DT,claude,false
+LFP_DT_SYNT,us/ft,us/ft,Compressional Slowness,medium,3,variant of LFP_DT,claude,false
+LFP_DT_V,us/ft,us/ft,Compressional Slowness,medium,3,variant of LFP_DT,claude,false
+LFP_EI_HILT_B,kPa.s/m,kPa.s/m,Elastic Impedance,medium,3,fluid-substituted elastic impedance,claude,false
+LFP_EI_HILT_G,kPa.s/m,kPa.s/m,Elastic Impedance,medium,3,fluid-substituted elastic impedance,claude,false
+LFP_EI_HILT_O,kPa.s/m,kPa.s/m,Elastic Impedance,medium,3,fluid-substituted elastic impedance,claude,false
+LFP_EI_HILT_V,kPa.s/m,kPa.s/m,Elastic Impedance,medium,3,fluid-substituted elastic impedance,claude,false
+LFP_GAS,unitless,Euc,Gas Flag,medium,3,LFP fluid flag,claude,false
+LFP_GOR,scm(15C)/scmUNKNOWN,,Gas Oil Ratio,medium,3,garbled unit string: abstain,claude,false
+LFP_GR,API,gAPI,Gamma Ray,high,3,,claude,false
+LFP_GRMAX,API,gAPI,Gamma Ray Shale,medium,3,,claude,false
+LFP_GRMIN,API,gAPI,Gamma Ray Clean,medium,3,,claude,false
+LFP_KFLG,GPa,GPa,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_KFLMF,GPa,GPa,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_KFLO,GPa,GPa,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_KFLW,GPa,GPa,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_KROCKV,GPa,GPa,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_KRROCKV,GPa,GPa,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_KSKEL,GPa,GPa,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_KVROCKV,GPa,GPa,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_MODEL,unitless,Euc,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_NPHI,v/v_decimal,m3/m3,Neutron Porosity,high,3,,claude,false
+LFP_NPHISH,v/v_decimal,m3/m3,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_OIL,unitless,Euc,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_PHIE,v/v_decimal,m3/m3,Effective Porosity,high,3,,claude,false
+LFP_PHIEC,v/v_decimal,m3/m3,Effective Porosity,medium,3,variant of LFP_PHIE,claude,false
+LFP_PHIEWC,v/v_decimal,m3/m3,Effective Porosity,medium,3,variant of LFP_PHIE,claude,false
+LFP_PHIT,v/v_decimal,m3/m3,Total Porosity,high,3,,claude,false
+LFP_PHITC,v/v_decimal,m3/m3,Total Porosity,medium,3,variant of LFP_PHIT,claude,false
+LFP_PHITWC,v/v_decimal,m3/m3,Total Porosity,medium,3,variant of LFP_PHIT,claude,false
+LFP_PR,unitless,Euc,Poisson Ratio (Dynamic),medium,3,dynamic Poisson ratio variant,claude,false
+LFP_PRESS,bar,bar,Formation Pressure,medium,3,,claude,false
+LFP_PR_B,unitless,Euc,Poisson Ratio (Dynamic),medium,3,dynamic Poisson ratio variant,claude,false
+LFP_PR_G,unitless,Euc,Poisson Ratio (Dynamic),medium,3,dynamic Poisson ratio variant,claude,false
+LFP_PR_LOG,unitless,Euc,Poisson Ratio (Dynamic),medium,2,dynamic Poisson ratio variant,claude,false
+LFP_PR_O,unitless,Euc,Poisson Ratio (Dynamic),medium,3,dynamic Poisson ratio variant,claude,false
+LFP_PR_SH_SYNT,unitless,Euc,Poisson Ratio (Dynamic),medium,3,dynamic Poisson ratio variant,claude,false
+LFP_PR_SS_B_SYNT,unitless,Euc,Poisson Ratio (Dynamic),medium,3,dynamic Poisson ratio variant,claude,false
+LFP_PR_SS_G_SYNT,unitless,Euc,Poisson Ratio (Dynamic),medium,3,dynamic Poisson ratio variant,claude,false
+LFP_PR_SS_O_SYNT,unitless,Euc,Poisson Ratio (Dynamic),medium,3,dynamic Poisson ratio variant,claude,false
+LFP_PR_V,unitless,Euc,Poisson Ratio (Dynamic),medium,3,dynamic Poisson ratio variant,claude,false
+LFP_RHOB,g/cm3,g/cm3,Bulk Density,high,3,,claude,false
+LFP_RHOBFAR_HILT_B,g/cm3,g/cm3,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_RHOBFAR_HILT_G,g/cm3,g/cm3,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_RHOBFAR_HILT_O,g/cm3,g/cm3,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_RHOBFAR_HILT_V,g/cm3,g/cm3,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_RHOBLOGFLAG,unitless,Euc,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_RHOBSH,g/cm3,g/cm3,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_RHOBSHNC,g/cm3,g/cm3,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_RHOB_B,g/cm3,g/cm3,Bulk Density,medium,3,variant of LFP_RHOB,claude,false
+LFP_RHOB_G,g/cm3,g/cm3,Bulk Density,medium,3,variant of LFP_RHOB,claude,false
+LFP_RHOB_LOG,g/cm3,g/cm3,Bulk Density,high,3,,claude,false
+LFP_RHOB_O,g/cm3,g/cm3,Bulk Density,medium,3,variant of LFP_RHOB,claude,false
+LFP_RHOB_SYNT,g/cm3,g/cm3,Bulk Density,medium,3,variant of LFP_RHOB,claude,false
+LFP_RHOB_V,g/cm3,g/cm3,Bulk Density,medium,3,variant of LFP_RHOB,claude,false
+LFP_RHOFLE,g/cm3,g/cm3,Fluid Density,medium,3,pore fluid density variant,claude,false
+LFP_RHOFLEC,g/cm3,g/cm3,Fluid Density,medium,3,pore fluid density variant,claude,false
+LFP_RHOFLEWC,g/cm3,g/cm3,Fluid Density,medium,3,pore fluid density variant,claude,false
+LFP_RHOFLT,g/cm3,g/cm3,Fluid Density,medium,3,pore fluid density variant,claude,false
+LFP_RHOFLTC,g/cm3,g/cm3,Fluid Density,medium,3,pore fluid density variant,claude,false
+LFP_RHOFLTWC,g/cm3,g/cm3,Fluid Density,medium,3,pore fluid density variant,claude,false
+LFP_RHOG,g/cm3,g/cm3,Grain Density,high,3,,claude,false
+LFP_RHOHA,g/cm3,g/cm3,Hydrocarbon Density,medium,3,apparent HC density,claude,false
+LFP_RHOHW,g/cm3,g/cm3,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_RHOMA,g/cm3,g/cm3,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_RHOMANC,g/cm3,g/cm3,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_RHOMF,g/cm3,g/cm3,Mud Filtrate Density,high,3,,claude,false
+LFP_RHOO,g/cm3,g/cm3,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_RHOW,g/cm3,g/cm3,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_RSH,ohm.m,ohm.m,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_RT,ohm.m,ohm.m,Resistivity - True Formation,high,3,,claude,false
+LFP_RW,ohm.m,ohm.m,Water Resistivity,high,3,,claude,false
+LFP_RXO,ohm.m,ohm.m,Resistivity - Flushed Zone,high,1,,claude,false
+LFP_SAL,ppm,ppm,Formation Water Salinity,medium,3,,claude,false
+LFP_SAND,unitless,Euc,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_SANDC,unitless,Euc,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_SANDWC,unitless,Euc,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_SEIS_SYNT_R30_B_F,unitless,Euc,,,1,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_SEIS_SYNT_R30_B_N,unitless,Euc,,,1,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_SEIS_SYNT_R30_G_F,unitless,Euc,,,1,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_SEIS_SYNT_R30_G_N,unitless,Euc,,,1,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_SEIS_SYNT_R30_O_F,unitless,Euc,,,1,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_SEIS_SYNT_R30_O_N,unitless,Euc,,,1,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_SEIS_SYNT_R30_V_F,unitless,Euc,,,1,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_SEIS_SYNT_R30_V_N,unitless,Euc,,,1,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_SGG_G,unitless,Euc,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_SGG_O,unitless,Euc,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_SGT,v/v_decimal,m3/m3,Gas Saturation,medium,3,total gas saturation,claude,false
+LFP_SGT_SUBST,v/v_decimal,m3/m3,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_SI,kPa.s/m,kPa.s/m,Acoustic Impedance Shear,medium,2,,claude,false
+LFP_SI_LOG,kPa.s/m,kPa.s/m,Acoustic Impedance Shear,medium,2,,claude,false
+LFP_SOT,v/v_decimal,m3/m3,Oil Saturation,medium,3,total oil saturation,claude,false
+LFP_SOT_SUBST,v/v_decimal,m3/m3,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_SUBST,unitless,Euc,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_SWE,v/v_decimal,m3/m3,Effective Water Saturation,high,3,,claude,false
+LFP_SWEC,v/v_decimal,m3/m3,Effective Water Saturation,medium,3,variant of LFP_SWE,claude,false
+LFP_SWECNC,v/v_decimal,m3/m3,Effective Water Saturation,medium,3,variant of LFP_SWE,claude,false
+LFP_SWT,v/v_decimal,m3/m3,Water Saturation,medium,2,total water saturation,claude,false
+LFP_SWTC,v/v_decimal,m3/m3,Water Saturation,medium,3,variant of LFP_SWT,claude,false
+LFP_SWTCNC,v/v_decimal,m3/m3,Water Saturation,medium,3,variant of LFP_SWT,claude,false
+LFP_SXOGT,v/v_decimal,m3/m3,Flushed Zone Gas Saturation,medium,3,,claude,false
+LFP_SXOMFE,v/v_decimal,m3/m3,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_SXOMFEC,v/v_decimal,m3/m3,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_SXOMFEWC,v/v_decimal,m3/m3,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_SXOMFT,v/v_decimal,m3/m3,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_SXOMFTC,v/v_decimal,m3/m3,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_SXOMFTWC,v/v_decimal,m3/m3,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_SXOMIXE,v/v_decimal,m3/m3,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_SXOMIXEC,v/v_decimal,m3/m3,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_SXOMIXT,v/v_decimal,m3/m3,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_SXOMIXTC,v/v_decimal,m3/m3,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_SXOOT,v/v_decimal,m3/m3,Flushed Zone Oil Saturation,medium,3,,claude,false
+LFP_SXOWE,v/v_decimal,m3/m3,Flushed Zone Water Saturation,medium,3,,claude,false
+LFP_SXOWEC,v/v_decimal,m3/m3,Flushed Zone Water Saturation,medium,3,variant of LFP_SXOWE,claude,false
+LFP_SXOWEWC,v/v_decimal,m3/m3,Flushed Zone Water Saturation,medium,3,variant of LFP_SXOWE,claude,false
+LFP_SXOWT,v/v_decimal,m3/m3,Flushed Zone Water Saturation,medium,3,,claude,false
+LFP_SXOWTC,v/v_decimal,m3/m3,Flushed Zone Water Saturation,medium,3,variant of LFP_SXOWT,claude,false
+LFP_SXOWTWC,v/v_decimal,m3/m3,Flushed Zone Water Saturation,medium,3,variant of LFP_SXOWT,claude,false
+LFP_TEMP,degC,degC,Formation Temperature,medium,3,,claude,false
+LFP_TVD,meters,m,True Vertical Depth,high,1,,claude,false
+LFP_TVDML,meters,m,True Vertical Depth Below Mudline,high,1,,claude,false
+LFP_TVDSS,meters,m,True Vertical Depth Sub Sea,high,1,,claude,false
+LFP_VCARB,v/v_decimal,m3/m3,Carbonate Volume Fraction,high,3,,claude,false
+LFP_VCARBC,v/v_decimal,m3/m3,Carbonate Volume Fraction,medium,3,variant of LFP_VCARB,claude,false
+LFP_VCARBWC,v/v_decimal,m3/m3,Carbonate Volume Fraction,medium,3,variant of LFP_VCARB,claude,false
+LFP_VP,m/s,m/s,Compressional Velocity,high,2,,claude,false
+LFP_VPG,m/s,m/s,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_VPO,m/s,m/s,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_VPVS,unitless,Euc,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_VPVS_B,unitless,Euc,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_VPVS_G,unitless,Euc,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_VPVS_LOG,unitless,Euc,,,2,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_VPVS_O,unitless,Euc,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_VPVS_V,unitless,Euc,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_VPW,m/s,m/s,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+LFP_VP_B,m/s,m/s,Compressional Velocity,medium,3,variant of LFP_VP,claude,false
+LFP_VP_G,m/s,m/s,Compressional Velocity,medium,3,variant of LFP_VP,claude,false
+LFP_VP_LOG,m/s,m/s,Compressional Velocity,high,2,,claude,false
+LFP_VP_O,m/s,m/s,Compressional Velocity,medium,3,variant of LFP_VP,claude,false
+LFP_VP_V,m/s,m/s,Compressional Velocity,medium,3,variant of LFP_VP,claude,false
+LFP_VQRTZ,v/v_decimal,m3/m3,Quartz Volume Fraction,medium,3,,claude,false
+LFP_VQRTZC,v/v_decimal,m3/m3,Quartz Volume Fraction,medium,3,variant of LFP_VQRTZ,claude,false
+LFP_VQRTZWC,v/v_decimal,m3/m3,Quartz Volume Fraction,medium,3,variant of LFP_VQRTZ,claude,false
+LFP_VS,m/s,m/s,Shear Velocity,high,3,,claude,false
+LFP_VSH,UNKNOWN,,Shale Volume Fraction,high,1,unit stated as UNKNOWN: abstain,claude,false
+LFP_VSH,v/v_decimal,m3/m3,Shale Volume Fraction,high,2,,claude,false
+LFP_VSHDN,UNKNOWN,,Shale Volume Fraction,medium,1,density-neutron VSH; unit stated as UNKNOWN: abstain,claude,false
+LFP_VSHDN,v/v_decimal,m3/m3,Shale Volume Fraction,medium,2,density-neutron VSH,claude,false
+LFP_VSHDRY,v/v_decimal,m3/m3,Shale Volume Fraction,medium,3,dry shale volume,claude,false
+LFP_VSHDRYC,v/v_decimal,m3/m3,Shale Volume Fraction,medium,3,variant of LFP_VSHDRY,claude,false
+LFP_VSHDRYWC,v/v_decimal,m3/m3,Shale Volume Fraction,medium,3,variant of LFP_VSHDRY,claude,false
+LFP_VSHGR,UNKNOWN,,Shale Volume Fraction,medium,1,GR VSH; unit stated as UNKNOWN: abstain,claude,false
+LFP_VSHGR,v/v_decimal,m3/m3,Shale Volume Fraction,medium,2,GR VSH,claude,false
+LFP_VS_B,m/s,m/s,Shear Velocity,medium,3,variant of LFP_VS,claude,false
+LFP_VS_G,m/s,m/s,Shear Velocity,medium,3,variant of LFP_VS,claude,false
+LFP_VS_GC,m/s,m/s,Shear Velocity,medium,3,variant of LFP_VS,claude,false
+LFP_VS_LOG,m/s,m/s,Shear Velocity,high,2,,claude,false
+LFP_VS_O,m/s,m/s,Shear Velocity,medium,3,variant of LFP_VS,claude,false
+LFP_VS_V,m/s,m/s,Shear Velocity,medium,3,variant of LFP_VS,claude,false
+LFP_WATER,unitless,Euc,,,3,meaning not clear enough from mnemonic/description: abstain,claude,false
+M,UNITLESS,Euc,,,1,cementation exponent formula,claude,false
+N,,,Archie Saturation Exponent n,medium,1,description: Saturation exponent; no unit given: abstain,claude,false
+NBGRCFM,API,gAPI,Gamma Ray,high,3,near-bit GR (Baker),claude,false
+NEU,%,%,Neutron Porosity,high,1,,claude,false
+NPHI,v/v,m3/m3,Neutron Porosity,high,8,,claude,false
+NPHI,v/v_decimal,m3/m3,Neutron Porosity,high,1,,claude,false
+PEF,b/elec,,Photoelectric Factor,high,8,barns/electron has no code in the pinned UnitOfMeasure list,claude,false
+PERF_FLAG,UNITLESS,Euc,,,1,perforation flag,claude,false
+PHIF,V/V,m3/m3,Effective Porosity,medium,6,Equinor CPI final porosity,claude,false
+PHIF,v/v,m3/m3,Effective Porosity,medium,5,Equinor CPI final porosity,claude,false
+PHIF,v/v_decimal,m3/m3,Effective Porosity,medium,1,Equinor CPI final porosity,claude,false
+PORD,V/V,m3/m3,Density Porosity,high,1,description: Density porosity,claude,false
+RACEHM,UNKNOWN,,Resistivity - Attenuation,medium,1,Baker attenuation resistivity; unit stated as UNKNOWN: abstain,claude,false
+RACEHM,ohm.m,ohm.m,Resistivity - Attenuation,medium,8,Baker attenuation resistivity,claude,false
+RACELM,UNKNOWN,,Resistivity - Attenuation,medium,1,unit stated as UNKNOWN: abstain,claude,false
+RACELM,ohm.m,ohm.m,Resistivity - Attenuation,medium,8,,claude,false
+RD,UNKNOWN,,Resistivity - Deep,high,1,unit stated as UNKNOWN: abstain,claude,false
+RD,ohm.m,ohm.m,Resistivity - Deep,high,8,,claude,false
+RDEP,OHMM,ohm.m,Resistivity - Deep,high,1,description: Deep Resistivity,claude,false
+RHOB,g/cm3,g/cm3,Bulk Density,high,9,,claude,false
+RHOFL,G/CM3,g/cm3,Fluid Density,medium,2,description gives constant 0.9,claude,false
+RHOMA,G/CM3,g/cm3,,,2,constant matrix density,claude,false
+RM,ohm.m,ohm.m,Resistivity - Medium,high,8,,claude,false
+RMED,OHMM,ohm.m,Resistivity - Medium,high,1,description: Medium Resistivity,claude,false
+ROP,m/hr,m/h,Rate Of Penetration,high,9,,claude,false
+ROP5_RM,UNKNOWN,,Rate Of Penetration,medium,1,ROP averaged (5 ft running mean); unit stated as UNKNOWN: abstain,claude,false
+RPCEHM,UNKNOWN,,Resistivity - Phase Shift,medium,1,Baker phase resistivity; unit stated as UNKNOWN: abstain,claude,false
+RPCEHM,ohm.m,ohm.m,Resistivity - Phase Shift,medium,8,Baker phase resistivity,claude,false
+RPCELM,UNKNOWN,,Resistivity - Phase Shift,medium,1,unit stated as UNKNOWN: abstain,claude,false
+RPCELM,ohm.m,ohm.m,Resistivity - Phase Shift,medium,8,,claude,false
+RS,UNKNOWN,,Resistivity - Shallow,high,1,unit stated as UNKNOWN: abstain,claude,false
+RT,ohm.m,ohm.m,Resistivity - True Formation,high,10,,claude,false
+RW,OHMM,ohm.m,Water Resistivity,medium,2,RW = formation water resistivity,claude,false
+SAND_FLAG,UNITLESS,Euc,,,4,no Sand Flag family,claude,false
+SAND_FLAG,UNKNOWN,,,,3,no Sand Flag family; unit stated as UNKNOWN: abstain,claude,false
+SAND_FLAG,unitless,Euc,,,5,no Sand Flag family,claude,false
+SW,V/V,m3/m3,Water Saturation,high,6,,claude,false
+SW,v/v,m3/m3,Water Saturation,high,5,,claude,false
+SW,v/v_decimal,m3/m3,Water Saturation,high,1,,claude,false
+SWIRR,,,Irreducible Water Saturation,medium,1,formula from KLOGH; no unit given: abstain,claude,false
+TEMP,DEGC,degC,Formation Temperature,medium,2,description: Calculated temperature curve,claude,false
+VCARB,V/V,m3/m3,Carbonate Volume Fraction,high,3,,claude,false
+VCARB,v/v,m3/m3,Carbonate Volume Fraction,high,2,,claude,false
+VSH,V/V,m3/m3,Shale Volume Fraction,high,6,,claude,false
+VSH,v/v,m3/m3,Shale Volume Fraction,high,5,,claude,false
+VSH,v/v_decimal,m3/m3,Shale Volume Fraction,high,1,,claude,false

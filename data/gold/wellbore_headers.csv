@@ -1,89 +1,89 @@
-wellbore,fact,value,unit,source,disputed,note
-15/9-F-1,operator,Statoil Petroleum AS,,npd_development,False,
-15/9-F-1,field,VOLVE,,npd_development,False,
-15/9-F-1,kb_elevation_m,54.9,m,npd_development,False,
-15/9-F-1,td_md_m,3632.0,m,npd_development,False,
-15/9-F-1,kop_md_m,,m,npd_development,False,
-15/9-F-1,latitude,58.441642,deg,npd_development,False,
-15/9-F-1,longitude,1.887419,deg,npd_development,False,
-15/9-F-1,geodatum,ED50,,npd_development,False,
-15/9-F-1 A,operator,Statoil Petroleum AS,,npd_development,False,
-15/9-F-1 A,field,VOLVE,,npd_development,False,
-15/9-F-1 A,kb_elevation_m,54.9,m,npd_development,False,
-15/9-F-1 A,td_md_m,3682.0,m,npd_development,False,
-15/9-F-1 A,kop_md_m,2620.0,m,npd_development,False,
-15/9-F-1 A,latitude,58.441642,deg,npd_development,False,
-15/9-F-1 A,longitude,1.887419,deg,npd_development,False,
-15/9-F-1 A,geodatum,ED50,,npd_development,False,
-15/9-F-1 B,operator,Statoil Petroleum AS,,npd_development,False,
-15/9-F-1 B,field,VOLVE,,npd_development,False,
-15/9-F-1 B,kb_elevation_m,54.9,m,npd_development,False,
-15/9-F-1 B,td_md_m,3465.0,m,npd_development,False,
-15/9-F-1 B,kop_md_m,2604.0,m,npd_development,True,F-1 petrophysical report says KOP 2617 m MD RKB; NPD says 2604
-15/9-F-1 B,latitude,58.441642,deg,npd_development,False,
-15/9-F-1 B,longitude,1.887419,deg,npd_development,False,
-15/9-F-1 B,geodatum,ED50,,npd_development,False,
-15/9-F-1 C,operator,Statoil Petroleum AS,,npd_development,False,
-15/9-F-1 C,field,VOLVE,,npd_development,False,
-15/9-F-1 C,kb_elevation_m,54.9,m,npd_development,False,
-15/9-F-1 C,td_md_m,4094.0,m,npd_development,False,
-15/9-F-1 C,kop_md_m,1364.0,m,npd_development,False,
-15/9-F-1 C,latitude,58.441642,deg,npd_development,False,
-15/9-F-1 C,longitude,1.887419,deg,npd_development,False,
-15/9-F-1 C,geodatum,ED50,,npd_development,False,
-15/9-F-11,operator,Statoil Petroleum AS,,npd_development,False,
-15/9-F-11,field,VOLVE,,npd_development,False,
-15/9-F-11,kb_elevation_m,54.9,m,npd_development,False,
-15/9-F-11,td_md_m,4562.0,m,npd_development,False,
-15/9-F-11,kop_md_m,,m,npd_development,False,
-15/9-F-11,latitude,58.441656,deg,npd_development,False,
-15/9-F-11,longitude,1.887464,deg,npd_development,False,
-15/9-F-11,geodatum,ED50,,npd_development,False,
-15/9-F-11 A,operator,Statoil Petroleum AS,,npd_development,False,
-15/9-F-11 A,field,VOLVE,,npd_development,False,
-15/9-F-11 A,kb_elevation_m,54.9,m,npd_development,False,
-15/9-F-11 A,td_md_m,3762.0,m,npd_development,False,
-15/9-F-11 A,kop_md_m,2578.0,m,npd_development,False,
-15/9-F-11 A,latitude,58.441656,deg,npd_development,False,
-15/9-F-11 A,longitude,1.887464,deg,npd_development,False,
-15/9-F-11 A,geodatum,ED50,,npd_development,False,
-15/9-F-11 B,operator,Statoil Petroleum AS,,npd_development,False,
-15/9-F-11 B,field,VOLVE,,npd_development,False,
-15/9-F-11 B,kb_elevation_m,54.9,m,npd_development,False,
-15/9-F-11 B,td_md_m,4770.0,m,npd_development,False,
-15/9-F-11 B,kop_md_m,2586.0,m,npd_development,False,
-15/9-F-11 B,latitude,58.441656,deg,npd_development,False,
-15/9-F-11 B,longitude,1.887464,deg,npd_development,False,
-15/9-F-11 B,geodatum,ED50,,npd_development,False,
-15/9-F-12,operator,Statoil ASA (old),,npd_development,False,
-15/9-F-12,field,VOLVE,,npd_development,False,
-15/9-F-12,kb_elevation_m,54.0,m,npd_development,True,Both F-12 LAS files say 54.9 m KB; NPD says 54.0
-15/9-F-12,td_md_m,3520.0,m,npd_development,False,
-15/9-F-12,kop_md_m,,m,npd_development,False,
-15/9-F-12,latitude,58.441714,deg,npd_development,False,
-15/9-F-12,longitude,1.887481,deg,npd_development,False,
-15/9-F-12,geodatum,ED50,,npd_development,False,
-15/9-F-15 D,operator,Statoil Petroleum AS,,npd_development,False,
-15/9-F-15 D,field,VOLVE,,npd_development,False,
-15/9-F-15 D,kb_elevation_m,54.9,m,npd_development,False,
-15/9-F-15 D,td_md_m,4685.0,m,npd_development,False,
-15/9-F-15 D,kop_md_m,1380.0,m,npd_development,False,
-15/9-F-15 D,latitude,58.441586,deg,npd_development,False,
-15/9-F-15 D,longitude,1.887542,deg,npd_development,False,
-15/9-F-15 D,geodatum,ED50,,npd_development,False,
-15/9-19 A,operator,Den norske stats oljeselskap a.s,,npd_exploration,False,
-15/9-19 A,field,VOLVE,,npd_exploration,False,
-15/9-19 A,kb_elevation_m,25.0,m,npd_exploration,False,
-15/9-19 A,td_md_m,4131.0,m,npd_exploration,False,
-15/9-19 A,kop_md_m,2178.0,m,npd_exploration,False,
-15/9-19 A,latitude,58.435903,deg,npd_exploration,False,
-15/9-19 A,longitude,1.929736,deg,npd_exploration,False,
-15/9-19 A,geodatum,ED50,,npd_exploration,False,
-15/9-19 SR,operator,Den norske stats oljeselskap a.s,,npd_exploration,False,
-15/9-19 SR,field,VOLVE,,npd_exploration,False,
-15/9-19 SR,kb_elevation_m,22.0,m,npd_exploration,False,
-15/9-19 SR,td_md_m,4641.0,m,npd_exploration,False,
-15/9-19 SR,kop_md_m,,m,npd_exploration,False,
-15/9-19 SR,latitude,58.435903,deg,npd_exploration,False,
-15/9-19 SR,longitude,1.929736,deg,npd_exploration,False,
-15/9-19 SR,geodatum,ED50,,npd_exploration,False,
+wellbore,fact,value,unit,source,disputed,note,recoverable,recoverable_note,annotations_reviewed
+15/9-F-1,operator,Statoil Petroleum AS,,npd_development,False,,True,LAS COMP in WLC_PETRO_COMPUTED_INPUT_1.LAS,False
+15/9-F-1,field,VOLVE,,npd_development,False,,True,LAS FLD in WLC_PETRO_COMPUTED_INPUT_1.LAS,False
+15/9-F-1,kb_elevation_m,54.9,m,npd_development,False,,True,"report p23, near the wellbore name",False
+15/9-F-1,td_md_m,3632.0,m,npd_development,False,,True,"report p4, near the wellbore name",False
+15/9-F-1,kop_md_m,,m,npd_development,False,,False,NPD has no value (not applicable): correct output is null,False
+15/9-F-1,latitude,58.441642,deg,npd_development,False,,False,no input states this value,False
+15/9-F-1,longitude,1.887419,deg,npd_development,False,,False,no input states this value,False
+15/9-F-1,geodatum,ED50,,npd_development,False,,False,"not scored (constant chosen by the pipeline, e.g. geodatum)",False
+15/9-F-1 A,operator,Statoil Petroleum AS,,npd_development,False,,True,LAS COMP in WLC_PETRO_COMPUTED_INPUT_1.LAS,False
+15/9-F-1 A,field,VOLVE,,npd_development,False,,True,LAS FLD in WLC_PETRO_COMPUTED_INPUT_1.LAS,False
+15/9-F-1 A,kb_elevation_m,54.9,m,npd_development,False,,True,"report p25, near the wellbore name",False
+15/9-F-1 A,td_md_m,3682.0,m,npd_development,False,,True,"report p5, near the wellbore name",False
+15/9-F-1 A,kop_md_m,2620.0,m,npd_development,False,,True,"report p5, near the wellbore name",False
+15/9-F-1 A,latitude,58.441642,deg,npd_development,False,,False,no input states this value,False
+15/9-F-1 A,longitude,1.887419,deg,npd_development,False,,False,no input states this value,False
+15/9-F-1 A,geodatum,ED50,,npd_development,False,,False,"not scored (constant chosen by the pipeline, e.g. geodatum)",False
+15/9-F-1 B,operator,Statoil Petroleum AS,,npd_development,False,,True,LAS COMP in WLC_PETRO_COMPUTED_INPUT_1.LAS,False
+15/9-F-1 B,field,VOLVE,,npd_development,False,,True,LAS FLD in WLC_PETRO_COMPUTED_INPUT_1.LAS,False
+15/9-F-1 B,kb_elevation_m,54.9,m,npd_development,False,,True,"report p27, near the wellbore name",False
+15/9-F-1 B,td_md_m,3465.0,m,npd_development,False,,True,"report p5, near the wellbore name",False
+15/9-F-1 B,kop_md_m,2604.0,m,npd_development,True,F-1 petrophysical report says KOP 2617 m MD RKB; NPD says 2604,True,inputs state a value that differs from NPD (disputed),False
+15/9-F-1 B,latitude,58.441642,deg,npd_development,False,,False,no input states this value,False
+15/9-F-1 B,longitude,1.887419,deg,npd_development,False,,False,no input states this value,False
+15/9-F-1 B,geodatum,ED50,,npd_development,False,,False,"not scored (constant chosen by the pipeline, e.g. geodatum)",False
+15/9-F-1 C,operator,Statoil Petroleum AS,,npd_development,False,,True,LAS COMP in WLC_PETRO_COMPUTED_INPUT_1.LAS,False
+15/9-F-1 C,field,VOLVE,,npd_development,False,,True,LAS FLD in WLC_PETRO_COMPUTED_INPUT_1.LAS,False
+15/9-F-1 C,kb_elevation_m,54.9,m,npd_development,False,,True,"report p16, near the wellbore name",False
+15/9-F-1 C,td_md_m,4094.0,m,npd_development,False,,True,"report p3, near the wellbore name",False
+15/9-F-1 C,kop_md_m,1364.0,m,npd_development,False,,True,"report p3, near the wellbore name",False
+15/9-F-1 C,latitude,58.441642,deg,npd_development,False,,False,no input states this value,False
+15/9-F-1 C,longitude,1.887419,deg,npd_development,False,,False,no input states this value,False
+15/9-F-1 C,geodatum,ED50,,npd_development,False,,False,"not scored (constant chosen by the pipeline, e.g. geodatum)",False
+15/9-F-11,operator,Statoil Petroleum AS,,npd_development,False,,True,LAS COMP in WLC_PETRO_COMPUTED_INPUT_1.LAS,False
+15/9-F-11,field,VOLVE,,npd_development,False,,True,LAS FLD in WLC_PETRO_COMPUTED_INPUT_1.LAS,False
+15/9-F-11,kb_elevation_m,54.9,m,npd_development,False,,False,no input states this value,False
+15/9-F-11,td_md_m,4562.0,m,npd_development,True,"NPD's 4562 m is the TD of technical sidetrack F-11 T2; the F-11 report, well path and LAS all end the original hole at ~347 m",True,inputs state a value that differs from NPD (disputed),False
+15/9-F-11,kop_md_m,,m,npd_development,False,,False,NPD has no value (not applicable): correct output is null,False
+15/9-F-11,latitude,58.441656,deg,npd_development,False,,False,no input states this value,False
+15/9-F-11,longitude,1.887464,deg,npd_development,False,,False,no input states this value,False
+15/9-F-11,geodatum,ED50,,npd_development,False,,False,"not scored (constant chosen by the pipeline, e.g. geodatum)",False
+15/9-F-11 A,operator,Statoil Petroleum AS,,npd_development,False,,True,LAS COMP in WLC_PETRO_COMPUTED_INPUT_1.LAS,False
+15/9-F-11 A,field,VOLVE,,npd_development,False,,True,LAS FLD in WLC_PETRO_COMPUTED_INPUT_1.LAS,False
+15/9-F-11 A,kb_elevation_m,54.9,m,npd_development,False,,True,"report p23, near the wellbore name",False
+15/9-F-11 A,td_md_m,3762.0,m,npd_development,False,,True,"report p5, near the wellbore name",False
+15/9-F-11 A,kop_md_m,2578.0,m,npd_development,True,F-11 report says KOP 2586 m MD RKB; NPD says 2578,True,inputs state a value that differs from NPD (disputed),False
+15/9-F-11 A,latitude,58.441656,deg,npd_development,False,,False,no input states this value,False
+15/9-F-11 A,longitude,1.887464,deg,npd_development,False,,False,no input states this value,False
+15/9-F-11 A,geodatum,ED50,,npd_development,False,,False,"not scored (constant chosen by the pipeline, e.g. geodatum)",False
+15/9-F-11 B,operator,Statoil Petroleum AS,,npd_development,False,,True,LAS COMP in WLC_PETRO_COMPUTED_INPUT_1.LAS,False
+15/9-F-11 B,field,VOLVE,,npd_development,False,,True,LAS FLD in WLC_PETRO_COMPUTED_INPUT_1.LAS,False
+15/9-F-11 B,kb_elevation_m,54.9,m,npd_development,False,,False,no input states this value,False
+15/9-F-11 B,td_md_m,4770.0,m,npd_development,False,,True,"report p6, near the wellbore name",False
+15/9-F-11 B,kop_md_m,2586.0,m,npd_development,True,F-11 report says KOP 2585 m MD RKB; NPD says 2586,True,inputs state a value that differs from NPD (disputed),False
+15/9-F-11 B,latitude,58.441656,deg,npd_development,False,,False,no input states this value,False
+15/9-F-11 B,longitude,1.887464,deg,npd_development,False,,False,no input states this value,False
+15/9-F-11 B,geodatum,ED50,,npd_development,False,,False,"not scored (constant chosen by the pipeline, e.g. geodatum)",False
+15/9-F-12,operator,Statoil ASA (old),,npd_development,False,,True,LAS COMP in WLC_PETRO_COMPUTED_INPUT_1.LAS,False
+15/9-F-12,field,VOLVE,,npd_development,False,,True,LAS FLD in WLC_PETRO_COMPUTED_INPUT_1.LAS,False
+15/9-F-12,kb_elevation_m,54.0,m,npd_development,True,Both F-12 LAS files say 54.9 m KB; NPD says 54.0,True,inputs state a value that differs from NPD (disputed),False
+15/9-F-12,td_md_m,3520.0,m,npd_development,False,,False,no input states this value,False
+15/9-F-12,kop_md_m,,m,npd_development,False,,False,NPD has no value (not applicable): correct output is null,False
+15/9-F-12,latitude,58.441714,deg,npd_development,False,,True,LAS LAT in WLC_PETRO_COMPUTED_INPUT_1.LAS,False
+15/9-F-12,longitude,1.887481,deg,npd_development,False,,True,LAS LON in WLC_PETRO_COMPUTED_INPUT_1.LAS,False
+15/9-F-12,geodatum,ED50,,npd_development,False,,False,"not scored (constant chosen by the pipeline, e.g. geodatum)",False
+15/9-F-15 D,operator,Statoil Petroleum AS,,npd_development,False,,True,LAS COMP in WLC_PETRO_COMPUTED_INPUT_1.LAS,False
+15/9-F-15 D,field,VOLVE,,npd_development,False,,True,LAS FLD in WLC_PETRO_COMPUTED_INPUT_1.LAS,False
+15/9-F-15 D,kb_elevation_m,54.9,m,npd_development,False,,False,no input states this value,False
+15/9-F-15 D,td_md_m,4685.0,m,npd_development,False,,True,"report p3, near the wellbore name",False
+15/9-F-15 D,kop_md_m,1380.0,m,npd_development,False,,True,"report p3, near the wellbore name",False
+15/9-F-15 D,latitude,58.441586,deg,npd_development,False,,False,no input states this value,False
+15/9-F-15 D,longitude,1.887542,deg,npd_development,False,,False,no input states this value,False
+15/9-F-15 D,geodatum,ED50,,npd_development,False,,False,"not scored (constant chosen by the pipeline, e.g. geodatum)",False
+15/9-19 A,operator,Den norske stats oljeselskap a.s,,npd_exploration,False,,True,LAS COMP in 159-19A_LFP.las,False
+15/9-19 A,field,VOLVE,,npd_exploration,False,,True,LAS FLD in 159-19A_LFP.las,False
+15/9-19 A,kb_elevation_m,25.0,m,npd_exploration,False,,True,LAS ELEV in 159-19A_LFP.las,False
+15/9-19 A,td_md_m,4131.0,m,npd_exploration,False,,False,no input states this value,False
+15/9-19 A,kop_md_m,2178.0,m,npd_exploration,False,,False,no input states this value,False
+15/9-19 A,latitude,58.435903,deg,npd_exploration,True,LAS LAT/LON are WGS84 (NPD's ED50 position shifted to WGS84 matches within ~3 m); NPD gives ED50,True,inputs state a value that differs from NPD (disputed),False
+15/9-19 A,longitude,1.929736,deg,npd_exploration,True,LAS LAT/LON are WGS84; NPD gives ED50,True,inputs state a value that differs from NPD (disputed),False
+15/9-19 A,geodatum,ED50,,npd_exploration,False,,False,"not scored (constant chosen by the pipeline, e.g. geodatum)",False
+15/9-19 SR,operator,Den norske stats oljeselskap a.s,,npd_exploration,False,,True,LAS COMP in 159-19SR_LFP.las,False
+15/9-19 SR,field,VOLVE,,npd_exploration,False,,True,LAS FLD in 159-19SR_LFP.las,False
+15/9-19 SR,kb_elevation_m,22.0,m,npd_exploration,True,the 15/9-19 SR LAS (LFP) says KB 25.0 m; NPD says 22.0,True,inputs state a value that differs from NPD (disputed),False
+15/9-19 SR,td_md_m,4641.0,m,npd_exploration,False,,False,no input states this value,False
+15/9-19 SR,kop_md_m,,m,npd_exploration,False,,False,NPD has no value (not applicable): correct output is null,False
+15/9-19 SR,latitude,58.435903,deg,npd_exploration,True,LAS LAT/LON are WGS84; NPD gives ED50,True,inputs state a value that differs from NPD (disputed),False
+15/9-19 SR,longitude,1.929736,deg,npd_exploration,True,LAS LAT/LON are WGS84; NPD gives ED50,True,inputs state a value that differs from NPD (disputed),False
+15/9-19 SR,geodatum,ED50,,npd_exploration,False,,False,"not scored (constant chosen by the pipeline, e.g. geodatum)",False

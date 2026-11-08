@@ -18,20 +18,37 @@ def main(argv: list[str] | None = None) -> int:
     target = run.add_mutually_exclusive_group(required=True)
     target.add_argument("--wellbore", help='canonical name or folder, e.g. "15/9-F-12"')
     target.add_argument("--all", action="store_true", help="every MVP wellbore in wells.yaml")
-    run.add_argument("--system", default="rules", choices=sorted([*SYSTEMS, "agent"]))
+    run.add_argument("--system", default="rules", choices=sorted([*SYSTEMS, "agent", "llm_only"]))
     run.add_argument("--out", type=Path, default=ROOT / "outputs")
     run.add_argument("--run-id", help="output folder name (default: UTC timestamp + system)")
+    ev = sub.add_parser("eval", help="run systems on all bundles and write docs/results.md")
+    ev.add_argument(
+        "--systems", default="rules,llm_only,agent", help="comma-separated: rules, llm_only, agent"
+    )
+    ev.add_argument("--report", type=Path, default=ROOT / "docs" / "results.md")
     args = parser.parse_args(argv)
 
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
     logging.getLogger("lasio").setLevel(logging.ERROR)  # noisy about wrapped-line LAS files
 
+    if args.command == "eval":
+        from volve_osdu.eval.runner import evaluate
+
+        try:
+            evaluate([s.strip() for s in args.systems.split(",")], args.report)
+        except RuntimeError as exc:  # missing LLM settings
+            logger.error("%s", exc)
+            return 2
+        logger.info("wrote %s", args.report)
+        return 0
+
     run_id = args.run_id or f"{datetime.now(UTC):%Y%m%dT%H%M%SZ}-{args.system}"
     bundles = load_bundles() if args.all else [find_bundle(args.wellbore)]
     system: str | System = args.system
     llm = None
-    if args.system == "agent":
+    if args.system in ("agent", "llm_only"):
         from volve_osdu.agent.llm import from_env
+        from volve_osdu.agent.llm_only import LlmOnlySystem
         from volve_osdu.agent.system import AgentSystem
 
         try:
@@ -39,7 +56,7 @@ def main(argv: list[str] | None = None) -> int:
         except RuntimeError as exc:
             logger.error("%s", exc)
             return 2
-        system = AgentSystem(llm)
+        system = AgentSystem(llm) if args.system == "agent" else LlmOnlySystem(llm)
     results = [run_wellbore(b, system, args.out / run_id, namespace()) for b in bundles]
     if llm is not None:
         cached = sum(t["cached"] for t in llm.trace)

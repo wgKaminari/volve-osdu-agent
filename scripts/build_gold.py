@@ -8,11 +8,13 @@ for the MVP wellbores listed in configs/wells.yaml. Run after scripts/download_d
 
 import csv
 import logging
-from dataclasses import asdict, fields
+from dataclasses import asdict, fields, replace
 from pathlib import Path
 
 import yaml
 
+from volve_osdu.config import load_bundles
+from volve_osdu.eval.conflicts import CONFLICTS_CSV, write_conflicts
 from volve_osdu.eval.gold import (
     GoldValue,
     Pick,
@@ -21,6 +23,7 @@ from volve_osdu.eval.gold import (
     read_npd_development,
     read_npd_exploration,
 )
+from volve_osdu.eval.recoverable import recoverability
 
 logger = logging.getLogger("build_gold")
 
@@ -53,6 +56,20 @@ def main() -> None:
     development = header_gold(read_npd_development(NPD_DEVELOPMENT), mvp, "npd_development")
     exploration = header_gold(read_npd_exploration(NPD_EXPLORATION), mvp, "npd_exploration")
     headers = development + exploration
+    bundles = {b.canonical_name: b for b in load_bundles()}
+    headers = [
+        replace(
+            g,
+            **dict(
+                zip(
+                    ("recoverable", "recoverable_note"),
+                    recoverability(bundles[g.wellbore], g.wellbore, g.fact, g.value, g.disputed),
+                    strict=True,
+                )
+            ),
+        )
+        for g in headers
+    ]
     with_header = {g.wellbore for g in headers}
     for name in mvp:
         if name not in with_header:
@@ -66,6 +83,8 @@ def main() -> None:
         if name not in with_picks:
             logger.warning("no well picks for %s", name)
     write_csv(GOLD / "markers.csv", picks, Pick)
+    write_conflicts()
+    logger.info("wrote %s", CONFLICTS_CSV.relative_to(ROOT))
 
 
 if __name__ == "__main__":

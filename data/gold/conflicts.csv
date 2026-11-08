@@ -1,0 +1,20 @@
+bundle,wellbore,fact,reason,kind,description
+15_9-F12,15/9-F-12,*,log_below_survey,known,WLC_PETRO_COMPUTED_INPUT_1.LAS GR reaches 4186.7 m MD; F-12_ACTUAL ends at 3520 m
+15_9-19SR,15/9-19 SR,field_name,conflict,known,159-19SR_LFP.las FLD=VOLVE vs STAT1990 composite LAS FLD=Q15
+15_9-19SR,15/9-19 SR,operator_name,conflict,known,159-19SR_LFP.las COMP=STATOIL PETROLEUM AS vs STAT1990 composite COMP=STATOIL
+P01,15/9-F-12,depth,unit_converted,injected,INPUT LAS depths converted to feet
+P01,15/9-F-12,*,log_below_survey,known,inherited from 15_9-F12: WLC_PETRO_COMPUTED_INPUT_1.LAS GR reaches 4186.7 m MD; F-12_ACTUAL ends at 3520 m
+P02,15/9-F-12,surface_location,outside_volve,injected,LAT and LON swapped in both LAS files
+P02,15/9-F-12,*,log_below_survey,known,inherited from 15_9-F12: WLC_PETRO_COMPUTED_INPUT_1.LAS GR reaches 4186.7 m MD; F-12_ACTUAL ends at 3520 m
+P03,15/9-F-12,kb_elevation_m,conflict,injected,KB elevation 54.9 -> 59.9 m in the OUTPUT LAS only
+P03,15/9-F-12,*,log_below_survey,known,inherited from 15_9-F12: WLC_PETRO_COMPUTED_INPUT_1.LAS GR reaches 4186.7 m MD; F-12_ACTUAL ends at 3520 m
+P04,15/9-F-1 A,trajectory,plan_not_actual,injected,actual well path renamed to a PLAN
+P05,15/9-F-1 A,*,log_below_survey,injected,well path truncated at 3000 m MD
+P06,15/9-F-11 A,field_name,conflict,injected,field name SLEIPNER in the OUTPUT LAS
+P07,15/9-F-11 B,wellbore_name,conflict,injected,OUTPUT LAS names wellbore 15/9-F-11 A
+P08,15/9-F-15 D,operator_name,conflict,injected,operator Norsk Hydro in the OUTPUT LAS
+P09,15/9-F-1 C,surface_location,outside_volve,injected,"surface location far outside Volve (60.5 N, 2.5 E)"
+P10,15/9-F-1 B,kb_elevation_m,unit_converted,injected,KB 180.1 ft added to the INPUT LAS (= 54.9 m)
+P11,15/9-F-11 T2,kb_elevation_m,conflict,injected,KB 57.0 m added to the INPUT LAS (report says 54.9)
+P12,15/9-F-15 D,trajectory,plan_not_actual,injected,well path renamed to a PROTOTYPE
+P13,15/9-F-12,*,log_below_survey,known,inherited from 15_9-F12: WLC_PETRO_COMPUTED_INPUT_1.LAS GR reaches 4186.7 m MD; F-12_ACTUAL ends at 3520 m
